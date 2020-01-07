@@ -1,6 +1,7 @@
-package View;
+package view;
 
-import Boundary.BoardCreator;
+import gui_fields.GUI_Board;
+import gui_fields.GUI_Field;
 import gui_main.GUI;
 
 import java.awt.*;
