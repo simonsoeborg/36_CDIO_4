@@ -1,4 +1,4 @@
-package boundary;
+package Boundary;
 
 import gui_fields.*;
 

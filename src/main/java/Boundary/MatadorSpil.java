@@ -1,7 +1,5 @@
-package view;
+package Boundary;
 
-import gui_fields.GUI_Board;
-import gui_fields.GUI_Field;
 import gui_main.GUI;
 
 import java.awt.*;
