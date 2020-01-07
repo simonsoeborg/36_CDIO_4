@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
-public class Property {
+public class Property extends Field {
 }

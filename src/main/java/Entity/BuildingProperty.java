@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
-public class BuildingProperty {
+public class BuildingProperty extends Property {
 }
