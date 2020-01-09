@@ -1,4 +1,4 @@
 package fields;
 
-public class Brewery extends Field {
+public class Brewery extends Ownable {
 }
