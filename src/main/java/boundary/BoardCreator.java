@@ -1,5 +1,6 @@
 package boundary;
 
+import Test.ReadFieldDescription;
 import gui_fields.*;
 
 import java.awt.*;
@@ -9,11 +10,13 @@ public class BoardCreator {
     public BoardCreator(){}
 
     public static GUI_Field[] makeFields() {
+        String gameLanguage = "da";
+        ReadFieldDescription fieldDes = new ReadFieldDescription();
         GUI_Field[] fields = new GUI_Field[40];
         int i = 0;
         int var2 = i + 1;
         fields[i] = new GUI_Start("Start", "Modtag: 4000", "Modtag kr. 4000,-\nnår de passerer start", new Color(204, 68, 60), Color.BLACK);
-        fields[var2++] = new GUI_Street("Rødovrevej", "Pris:  1.200", "Rødovrevej", "Leje:  50", new Color(75, 155, 225), Color.BLACK);
+        fields[var2++] = new GUI_Street("Rødovrevej", "Pris:  1.200", fieldDes.ReadFieldDescription(gameLanguage, 0), "Leje:  50", new Color(75, 155, 225), Color.BLACK);
         fields[var2++] = new GUI_Chance("?", "Prøv lykken", "Ta' et chancekort.", new Color(204, 204, 204), Color.BLACK);
         fields[var2++] = new GUI_Street("Hvidovrevej", "Pris:  1.200", "Hvidovrevej", "Leje:  50", new Color(75, 155, 225), Color.BLACK);
         fields[var2++] = new GUI_Tax("Betal\nindkomst-\nskat", "10% el. 4.000", "Betal indkomstskat\n10% eller kr. 4.000,-", Color.GRAY, Color.BLACK);
