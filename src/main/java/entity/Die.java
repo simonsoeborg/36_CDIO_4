@@ -16,4 +16,14 @@ public class Die {
         this.faceValue = (int) (Math.random() * MAX) + 1;
         return faceValue;
     }
+
+    public int getFaceValue() {
+        return faceValue;
+    }
+
+    public void setFaceValue(int faceValue) {
+        this.faceValue = faceValue;
+    }
+
+
 }
