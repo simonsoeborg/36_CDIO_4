@@ -50,14 +50,14 @@ public class Player {
         if (money + diff >= 0) {
             money = money + diff;
         } else {
-            setBankRuptcy(true);
+            setBankruptcy(true);
             money = money + diff;
         }
     }
 
-    public boolean isBankRuptcy() {return bankruptcy;}
+    public boolean isBankruptcy() {return bankruptcy;}
 
-    public void setBankRuptcy(boolean bankRuptcy) { this.bankruptcy = bankRuptcy; }
+    public void setBankruptcy(boolean bankruptcy) { this.bankruptcy = bankruptcy; }
 
     public int getFieldIndex() { return fieldIndex; }
 
