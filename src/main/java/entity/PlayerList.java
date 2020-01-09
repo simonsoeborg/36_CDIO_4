@@ -18,6 +18,8 @@ public class PlayerList {
         }
     }
 
+    public String [] playersNames = {"Bo i folkswagen","Lis i Up", "Jens i goCar", "Brian i BMW","Britta Jensen", "Olga på cykel"};
+
     public int getPlayersNum() {
         return playersNum;
     }
