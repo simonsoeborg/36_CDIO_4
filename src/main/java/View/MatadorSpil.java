@@ -1,5 +1,7 @@
-package view;
+package View;
 
+import Test.ReadFieldDescription;
+import boundary.BoardCreator;
 import gui_fields.GUI_Board;
 import gui_fields.GUI_Field;
 import gui_main.GUI;

@@ -7,14 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadFieldDescription {
+    private String selectLine = "";
 
-    public ReadFieldDescription(String language) {
+
+    public String ReadFieldDescription(String language, int line) {
         try {
             String textFile = "";
             if(language.equals("da") || language.equals("DA")) {
-                textFile = "P:\\3Ugers\\36_CDIO_4\\Textfiles\\FieldDescription_da";
+                textFile = "src/Textfiles/FieldDescription_da.txt";
             } else if (language.equals("en") || language.equals("EN")) {
-                textFile = "P:\\3Ugers\\36_CDIO_4\\Textfiles\\FieldDescription_en";
+                textFile = "src/Textfiles/FieldDescription_en.txt";
             } else {
                 System.out.println("Language selection is invalid: No such Language available");
             }
@@ -23,16 +25,21 @@ public class ReadFieldDescription {
             String currentLine = fileReader.readLine();
             List<String> arrFieldDescription = new ArrayList<String>();
 
-
             while (currentLine != null) {
                 arrFieldDescription.add(currentLine);
                 currentLine = fileReader.readLine();
             }
 
-            fileReader.close();
+            for (int i = 0; i < arrFieldDescription.toArray().length; i++) {
+                if(i == line) {
+                    selectLine = arrFieldDescription.get(i);
+                }
+            }
 
+            fileReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return selectLine;
     }
 }
