@@ -2,6 +2,9 @@ package Test;
 
 import entity.DiceCup;
 
+/**
+ * This test checks, first that our dice function and if you roll two of the same.
+ */
 public class DiceCup_test {
 
     public static void main(String[] args) {
@@ -10,7 +13,9 @@ public class DiceCup_test {
 
 
             dc.roll();
-            // tjekker om de 2 terninger er alig hinanden
+            /**
+             * checks if the value is the same of both the dice
+             */
             if (dc.isFaceValueSame()){
                 System.out.println(dc.faceValues()+ " is same");
             } else {
