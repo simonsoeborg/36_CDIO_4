@@ -13,7 +13,7 @@ public class Player {
     private boolean buying;
 
     public Player(String name, Color color) {
-
+        //todo "Husk at argumentere for at vi har money, som en parameter."
         this.color = color;
         money=0;
         fieldIndex = 0;
