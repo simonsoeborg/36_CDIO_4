@@ -10,6 +10,8 @@ public class PlayerList {
 
     private Color[] colorList = {Color.BLACK, Color.YELLOW, Color.BLUE, Color.GREEN, Color.RED, Color.MAGENTA};
 
+    public String [] playerNames = {"Bo i folkswagen","Lis i Up", "Jens i goCar", "Brian i BMW","Britta Jensen", "Olga på cykel"};
+
     public PlayerList(int playersNum) {
         this.playersNum = playersNum;
         players = new Player[playersNum];
@@ -17,8 +19,6 @@ public class PlayerList {
             players[i] = new Player(null, colorList[i]);
         }
     }
-
-    public String [] playersNames = {"Bo i folkswagen","Lis i Up", "Jens i goCar", "Brian i BMW","Britta Jensen", "Olga på cykel"};
 
     public int getPlayersNum() {
         return playersNum;
