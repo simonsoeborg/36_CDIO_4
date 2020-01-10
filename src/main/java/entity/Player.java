@@ -14,6 +14,7 @@ public class Player {
 
     public Player(String name, Color color) {
 
+        this.name = name;
         this.color = color;
         money=0;
         fieldIndex = 0;
