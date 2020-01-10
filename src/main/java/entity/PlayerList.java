@@ -28,9 +28,7 @@ public class PlayerList {
         return players;
     }
 
-    public Player getPlayer(int i){
-        return players[i];
-    }
+    public Player getPlayer(int i){ return players[i]; }
 
     public Color getColor(int i){
         return colorList[i];

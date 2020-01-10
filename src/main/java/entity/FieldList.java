@@ -60,6 +60,10 @@ public class FieldList {
         fields[38] = new Field("39");
         fields[39] = new Field("40");
     }
+
+    public int getSize(){
+        return fields.length;
+    }
 }
 
 
