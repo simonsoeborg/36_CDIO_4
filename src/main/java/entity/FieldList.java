@@ -1,10 +1,15 @@
 package entity;
 
 
+import Test.ReadFieldDescription;
 import fields.Field;
 
 public class FieldList {
-    private Field[] fields = new Field[40];
+    String gameLanguage = "da";
+    ReadFieldDescription fieldNamesDA = new ReadFieldDescription();
+    fieldNamesDA.ReadFieldDescription(gameLanguage);
+
+private Field[] fields = new Field[40];
 
     public FieldList() {
         fields[0] = new Field ("Start");
