@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.LineNumberReader;
 
+//todo Formål at konstruere en klasse som kan læse fra flere filer... (researh lineoperator)
+
 /**
  * Class that makes it posible to read from a file.
  * @author  Simon, David
