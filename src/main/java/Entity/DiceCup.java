@@ -1,4 +1,4 @@
-package entity;
+package Entity;
 
 /**
  * This class is a dice cup. We use our die class to make two dice for our game.

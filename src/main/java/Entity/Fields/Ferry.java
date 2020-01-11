@@ -1,4 +1,4 @@
-package fields;
+package Entity.Fields;
 
 import java.awt.*;
 public class Ferry extends Ownable {

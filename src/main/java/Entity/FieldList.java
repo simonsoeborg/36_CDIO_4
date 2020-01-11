@@ -1,7 +1,6 @@
-package entity;
+package Entity;
 
-import Test.ReadFieldDescription;
-import fields.Field;
+import Entity.Fields.Field;
 
 /**
  * This class makes our field array, with all the logial properties that the individual field contains.

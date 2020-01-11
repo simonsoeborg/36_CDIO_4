@@ -1,4 +1,4 @@
-package fields;
+package Entity.Fields;
 
 public class ExtraordinaryStateTax extends Field {
 

@@ -1,4 +1,4 @@
-package boundary;
+package Entity;
 
 public class Text {
 }

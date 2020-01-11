@@ -1,11 +1,11 @@
-package logic;
+package Control;
 
-import entity.DiceCup;
-import entity.FieldList;
-import entity.Player;
+import Entity.DiceCup;
+import Entity.FieldList;
+import Entity.Player;
 
 
-public class Logic {
+public class LogicController {
 
     DiceCup d = new DiceCup();
 

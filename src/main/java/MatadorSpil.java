@@ -1,9 +1,4 @@
-import boundary.BoardCreator;
-import boundary.MatadorGUI;
-import control.GameController;
-import gui_main.GUI;
-
-import java.awt.*;
+import Control.GameController;
 
 public class MatadorSpil {
     public static void main(String[] args) {
