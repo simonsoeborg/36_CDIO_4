@@ -1,13 +1,12 @@
-package entity;
+package Entity;
 
-import Test.ReadFieldDescription;
-import fields.Field;
+import Entity.Fields.Field;
 
 /**
  * This class makes our field array, with all the logial properties that the individual field contains.
  */
 
-public class FieldList {
+public class FieldCreator {
 
     //String gameLanguage = "da";
     //ReadFieldDescription fieldNamesDA = new ReadFieldDescription();
@@ -18,7 +17,7 @@ public class FieldList {
 
     private Field[] fields = new Field[40];
 
-    public FieldList() {
+    public FieldCreator() {
         fields[0] = new Field("1");
         fields[1] = new Field("2");
         fields[2] = new Field("3");

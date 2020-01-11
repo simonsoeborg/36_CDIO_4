@@ -1,11 +1,11 @@
-package logic;
+package Control;
 
-import entity.DiceCup;
-import entity.FieldList;
-import entity.Player;
+import Entity.DiceCup;
+import Entity.FieldCreator;
+import Entity.Player;
 
 
-public class Logic {
+public class LogicController {
 
     DiceCup d = new DiceCup();
 
@@ -14,9 +14,9 @@ public class Logic {
     /**
      * @param p : The player who's turn it is.
      * @param fl : Our fieldList.
-     *  The method is changing the players FieldIndex, and therfore its location.
+     *  The method is changing the players FieldIndex, and therefore its location.
      */
-    public void movePlayer( Player p, FieldList fl){
+    public void movePlayer( Player p, FieldCreator fl) {
         d.roll();
         int previous = p.getFieldIndex();
         p.setFieldIndex((p.getFieldIndex()+d.faceValues())%fl.getSize());

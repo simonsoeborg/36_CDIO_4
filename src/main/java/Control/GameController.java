@@ -1,8 +1,6 @@
-package control;
+package Control;
 
-import boundary.BoardCreator;
-import boundary.MatadorGUI;
-import entity.PlayerList;
+import Boundary.MatadorGUI;
 import gui_main.GUI;
 
 import java.awt.*;
@@ -11,11 +9,11 @@ public class GameController {
 
     public void playGame(){
 
-        GUI gui = new GUI(BoardCreator.makeFields(), Color.white);
+        GUI gui = new GUI(BoardController.makeFields(), Color.white);
 
         MatadorGUI mat = new MatadorGUI(gui);
 
-        PlayerList pl = new PlayerList(6);
+        PlayerController pl = new PlayerController(6);
 
         //Uses test names
         for (int i = 0; i < pl.getPlayersNum(); i++) {

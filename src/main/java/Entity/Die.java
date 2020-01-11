@@ -1,4 +1,4 @@
-package entity;
+package Entity;
 
 /**
  * The class show makes a die with a value 1-6 and able to show the number.
