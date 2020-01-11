@@ -1,5 +1,7 @@
 package Control;
 
+import Entity.DiceCup;
+import Entity.FieldCreator;
 import Entity.Player;
 
 import java.awt.*;
@@ -7,12 +9,11 @@ import java.awt.*;
 public class PlayerController {
 
     private Player[] players;
-
     private int playersNum;
-
     private Color[] colorList = {Color.BLACK, Color.YELLOW, Color.BLUE, Color.GREEN, Color.RED, Color.MAGENTA};
-
     public String [] playerNames = {"Bo i folkswagen","Lis i Up", "Jens i goCar", "Brian i BMW","Britta Jensen", "Olga på cykel"};
+
+    DiceCup d = new DiceCup();
 
     public PlayerController(int playersNum) {
         this.playersNum = playersNum;
@@ -21,6 +22,8 @@ public class PlayerController {
             players[i] = new Player(null, colorList[i]);
         }
     }
+
+
 
     public int getPlayersNum() {
         return playersNum;

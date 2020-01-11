@@ -12,6 +12,8 @@ public class FieldCreator {
     //ReadFieldDescription fieldNamesDA = new ReadFieldDescription();
     //fieldNamesDA.ReadFieldDescription(gameLanguage);
 
+    private int fieldNum;
+
     //todo Vi skal have opdateret "fieldNames", således at også disse navne bliver hentet fra et seperat dokument.
     //todo Vi skal senere infører de passende felter og deres attributer til Fiellisten.
 
@@ -62,6 +64,14 @@ public class FieldCreator {
 
     public int getSize(){
         return fields.length;
+    }
+
+    public int getField() {
+        return fieldNum;
+    }
+
+    public void setField(int newField) {
+        fieldNum = newField;
     }
 }
 
