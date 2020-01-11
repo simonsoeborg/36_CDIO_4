@@ -1,3 +1,5 @@
+package Boundary;
+
 import Control.GameController;
 
 public class MatadorSpil {
