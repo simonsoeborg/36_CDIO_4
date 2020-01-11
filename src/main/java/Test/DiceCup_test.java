@@ -1,6 +1,6 @@
 package Test;
 
-import entity.DiceCup;
+import Entity.DiceCup;
 
 /**
  * This test checks, first that our dice function and if you roll two of the same.

@@ -1,7 +1,6 @@
-package entity;
+package Entity;
 
-import Test.ReadFieldDescription;
-import fields.Field;
+import Entity.Fields.Field;
 
 /**
  * This class makes our field array, with all the logial properties that the individual field contains.
@@ -59,6 +58,10 @@ public class FieldList {
         fields[37] = new Field("38");
         fields[38] = new Field("39");
         fields[39] = new Field("40");
+    }
+
+    public int getSize(){
+        return fields.length;
     }
 }
 

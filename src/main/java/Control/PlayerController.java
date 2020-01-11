@@ -1,8 +1,10 @@
-package entity;
+package Control;
+
+import Entity.Player;
 
 import java.awt.*;
 
-public class PlayerList {
+public class PlayerController {
 
     private Player[] players;
 
@@ -12,7 +14,7 @@ public class PlayerList {
 
     public String [] playerNames = {"Bo i folkswagen","Lis i Up", "Jens i goCar", "Brian i BMW","Britta Jensen", "Olga på cykel"};
 
-    public PlayerList(int playersNum) {
+    public PlayerController(int playersNum) {
         this.playersNum = playersNum;
         players = new Player[playersNum];
         for (int i = 0;i < playersNum;i++) {
@@ -28,9 +30,7 @@ public class PlayerList {
         return players;
     }
 
-    public Player getPlayer(int i){
-        return players[i];
-    }
+    public Player getPlayer(int i){ return players[i]; }
 
     public Color getColor(int i){
         return colorList[i];

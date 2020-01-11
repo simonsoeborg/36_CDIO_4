@@ -1,6 +1,6 @@
 package Test;
 
-import entity.Player;
+import Entity.Player;
 
 import java.awt.*;
 

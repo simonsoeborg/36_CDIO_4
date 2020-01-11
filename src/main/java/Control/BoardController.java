@@ -1,16 +1,16 @@
-package boundary;
+package Control;
 
 import Test.ReadFieldDescription;
 import gui_fields.*;
 
 import java.awt.*;
 
-public class BoardCreator {
+public class BoardController {
 
     /**
      * This is our board game with fields.
      */
-    public BoardCreator(){}
+    public BoardController(){}
 
     public static GUI_Field[] makeFields() {
         /**
