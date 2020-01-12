@@ -11,7 +11,6 @@ public class FieldCreator {
 
     private int fieldNum;
 
-    //todo Vi skal have opdateret "fieldNames", således at også disse navne bliver hentet fra et seperat dokument.
     //todo Vi skal senere infører de passende felter og deres attributer til Fiellisten.
 
     private Field[] fields = new Field[40];
