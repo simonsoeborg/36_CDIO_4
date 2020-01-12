@@ -15,7 +15,7 @@ public class FileReader {
      * @param file3 : Third file to read from
      */
     public FileReader(String file1, String file2, String file3){
-
+    //hvis vi vil have flere filer så skal vi tilføje flere parametre til konstruktøren
         this.file1 = file1;
         this.file2 = file2;
         this.file3 = file3;
@@ -30,7 +30,7 @@ public class FileReader {
         String contentOfLine = "";
         String file="";
 
-        //todo --> Skal finde en måde at skifte til den valgte fil ( tror en switch-case er fint nok )
+        //Hvis vi vil have flere filer skal vi tilfæje flere cases i switch-casen
         switch (filenumber){
             case 1: file = file1;
                 break;
@@ -40,6 +40,7 @@ public class FileReader {
                 break;
             default: System.out.println("Filen findes ikke");
         }
+
 
         try{
             Stream<String> text = Files.lines(Paths.get(file));
