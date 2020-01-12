@@ -1,7 +1,6 @@
 package Entity;
 
 import Entity.Fields.Field;
-import Test.FileReader;
 
 /**
  * This class makes our field array, with all the logial properties that the individual field contains.

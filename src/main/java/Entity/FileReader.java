@@ -1,4 +1,4 @@
-package Test;
+package Entity;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -28,7 +28,7 @@ public class FileReader {
     public String read(int filenumber, int line){
 
         String contentOfLine = "";
-        String file="";
+        String file = "";
 
         //Hvis vi vil have flere filer skal vi tilfæje flere cases i switch-casen
         switch (filenumber){
