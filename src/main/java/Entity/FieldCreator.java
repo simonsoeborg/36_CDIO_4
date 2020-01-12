@@ -9,10 +9,6 @@ import Test.FileReader;
 
 public class FieldCreator {
 
-    //String gameLanguage = "da";
-    //ReadFieldDescription fieldNamesDA = new ReadFieldDescription();
-    //fieldNamesDA.ReadFieldDescription(gameLanguage);
-
     private int fieldNum;
 
     //todo Vi skal have opdateret "fieldNames", således at også disse navne bliver hentet fra et seperat dokument.
