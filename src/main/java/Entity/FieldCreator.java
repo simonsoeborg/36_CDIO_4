@@ -66,6 +66,12 @@ public class FieldCreator {
         fields[39] = new Field(reader.read(3,40));
     }
 
+
+    public String getFieldName(int fieldNumber){
+
+        return fields[fieldNumber].getFieldName();
+    }
+
     public int getSize(){
         return fields.length;
     }
