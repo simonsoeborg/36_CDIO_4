@@ -19,9 +19,9 @@ public class FieldCreator {
     public FieldCreator() {
 
         FileReader reader = new FileReader(
-                "C:\\Users\\david\\IdeaProjects\\36_CDIO_4\\src\\Textfiles\\FieldDescription_da.txt",
-                "C:\\Users\\david\\IdeaProjects\\36_CDIO_4\\src\\Textfiles\\FieldDescription_en.txt",
-                "C:\\Users\\david\\IdeaProjects\\36_CDIO_4\\src\\Textfiles\\FieldName_da");
+        "C:\\Users\\david\\IdeaProjects\\36_CDIO_4\\src\\Textfiles\\FieldDescription_da.txt",
+        "C:\\Users\\david\\IdeaProjects\\36_CDIO_4\\src\\Textfiles\\FieldDescription_en.txt",
+        "C:\\Users\\david\\IdeaProjects\\36_CDIO_4\\src\\Textfiles\\FieldName_da.txt");
 
 
         fields[0] = new Field(reader.read(3,1));
