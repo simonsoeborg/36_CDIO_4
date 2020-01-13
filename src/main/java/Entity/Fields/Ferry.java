@@ -8,8 +8,8 @@ public class Ferry extends Ownable {
      */
     private int ferryRentFactor = 2;
 
-    public Ferry(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice, int ownerID, Color propertyColor) {
-        super(fieldName, propertyPrice, propertyRent, propertyPledgePrice, ownerID, propertyColor);
+    public Ferry(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice) {
+        super(fieldName, propertyPrice, propertyRent, propertyPledgePrice);
     }
 }
 

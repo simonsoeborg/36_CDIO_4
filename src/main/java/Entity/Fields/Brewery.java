@@ -8,7 +8,7 @@ public class Brewery extends Ownable {
      */
     private int BreweryRentFactor = 100;
 
-    public Brewery(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice, int ownerID, Color propertyColor) {
-        super(fieldName, propertyPrice, propertyRent, propertyPledgePrice, ownerID, propertyColor);
+    public Brewery(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice) {
+        super(fieldName, propertyPrice, propertyRent, propertyPledgePrice);
     }
 }
