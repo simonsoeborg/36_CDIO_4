@@ -18,6 +18,10 @@ public class MatadorGUI {
         this.guiFields= gui.getFields();
     }
 
+    /**
+     * This method adds the players to the board.
+     * @param p The player who's turn it is.
+     */
     public void startInfo(Player[] p) {
         players = new GUI_Player[p.length];
         cars = new GUI_Car[p.length];
