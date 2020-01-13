@@ -1,7 +1,6 @@
 package Entity;
 
-import Entity.Fields.Field;
-import Entity.Fields.Street;
+import Entity.Fields.*;
 
 import java.awt.*;
 
@@ -26,11 +25,11 @@ public class FieldCreator {
 
 
         fields[0] = new Field(reader.read(3,1));
-        fields[1] = new Field(reader.read(3,2));
-        fields[2] = new Street(reader.read(3,3),1000,100,500,0, Color.black,100);
+        fields[1] = new Street(reader.read(3,2), 1200, 50, 600, 1000);
+        fields[2] = new ChanceCard(reader.read(3,3));
         fields[3] = new Field(reader.read(3,4));
-        fields[4] = new Field(reader.read(3,5));
-        fields[5] = new Field(reader.read(3,6));
+        fields[4] = new IncomeTax(reader.read(3,5), 4000, 0.1);
+        fields[5] = new Ferry(reader.read(3,6), 4000, 500, 2000);
         fields[6] = new Field(reader.read(3,7));
         fields[7] = new Field(reader.read(3,8));
         fields[8] = new Field(reader.read(3,9));
