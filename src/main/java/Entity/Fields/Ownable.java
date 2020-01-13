@@ -1,9 +1,5 @@
 package Entity.Fields;
 
-import Control.PlayerController;
-import Entity.FieldCreator;
-import Entity.Player;
-
 import java.awt.*;
 
 public class Ownable extends Field {
