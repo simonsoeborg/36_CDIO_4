@@ -72,7 +72,7 @@ public class Player {
 
     public void setFreeOutOfJail(boolean freeOutOfJail) { this.freeOutOfJail = freeOutOfJail; }
 
-    public boolean isBuying() { return buying; }
+    public boolean isBuying() {return buying; }
 
     public void setBuying(boolean buying) { this.buying = buying; }
 
