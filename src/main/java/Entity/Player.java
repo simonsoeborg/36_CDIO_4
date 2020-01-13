@@ -56,7 +56,7 @@ public class Player {
         }
     }
 
-    public boolean isBankruptcy() {return bankruptcy;}
+    public boolean getBankruptcy() {return bankruptcy;}
 
     public void setBankruptcy(boolean bankruptcy) { this.bankruptcy = bankruptcy; }
 
@@ -64,15 +64,15 @@ public class Player {
 
     public void setFieldIndex(int fieldIndex) { this.fieldIndex = fieldIndex; }
 
-    public boolean isInJail(){return inJail;}
+    public boolean getInJail(){return inJail;}
 
     public void setInJail(boolean inJail) { this.inJail = inJail; }
 
-    public boolean isFreeOutOfJail() { return freeOutOfJail; }
+    public boolean getFreeOutOfJail() { return freeOutOfJail; }
 
     public void setFreeOutOfJail(boolean freeOutOfJail) { this.freeOutOfJail = freeOutOfJail; }
 
-    public boolean isBuying() {return buying; }
+    public boolean getBuying() {return buying; }
 
     public void setBuying(boolean buying) { this.buying = buying; }
 
