@@ -12,7 +12,7 @@ public class UIController {
     private GUI gui;
 
     private String[] Fields= new String[40];
-    private GUI_Player[] Player = new GUI_Player[6];
+    private GUI_Player[] Player;
     private GUI_Field[] guiFields = new GUI_Field[40];
 
     public GUI_Field[] createFields() {
@@ -63,7 +63,7 @@ public class UIController {
         }
     }
 
-    public void movePlayer(int playerIndex, int location, int oldLocation) throws InterruptedException {
+    public void movePlayer(int playerIndex) {
 
     }
 
@@ -85,6 +85,11 @@ public class UIController {
 
     public void showMessage(String message){
         gui.showMessage(message);
+    }
+
+    public int askForPlayers(String msg) {
+        int playerNum = gui.getUserInteger(msg,3,6);
+        return playerNum;
     }
 
 }
