@@ -13,7 +13,6 @@ public class Ownable extends Field {
     private boolean owned = false;
 
     /**
-     *
      * @param fieldName name on the field
      * @param propertyPrice the price for the field
      * @param propertyRent the rent a player has to pay on the field
