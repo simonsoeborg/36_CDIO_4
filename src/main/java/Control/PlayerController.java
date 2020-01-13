@@ -12,8 +12,6 @@ public class PlayerController {
     private Color[] colorList = {Color.BLACK, Color.YELLOW, Color.BLUE, Color.GREEN, Color.RED, Color.MAGENTA};
     public String [] playerNames = {"Bo i folkswagen","Lis i Up", "Jens i goCar", "Brian i BMW","Britta Jensen", "Olga på cykel"};
 
-    DiceCup d = new DiceCup();
-
     public PlayerController(int playersNum) {
         this.playersNum = playersNum;
         players = new Player[playersNum];
@@ -21,8 +19,6 @@ public class PlayerController {
             players[i] = new Player(null, colorList[i]);
         }
     }
-
-
 
     public int getPlayersNum() {
         return playersNum;

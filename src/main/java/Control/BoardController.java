@@ -78,6 +78,7 @@ public class BoardController {
         if (actual < previous) {
             p.setMoney(p.getMoney() + 4000);
         }
+
     }
 
     public String getFieldName(int fieldNumber){

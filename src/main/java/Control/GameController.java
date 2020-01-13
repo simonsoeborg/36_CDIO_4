@@ -16,6 +16,7 @@ public class GameController {
         GUIController bc = new GUIController();
         BoardController BC = new BoardController();
         DiceCup dC = new DiceCup();
+        LogicController Lc = new LogicController();
         //Uses test names
         for (int i = 0; i < pl.getPlayersNum(); i++) {
             pl.getPlayer(i).setName(pl.playerNames[i]);

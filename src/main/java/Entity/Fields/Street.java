@@ -6,8 +6,8 @@ public class Street extends Ownable {
 
     private int housePrice;
 
-    public Street(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice, int ownerID, Color propertyColor, int housePrice) {
-        super(fieldName, propertyPrice, propertyRent, propertyPledgePrice, ownerID, propertyColor);
+    public Street(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice, int housePrice) {
+        super(fieldName, propertyPrice, propertyRent, propertyPledgePrice);
         this.housePrice = housePrice;
     }
 
