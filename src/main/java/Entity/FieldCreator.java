@@ -1,6 +1,9 @@
 package Entity;
 
 import Entity.Fields.Field;
+import Entity.Fields.Street;
+
+import java.awt.*;
 
 /**
  * This class makes our field array, with all the logial properties that the individual field contains.
@@ -24,7 +27,7 @@ public class FieldCreator {
 
         fields[0] = new Field(reader.read(3,1));
         fields[1] = new Field(reader.read(3,2));
-        fields[2] = new Field(reader.read(3,3));
+        fields[2] = new Street(reader.read(3,3),1000,100,500,0, Color.black,100);
         fields[3] = new Field(reader.read(3,4));
         fields[4] = new Field(reader.read(3,5));
         fields[5] = new Field(reader.read(3,6));

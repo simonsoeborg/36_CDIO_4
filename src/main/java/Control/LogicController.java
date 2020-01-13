@@ -27,4 +27,7 @@ public class LogicController {
         if (actual < previous)
             p.addMoney(4000);
     }
+
+
+
 }
