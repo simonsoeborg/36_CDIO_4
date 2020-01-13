@@ -12,7 +12,7 @@ public class UIController {
     private GUI gui;
 
     private String[] Fields= new String[40];
-    private GUI_Player[] Player = new GUI_Player[6];
+    private GUI_Player[] Player;
     private GUI_Field[] guiFields = new GUI_Field[40];
 
     public GUI_Field[] createFields() {
