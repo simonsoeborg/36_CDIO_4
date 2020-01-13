@@ -1,7 +1,11 @@
 package Control;
 
+import Entity.Fields.Field;
+import Entity.Fields.Ownable;
+import Entity.Player;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Ownable;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 
@@ -12,7 +16,7 @@ public class UIController {
     private GUI gui;
 
     private String[] Fields= new String[40];
-    private GUI_Player[] Player;
+    private GUI_Player[] player;
     private GUI_Field[] guiFields = new GUI_Field[40];
 
     public GUI_Field[] createFields() {
@@ -58,26 +62,47 @@ public class UIController {
     public void addPlayers(String[] playerNames, int balance, GUI_Car[] car) {
         for (int i = 0; i < playerNames.length; i++) {
 
-            Player[i] = new GUI_Player(playerNames[i], balance, car[i]);
-            gui.addPlayer(Player[i]);
-            gui.getFields()[0].setCar(Player[i], true);
+            player[i] = new GUI_Player(playerNames[i], balance, car[i]);
+            gui.addPlayer(player[i]);
+            gui.getFields()[0].setCar(player[i], true);
         }
     }
 
-    public void movePlayer(int playerIndex) {
-
+    /**
+     * Updates the board (balance, car placements, ownerships).
+     * @param pl Takes a list of players.
+     * @param fl Takes a list of fields.
+     */
+    public void showGameStatus(Player[] pl, Field[] fl) {
+        for (int i = 0; i < guiFields.length; i++) {
+            if (guiFields[i] != null) {
+                guiFields[i].removeAllCars();
+                updateOwner(i, pl, fl);
+            }
+        }
+        for (int j = 0; j < pl.length; j++) {
+            movePlayer(j, pl);
+            updateBalance(j, pl);
+        }
     }
 
-    public void updateBalance(int playerIndex, int balance) {
-        Player[playerIndex].setBalance(balance);
+    private void movePlayer(int i, Player[] pl) {
+        guiFields[pl[i].getFieldIndex()].setCar(player[i], true);
     }
 
-    public void updateOwner(int playerIndex, int location) {
+    private void updateBalance(int i, Player[] pl) {
+        player[i].setBalance(pl[i].getMoney());
+    }
 
+    private void updateOwner(int i, Player[] pl, Field[] fl) {
+        int owner = ((Ownable)fl[i]).getOwnerID();
+        if (owner != 0) {
+            ((GUI_Ownable) guiFields[i]).setBorder(pl[owner-1].getColor());
+        }
     }
 
     public void winner(int winner) {
-        displayChance("Tilykke " + Player[winner].getName() + "!! Du vandt spillet med " + Player[winner].getBalance() + " penge");
+        displayChance("Tilykke " + player[winner].getName() + "!! Du vandt spillet med " + player[winner].getBalance() + " penge");
     }
 
     public void showDice(int val1, int val2){
@@ -92,5 +117,6 @@ public class UIController {
         int playerNum = gui.getUserInteger(msg,3,6);
         return playerNum;
     }
+
 
 }
