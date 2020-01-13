@@ -12,10 +12,8 @@ public class Player {
     private boolean freeOutOfJail;
     private boolean buying;
 
-    public Player(String name, Color color) {
+    public Player() {
 
-        this.name = name;
-        this.color = color;
         money=0;
         fieldIndex = 0;
         bankruptcy =false;

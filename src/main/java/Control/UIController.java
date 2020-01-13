@@ -1,15 +1,107 @@
 package Control;
 
+import Entity.Player;
 import Test.ReadFieldDescription;
 import gui_fields.*;
+import gui_main.GUI;
 
 import java.awt.*;
 
-public class GUIController {
+public class UIController {
 
     /**
      * This is our board game with fields.
      */
+
+
+    /**
+     * #########################################################################
+     * THIS CLASS HAVE BEEN MERGED WITH "MatadorGUI.java"
+     * Content below is from MatadorGUI.java
+     */
+    protected GUI gui;
+    protected GUI_Field[] guiFields;
+    protected GUI_Player[] players;
+    protected GUI_Car[] cars;
+
+    public void MatadorGUI(GUI gui) {
+        this.gui = gui;
+        this.guiFields= gui.getFields();
+    }
+
+    public void startInfo(Player[] p) {
+        players = new GUI_Player[p.length];
+        cars = new GUI_Car[p.length];
+        for (int i = 0; i < p.length; i++) {
+            cars[i] = new GUI_Car(p[i].getColor(), null, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
+            players[i] = new GUI_Player(p[i].getName(), p[i].getMoney(), cars[i]);
+            gui.addPlayer(players[i]);
+        }
+
+        for (GUI_Player player : players){
+            guiFields[0].setCar(player, true);
+        }
+
+    }
+
+    /**
+     * THIS CLASS HAVE BEEN MERGED WITH "MatadorGUI.java"
+     * Content above is from MatadorGUI.java
+     * #########################################################################
+     */
+    public int getPlayerNumber() {
+        String playerNumbTemp = gui.getUserSelection("Vælg antal spillere", "2","3","4","5","6");
+        int setPlayerAmount = Integer.parseInt(playerNumbTemp);
+        return setPlayerAmount;
+    }
+
+    public String[] getPlayerNames(int amountOfPlayers) {
+        String[] playerNames = new String[amountOfPlayers];
+        for (int i = 0; i < amountOfPlayers; i++) {
+            playerNames[i] = gui.getUserString("Indtast navn på spiller " + (i+1) + ": ");
+        }
+        return playerNames;
+    }
+
+    public void addPlayers(String [] playerNames, int balance,GUI_Car[] car){
+        for (int i = 0; i < playerNames.length; i++) {
+
+            players[i] = new GUI_Player(playerNames[i], balance, car[i]);
+            gui.addPlayer(players[i]);
+            gui.getFields()[0].setCar(players[i], true);
+        }
+    }
+
+    public GUI_Car[] setCar(int playernumb, String[] playerNames){
+        GUI_Car[] cars = new GUI_Car[playernumb];
+        for (int i = 0; i < playernumb; i++) {
+
+            String car = gui.getUserButtonPressed(playerNames[i] + " Vælg farve til bil: ", "Rød", "Grøn", "Blå", "Gul", "Sort", "Hvid");
+
+            if (car.equals("Rød")) {
+                cars[i] = new GUI_Car(Color.red, Color.red, GUI_Car.Type.CAR, GUI_Car.Pattern.CHECKERED);
+            } else if (car.equals("Blå")) {
+                cars[i] = new GUI_Car(Color.blue, Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.DOTTED);
+            } else if (car.equals("Grøn")) {
+                cars[i] = new GUI_Car(Color.green, Color.green, GUI_Car.Type.CAR, GUI_Car.Pattern.DOTTED);
+            } else if (car.equals("Gul")) {
+                cars[i] = new GUI_Car(Color.yellow, Color.yellow, GUI_Car.Type.CAR, GUI_Car.Pattern.DOTTED);
+            } else if (car.equals("Sort")) {
+                cars[i] = new GUI_Car(Color.black, Color.black, GUI_Car.Type.CAR, GUI_Car.Pattern.DOTTED);
+            } else if (car.equals("Hvid")) {
+                cars[i] = new GUI_Car(Color.WHITE, Color.white, GUI_Car.Type.CAR, GUI_Car.Pattern.DOTTED);
+            }
+        }
+        return cars;
+    }
+
+    public void showDice(int val){
+        gui.setDie(val);
+    }
+
+    public void showMessage(String message){
+        gui.showMessage(message);
+    }
 
     public static GUI_Field[] makeFields() {
         /**
