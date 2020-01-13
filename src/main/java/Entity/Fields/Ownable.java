@@ -70,4 +70,12 @@ public class Ownable extends Field {
     public void setPropertyColor(Color propertyColor) {
         this.propertyColor = propertyColor;
     }
+
+    public boolean getOwned() {
+        return owned;
+    }
+
+    public void setOwned(boolean owned) {
+        this.owned = owned;
+    }
 }
