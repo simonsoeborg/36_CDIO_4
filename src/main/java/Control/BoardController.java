@@ -27,5 +27,6 @@ public class BoardController {
         if (actual < previous) {
             p.setMoney(p.getMoney() + 4000);
         }
+
     }
 }
