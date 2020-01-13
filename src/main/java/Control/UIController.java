@@ -17,6 +17,7 @@ public class UIController {
 
     public GUI_Field[] createFields() {
 
+        return guiFields;
     }
 
     public String displayChance(String fieldText) {
@@ -63,7 +64,7 @@ public class UIController {
         }
     }
 
-    public void movePlayer(int playerIndex, int location, int oldLocation) throws InterruptedException {
+    public void movePlayer(int playerIndex) {
 
     }
 
@@ -79,12 +80,17 @@ public class UIController {
         displayChance("Tilykke " + Player[winner].getName() + "!! Du vandt spillet med " + Player[winner].getBalance() + " penge");
     }
 
-    public void showDice(int val){
-        gui.setDie(val);
+    public void showDice(int val1, int val2){
+        gui.setDice(val1, val2);
     }
 
     public void showMessage(String message){
         gui.showMessage(message);
+    }
+
+    public int askForPlayers(String msg) {
+        int playerNum = gui.getUserInteger(msg,3,6);
+        return playerNum;
     }
 
 }
