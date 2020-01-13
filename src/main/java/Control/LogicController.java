@@ -28,46 +28,56 @@ public class LogicController {
             p.addMoney(4000);
     }
 
-    public Field checkFieldType(int fieldIndex){
+    public String checkFieldType(int fieldIndex){
+
+        String felt = "";
 
         switch (fieldIndex){
             // Dette er ejendomsfelter
             case 1: case 3: case 6: case 8: case 9: case 11: case 13: case 14: case 16: case 18: case 19:
-            case 21: case 23: case 24: case 26: case 27: case 29: case 31: case 32: case 34: case 37: case 39: kjslafjalfk;
+            case 21: case 23: case 24: case 26: case 27: case 29: case 31: case 32: case 34: case 37: case 39:
+                felt = "Street";
             break;
 
             // Prøv lykken felter
-            case 2: case 7: case 17: case 22: case 33: case 36: jfajfjalj;
+            case 2: case 7: case 17: case 22: case 33: case 36:
+                felt = "Chance";
             break;
 
             // færge felter
-            case 5: case 15: case 25: case 35: khfakfhkh;
+            case 5: case 15: case 25: case 35:
+                felt = "Ferry";
             break;
 
             // brygerier
-            case 12: case 28: hafkfhkash;
+            case 12: case 28:
+                felt = "Brewery";
             break;
 
             //Indkomstskat
-            case 4: jlajfljadslj;
+            case 4:
+                felt = "Income tax";
             break;
 
             //Statsskat
-            case 38: fjaljfladjs;
+            case 38:
+                felt = "Extraordinary state tax";
             break;
 
             //start, parkering og besøg i fængsel felter
-            case 0: case 10: case 20: kjahfkjhfk;
+            case 0: case 10: case 20:
+                felt = "Default";
             break;
 
             // gå i fængsel
-            case 30: ljfalfj;
+            case 30:
+                felt = "Jail";
             break;
 
 
         }
 
-
+        return felt;
     }
 
 
