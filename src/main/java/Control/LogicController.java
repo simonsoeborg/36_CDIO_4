@@ -80,6 +80,30 @@ public class LogicController {
         return felt;
     }
 
+    public void decideLogik(String fieldtype){
+
+        switch (fieldtype){
+
+            case "Street": //Evt underpakke med logik til ejendomsfelter;
+            break;
+            case "Chance": // logik chance felter;
+            break;
+            case "Ferry": // logik til færger;
+            break;
+            case "Brewery": // logik til bryggerier;
+            break;
+            case "Income tax": //logik til indkomstskat;
+            break;
+            case "Extraordinary state tax": //logik til ekstra.....skat;
+            break;
+            case "Default": // intet logik da der ikke sker noget på disse felter;
+            break;
+            case "Jail": // fængselslogik;
+            break;
+        }
+
+    }
+
 
 
 }
