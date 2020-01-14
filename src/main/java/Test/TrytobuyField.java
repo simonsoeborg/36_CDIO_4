@@ -1,14 +1,5 @@
 package Test;
 
-import Control.LogicController;
-import Entity.DiceCup;
-import Entity.FieldCreator;
-import Entity.Fields.Field;
-import Entity.Fields.Ownable;
-import Entity.Player;
-
-import java.awt.*;
-
 public class TrytobuyField {
 
     public static void main(String[] args) {

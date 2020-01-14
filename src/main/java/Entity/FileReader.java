@@ -7,19 +7,14 @@ import java.util.stream.Stream;
 
 public class FileReader {
 
-    private String file1, file2, file3;
+    private String file1 = "src/TextFiles/FieldName_da.txt";
+    private String file2 = "src/TextFiles/FieldDescription_da.txt";
 
     /**
      * @param file1 : First file to read from
      * @param file2 : Second file to read from
      * @param file3 : Third file to read from
      */
-    public FileReader(String file1, String file2, String file3){
-    //hvis vi vil have flere filer så skal vi tilføje flere parametre til konstruktøren
-        this.file1 = file1;
-        this.file2 = file2;
-        this.file3 = file3;
-    }
 
     /**
      * @param line: The specific line to read
@@ -35,8 +30,6 @@ public class FileReader {
             case 1: file = file1;
                 break;
             case 2: file = file2;
-                break;
-            case 3: file = file3;
                 break;
             default: System.out.println("Filen findes ikke");
         }

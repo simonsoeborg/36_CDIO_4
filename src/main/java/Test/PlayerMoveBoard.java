@@ -1,9 +1,5 @@
 package Test;
 
-import Entity.Player;
-
-import java.awt.*;
-
 /**
  * Tests' the moveability of a player on the board
  * @author David

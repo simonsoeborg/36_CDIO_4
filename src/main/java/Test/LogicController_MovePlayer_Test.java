@@ -1,10 +1,6 @@
 package Test;
 
 import Entity.DiceCup;
-import Entity.FieldCreator;
-import Entity.Player;
-
-import java.awt.*;
 
 import static org.junit.Assert.*;
 
