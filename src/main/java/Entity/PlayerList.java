@@ -20,6 +20,10 @@ public class PlayerList {
         }
     }
 
+    public Player[] getPlayers() {
+        return players;
+    }
+
     public static PlayerList getInstance() {
         return INSTANCE;
     }
