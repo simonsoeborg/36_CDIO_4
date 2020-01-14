@@ -2,7 +2,7 @@ package Entity.Fields;
 
 import java.awt.*;
 
-public class Ownable extends Field {
+public abstract class Ownable extends Field {
 
     private int propertyPrice, propertyRent, propertyPledgePrice, ownerID;
     private Color propertyColor;

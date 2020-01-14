@@ -8,6 +8,7 @@ public class GameBoard {
      * This class makes our field array, with all the logial properties that the individual field contains.
      */
 
+    private static final GameBoard INSTANCE = new GameBoard();
     private Field[] fields = new Field[40];
     private FileReader reader;
     private int fieldNum;
@@ -66,6 +67,10 @@ public class GameBoard {
         return fields.length;
     }
 
+    public Field[] getFields() {
+        return fields;
+    }
+
     public String getField(int fieldNumber) {
         String selectField = "";
         for (int i = 0; i <getSize(); i++) {
@@ -75,4 +80,13 @@ public class GameBoard {
         }
         return selectField;
     }
+
+    public static GameBoard getInstance() {
+        return INSTANCE;
+    }
+
+    public int getOwnerID(int index) {
+       return ((Ownable)fields[index]).getOwnerID();
+    }
+
 }

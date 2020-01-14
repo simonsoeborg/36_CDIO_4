@@ -1,9 +1,40 @@
 package Control;
 
+import Entity.GUISetup;
+import Entity.Player;
+import Entity.PlayerList;
+
 public class MainController {
 
-    public void initGame() {
-        GameController GC = new GameController();
-        GC.startGame();
+    private int playerNumber;
+
+    private PlayerList pl = PlayerList.getInstance();
+
+    public void playGame() {
+
+        GUISetup gui = GUISetup.getInstance();
+
+        playerNumber = gui.askForPlayers();
+
+        pl.addPlayers(playerNumber);
+
+        pl.givePlayerNames(gui.getPlayerNames(playerNumber));
+
+        gui.addPlayers(pl.getPlayers());
+
+        while (true) {
+
+
+
+
+        }
+
+
+
     }
+
+
+
+
+
 }

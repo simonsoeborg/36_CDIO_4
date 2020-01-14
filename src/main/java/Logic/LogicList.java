@@ -1,29 +1,13 @@
-package Entity;
+package Logic;
 import Entity.Player;
 import Control.GameController;
 
 
 public class LogicList {
-    private DiceCup dc =  DiceCup.getINSTANCE();
 
-    /**
-     * @param p  : The player who's turn it is.
-     * @param gb : Our fieldList.
-     *           The method is changing the players FieldIndex, and therefore its location.
-     */
-    public void movePlayer(Player p, GameBoard gb) {
-        GameController GC = new GameController();
-        dc.roll();
-        int previous = p.getFieldIndex();
-        p.setFieldIndex((p.getFieldIndex() + dc.faceValues()) % gb.getSize());
-        int actual = p.getFieldIndex();
+    private PropertyFields pf = new PropertyFields();
 
-        // todo Add value er endnu ikke relevant iforhold til vores test.
-        if (actual < previous)
-            p.addMoney(4000);
-    }
-
-    public String checkFieldType(int fieldIndex){
+    public String checkFieldType(int fieldIndex,int turn){
 
         String felt = "";
 
@@ -31,7 +15,7 @@ public class LogicList {
             // Dette er ejendomsfelter
             case 1: case 3: case 6: case 8: case 9: case 11: case 13: case 14: case 16: case 18: case 19:
             case 21: case 23: case 24: case 26: case 27: case 29: case 31: case 32: case 34: case 37: case 39:
-                felt = "Street";
+                felt = "Street"+pf.checkFieldOwner(fieldIndex,turn);
                 break;
 
             // Prøv lykken felter
@@ -41,12 +25,12 @@ public class LogicList {
 
             // færge felter
             case 5: case 15: case 25: case 35:
-                felt = "Ferry";
+                felt = "Ferry"+pf.checkFieldOwner(fieldIndex,turn);;
                 break;
 
             // brygerier
             case 12: case 28:
-                felt = "Brewery";
+                felt = "Brewery"+pf.checkFieldOwner(fieldIndex,turn);;
                 break;
 
             //Indkomstskat

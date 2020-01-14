@@ -1,13 +1,115 @@
 package Entity;
 
+import Entity.Fields.Field;
+import Entity.Fields.Ownable;
 import gui_fields.*;
 import Entity.FileReader;
+import gui_main.GUI;
 
 import java.awt.*;
 
 public class GUISetup {
 
-    public GUISetup(){}
+    private static final GUISetup INSTANCE = new GUISetup();
+
+    private GUI gui;
+    private String[] playerNames;
+    private GUI_Player[] players;
+    private GUI_Field[] guiFields = makeFields();
+    private GUI_Car[] cars;
+
+    public GUISetup(){
+        gui = new GUI(guiFields, Color.WHITE);
+    }
+
+    public String displayChance(String fieldText) {
+        return "";
+    }
+
+
+    public void addPlayers(Player[] p) {
+        players = new GUI_Player[p.length];
+        cars = new GUI_Car[p.length];
+        for (int i=0; i<p.length;i++){
+            cars[i] = new GUI_Car(p[i].getColor(), null, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
+            players[i] = new GUI_Player(p[i].getName(),p[i].getMoney(), cars[i]);
+            gui.addPlayer(players[i]);
+        }
+
+        // sæt alle biler på start
+        for (GUI_Player player : players){
+            guiFields[0].setCar(player, true);
+        }
+    }
+
+    /**
+     * Updates the board (balance, car placements, ownerships).
+     * @param pl Takes a list of players.
+     * @param fl Takes a list of fields.
+     */
+    public void showGameStatus(Player[] pl, Field[] fl) {
+        for (int i = 0; i < guiFields.length; i++) {
+            if (guiFields[i] != null) {
+                guiFields[i].removeAllCars();
+                updateOwner(i, pl, fl);
+            }
+        }
+        for (int j = 0; j < pl.length; j++) {
+            movePlayer(j, pl);
+            updateBalance(j, pl);
+        }
+    }
+
+    private void movePlayer(int i, Player[] pl) {
+        guiFields[pl[i].getFieldIndex()].setCar(players[i], true);
+    }
+
+    private void updateBalance(int i, Player[] pl) {
+        players[i].setBalance(pl[i].getMoney());
+    }
+
+    private void updateOwner(int i, Player[] pl, Field[] fl) {
+        int owner = ((Ownable)fl[i]).getOwnerID();
+        if (owner != 0) {
+            ((GUI_Ownable) guiFields[i]).setBorder(pl[owner-1].getColor());
+        }
+    }
+
+    public void winner(int winner) {
+        displayChance("Tilykke " + players[winner].getName() + "!! Du vandt spillet med " + players[winner].getBalance() + " penge");
+    }
+
+    public void showDice(int val1, int val2){
+        gui.setDice(val1, val2);
+    }
+
+    public void showMessage(String message){
+        gui.showMessage(message);
+    }
+
+    public int askForPlayers() {
+        String s = gui.getUserButtonPressed("Vælg antal spillere", "3", "4", "5", "6");
+        return Integer.parseInt(s);
+    }
+
+    public String[] getPlayerNames(int playerNumber) {
+        playerNames = new String[playerNumber];
+        for (int i = 0; i < playerNumber; i=i) {
+            playerNames[i++] = gui.getUserString("Tilføj spiller " + i + "'s navn");
+        }
+        return playerNames;
+    }
+
+
+
+
+
+
+
+
+    public static GUISetup getInstance() {
+        return INSTANCE;
+    }
 
     /**
      * This is our board game with fields.
@@ -20,7 +122,7 @@ public class GUISetup {
 
         FileReader fieldDesDA = new FileReader();
         GUI_Field[] fields = new GUI_Field[40];
-        int line = 0;
+        int line = 1;
         int i = 0;
         int var2 = i + 1;
         /**
