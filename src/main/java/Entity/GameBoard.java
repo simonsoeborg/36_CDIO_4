@@ -8,6 +8,7 @@ public class GameBoard {
      * This class makes our field array, with all the logial properties that the individual field contains.
      */
 
+    private static final GameBoard INSTANCE = new GameBoard();
     private Field[] fields = new Field[40];
     private FileReader reader;
     private int fieldNum;
@@ -75,4 +76,9 @@ public class GameBoard {
         }
         return selectField;
     }
+
+    public static GameBoard getInstance() {
+        return INSTANCE;
+    }
+
 }

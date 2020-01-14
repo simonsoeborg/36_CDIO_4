@@ -7,15 +7,17 @@ public class Player {
     private Color color;
     private int money;
     private int fieldIndex;
+    private int id;
     private boolean bankruptcy;
     private boolean inJail;
     private boolean freeOutOfJail;
     private boolean buying;
 
-    public Player(String name, Color color) {
+    public Player(String name, Color color, int id) {
 
         this.name = name;
         this.color = color;
+        this.id = id;
         money=0;
         fieldIndex = 0;
         bankruptcy =false;
@@ -75,6 +77,14 @@ public class Player {
     public boolean getBuying() {return buying; }
 
     public void setBuying(boolean buying) { this.buying = buying; }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() { return name; }
