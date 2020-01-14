@@ -3,7 +3,7 @@ package Entity;
 import java.awt.*;
 
 public class PlayerList {
-    private static final PlayerList INSTANCE = new PlayerList();
+    private static final PlayerList INSTANCE = new PlayerList(6);
 
     private Player[] players;
     private int playerNumber;

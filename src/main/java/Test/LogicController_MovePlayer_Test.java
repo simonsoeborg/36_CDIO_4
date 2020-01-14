@@ -1,6 +1,7 @@
 package Test;
 
 import Entity.DiceCup;
+import Entity.GameBoard;
 import Entity.Player;
 
 import static org.junit.Assert.*;
@@ -15,8 +16,8 @@ public class LogicController_MovePlayer_Test {
     @org.junit.Test
     public void movePlayer() {
 
-        Player p = new Player();
-        FieldCreator fl = new FieldCreator();
+        Player p = new Player(null, null);
+        GameBoard fl = new GameBoard();
         DiceCup d = new DiceCup();
 
         //Checks that the players initial position is the "Start"-field

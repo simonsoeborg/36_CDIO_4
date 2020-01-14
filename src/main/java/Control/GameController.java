@@ -7,13 +7,11 @@ import Entity.Player;
 import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 
 public class GameController {
-    // Files to import
-    GUISetup GS = new GUISetup();
-    FileReader FR = new FileReader();
 
 
 
-    public void startGame() {
+
+    public void runLogic() {
 
 
 
@@ -24,6 +22,5 @@ public class GameController {
         // getFieldText
     }
 
-
-    }
 }
+
