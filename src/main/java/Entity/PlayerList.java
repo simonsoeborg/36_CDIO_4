@@ -18,13 +18,6 @@ public class PlayerList {
         return this.playerNumber;
     }
 
-
-    public void setPlayerName(int playerNumber, String newName) {
-        player.setPlayerName(newName);
-    }
-
-
-
     public static PlayerList getINSTANCE(){
         return INSTANCE;
     }
