@@ -13,7 +13,7 @@ public class PlayerMoveBoard {
 
     public static void main(String[] args) {
 
-        Player spiller = new Player("Karsten", Color.black);
+        Player spiller = new Player();
         //todo:  Venter på at logikken bag terning og felter er udviklet
 
 

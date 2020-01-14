@@ -1,6 +1,7 @@
 package Test;
 
 import Entity.DiceCup;
+import Entity.FieldCreator;
 import Entity.Player;
 
 import java.awt.*;
@@ -17,7 +18,7 @@ public class LogicController_MovePlayer_Test {
     @org.junit.Test
     public void movePlayer() {
 
-        Player p = new Player("Karsten", Color.black);
+        Player p = new Player();
         FieldCreator fl = new FieldCreator();
         DiceCup d = new DiceCup();
 
