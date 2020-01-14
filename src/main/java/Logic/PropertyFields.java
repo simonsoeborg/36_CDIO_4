@@ -15,17 +15,17 @@ public class PropertyFields {
     private static GameBoard gb = GameBoard.getInstance();
     private static PlayerList pl = PlayerList.getInstance();
     private Field[] fields = gb.getFields();
-    private Player[] p = pl.getplayer;
+    private Player[] p = pl.getPlayers();
 
     public String CheckFieldOwner(int fieldIndex, int turn){
 
         if (((Ownable)fields[fieldIndex]).getOwnerID()==0){
             return "Not owned";
         }
-        else if (((Ownable)fields[fieldIndex]).getOwnerID()==p){
+        else if (((Ownable)fields[fieldIndex]).getOwnerID()==p[turn].getId()){
             return "Your Property";
         }
-        else (((Ownable)fields[fieldIndex]).getOwnerID()!=p){
+        else {
             return "Owned by another";
         }
     }
