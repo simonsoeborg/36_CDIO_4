@@ -1,9 +1,7 @@
 package Logic;
 
-import Control.MainController;
 import Entity.Fields.Field;
 import Entity.Fields.Ownable;
-import Entity.Fields.Street;
 import Entity.GameBoard;
 import Entity.Player;
 import Entity.PlayerList;
