@@ -9,14 +9,6 @@ public class GUISetup {
 
     public GUISetup(){}
 
-
-
-
-
-
-
-
-
     /**
      * This is our board game with fields.
      */
