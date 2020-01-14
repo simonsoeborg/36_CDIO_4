@@ -14,11 +14,12 @@ public class PlayerList {
         this.playerNumber = playersNum;
         players = new Player[playersNum];
         for (int i = 0;i < playersNum;i++) {
-            players[i] = new Player(null, colorList[i]);
+            players[i] = new Player(null, colorList[i], i+1);
         }
     }
 
     public static PlayerList getINSTANCE(){
         return INSTANCE;
     }
+
 }
