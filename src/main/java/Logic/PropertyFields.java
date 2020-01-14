@@ -17,16 +17,16 @@ public class PropertyFields {
     private Field[] fields = gb.getFields();
     private Player[] p = pl.getPlayers();
 
-    public String CheckFieldOwner(int fieldIndex, int turn){
+    public String checkFieldOwner(int fieldIndex, int turn){
 
         if (((Ownable)fields[fieldIndex]).getOwnerID()==0){
-            return "Not owned";
+            return "Buy";
         }
         else if (((Ownable)fields[fieldIndex]).getOwnerID()==p[turn].getId()){
-            return "Your Property";
+            return "Yours";
         }
         else {
-            return "Owned by another";
+            return "Theirs";
         }
     }
     /**
