@@ -14,8 +14,6 @@ public class GameBoard {
 
     public GameBoard() {
 
-        //todo Vi skal senere infører de passende felter og deres attributer til Fiellisten.
-
         fields[0] = new Field(reader.read(1, 1));
         fields[1] = new Street(reader.read(1, 2), 1200, 50, 600, 1000);
         fields[2] = new ChanceCard(reader.read(1, 3));
