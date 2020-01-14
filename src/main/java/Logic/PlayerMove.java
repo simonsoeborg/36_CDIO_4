@@ -16,7 +16,6 @@ public class PlayerMove {
      */
     public void movePlayer(Player p, GameBoard gb) {
         GameController GC = new GameController();
-        dc.roll();
         int previous = p.getFieldIndex();
         p.setFieldIndex((p.getFieldIndex() + dc.faceValues()) % gb.getSize());
         int actual = p.getFieldIndex();
