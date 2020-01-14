@@ -44,6 +44,14 @@ public class DiceCup {
        return check;
     }
 
+    public int getDie1() {
+        return die1;
+    }
+
+    public int getDie2() {
+        return die2;
+    }
+
     public static DiceCup getINSTANCE(){
         return  INSTANCE;
     }

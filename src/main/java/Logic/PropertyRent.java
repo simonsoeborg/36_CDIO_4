@@ -35,7 +35,7 @@ public class PropertyRent {
         for (Field field:gameBoard.getFields()){
 
             /// TODO: 14-01-2020 tilføj GUIField farverne
-            if (// det ene felt farve == andetfeltes farve)
+            //if ( det ene felt farve == andetfeltes farve)
 
             count++;
         }

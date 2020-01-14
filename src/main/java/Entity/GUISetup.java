@@ -11,6 +11,8 @@ import java.awt.*;
 public class GUISetup {
 
     private static final GUISetup INSTANCE = new GUISetup();
+    private FileReader reader = new FileReader();
+    private GameBoard fl = GameBoard.getInstance();
 
     private GUI gui;
     private String[] playerNames;
@@ -100,7 +102,20 @@ public class GUISetup {
         return playerNames;
     }
 
+    public String action(String name, int fieldIndex, String action) {
+        String choice;
+        switch (action) {
+            default: choice = gui.getUserButtonPressed(name + reader.read(3,1), "Rul");
+            break;
+            case "buy": choice = gui.getUserButtonPressed(name + reader.read(3,2) +
+                    reader.read(1, fieldIndex) + reader.read(3,3), "Køb", "Køb ikke");
+            break;
+            case "buyOrRoll": choice = gui.getUserButtonPressed(name + reader.read(3,2) +
+                    reader.read(1, fieldIndex) + reader.read(3,3), "Køb", "Rul");
 
+        }
+        return choice;
+    }
 
 
 

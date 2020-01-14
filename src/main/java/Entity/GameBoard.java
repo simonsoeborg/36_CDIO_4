@@ -10,7 +10,7 @@ public class GameBoard {
 
     private static final GameBoard INSTANCE = new GameBoard();
     private Field[] fields = new Field[40];
-    private FileReader reader;
+    private FileReader reader = new FileReader();
     private int fieldNum;
 
     public GameBoard() {

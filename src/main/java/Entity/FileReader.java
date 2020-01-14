@@ -7,9 +7,9 @@ import java.util.stream.Stream;
 
 public class FileReader {
 
-    private String file1 = "src/TextFiles/FieldName_da.txt";
-    private String file2 = "src/TextFiles/FieldDescription_da.txt";
-
+    private String file1 = "src/TextFiles/1FieldName_da.txt";
+    private String file2 = "src/TextFiles/2FieldDescription_da.txt";
+    private String file3 = "src/TextFiles/3ActionDescriptions_da.txt";
     /**
      * @param file1 : First file to read from
      * @param file2 : Second file to read from
@@ -30,6 +30,8 @@ public class FileReader {
             case 1: file = file1;
                 break;
             case 2: file = file2;
+                break;
+            case 3: file = file3;
                 break;
             default: System.out.println("Filen findes ikke");
         }

@@ -1,14 +1,17 @@
 package Control;
 
-import Entity.GUISetup;
-import Entity.Player;
-import Entity.PlayerList;
+import Entity.*;
+import Logic.*;
 
 public class MainController {
 
     private int playerNumber;
 
+    private GameBoard fl = GameBoard.getInstance();
     private PlayerList pl = PlayerList.getInstance();
+
+    private PlayerMove pm = new PlayerMove();
+    private DiceCup dc =  DiceCup.getINSTANCE();
 
     public void playGame() {
 
@@ -22,7 +25,32 @@ public class MainController {
 
         gui.addPlayers(pl.getPlayers());
 
+
+        int turn = 0;
+        Player p;
+        String name;
+        String action = "";
+
         while (true) {
+
+            p = pl.getPlayer(turn);
+            name = p.getName();
+
+            action = gui.action(name, p.getFieldIndex(), action);
+
+            if (action.equals("Rul")) {
+                dc.roll();
+                gui.showDice(dc.getDie1(), dc.getDie2());
+                pm.movePlayer(p,fl);
+                gui.showGameStatus(pl.getPlayers(), fl.getFields());
+            }
+
+
+            turn = ++turn%playerNumber;
+
+
+
+
 
 
 
