@@ -5,6 +5,7 @@ package Entity;
  */
 public class DiceCup {
 
+    private static final DiceCup INSTANCE = new DiceCup();
     private int die1 = 0;
     private int die2 = 0;
 
@@ -42,4 +43,11 @@ public class DiceCup {
 
        return check;
     }
+
+    public static DiceCup getINSTANCE(){
+        return  INSTANCE;
+    }
+
+
 }
+

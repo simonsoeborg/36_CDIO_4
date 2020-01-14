@@ -1,19 +1,21 @@
 package Entity;
 import Entity.Player;
+import Control.GameController;
 
 
 public class LogicList {
-    private  Player p;
-    DiceCup d = new DiceCup();
+    private DiceCup dc =  DiceCup.getINSTANCE();
+
     /**
      * @param p  : The player who's turn it is.
      * @param gb : Our fieldList.
      *           The method is changing the players FieldIndex, and therefore its location.
      */
     public void movePlayer(Player p, GameBoard gb) {
-        d.roll();
+        GameController GC = new GameController();
+        dc.roll();
         int previous = p.getFieldIndex();
-        p.setFieldIndex((p.getFieldIndex() + d.faceValues()) % gb.getSize());
+        p.setFieldIndex((p.getFieldIndex() + dc.faceValues()) % gb.getSize());
         int actual = p.getFieldIndex();
 
         // todo Add value er endnu ikke relevant iforhold til vores test.

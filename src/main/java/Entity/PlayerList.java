@@ -1,6 +1,8 @@
 package Entity;
 
 public class PlayerList {
+    private static  final PlayerList INSTANCE = new PlayerList();
+
     private String players[];
     private int playerNumber;
     Player player = new Player();
@@ -16,15 +18,14 @@ public class PlayerList {
         return this.playerNumber;
     }
 
+
     public void setPlayerName(int playerNumber, String newName) {
         player.setPlayerName(newName);
     }
 
-    public int getMoney() {
-        return player.getMoney();
-    }
 
-    public void setMoney(int amount) {
-        player.setMoney(amount);
+
+    public static PlayerList getINSTANCE(){
+        return INSTANCE;
     }
 }
