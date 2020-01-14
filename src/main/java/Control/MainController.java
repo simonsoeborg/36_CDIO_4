@@ -1,6 +1,7 @@
 package Control;
 
 import Entity.GUISetup;
+import Entity.Player;
 import Entity.PlayerList;
 
 public class MainController {
@@ -16,6 +17,17 @@ public class MainController {
         playerNumber = gui.askForPlayers();
 
         pl.addPlayers(playerNumber);
+
+        pl.givePlayerNames(gui.getPlayerNames(playerNumber));
+
+        gui.addPlayers(pl.getPlayers());
+
+        while (true) {
+
+
+
+
+        }
 
 
 
