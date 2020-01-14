@@ -85,4 +85,8 @@ public class GameBoard {
         return INSTANCE;
     }
 
+    public int getOwnerID(int index) {
+       return ((Ownable)fields[index]).getOwnerID();
+    }
+
 }

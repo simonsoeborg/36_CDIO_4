@@ -16,7 +16,7 @@ public class LogicController_MovePlayer_Test {
     @org.junit.Test
     public void movePlayer() {
 
-        Player p = new Player(null, null);
+        Player p = new Player(null, null, 1);
         GameBoard fl = new GameBoard();
         DiceCup d = new DiceCup();
 

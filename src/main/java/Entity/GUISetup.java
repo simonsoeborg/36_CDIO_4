@@ -110,9 +110,9 @@ public class GUISetup {
         gui.showMessage(message);
     }
 
-    public int askForPlayers(String msg) {
-        int playerNum = gui.getUserInteger(msg,3,6);
-        return playerNum;
+    public int askForPlayers() {
+        String s = gui.getUserButtonPressed("Vælg antal spillere", "3", "4", "5", "6");
+        return Integer.parseInt(s);
     }
 
 
