@@ -5,7 +5,7 @@ import java.awt.*;
 public abstract class Ownable extends Field {
 
     private int propertyPrice, propertyRent, propertyPledgePrice, ownerID;
-    private Color propertyColor;
+    private Color color;
 
     /**
      * @param fieldName name on the field
@@ -13,14 +13,13 @@ public abstract class Ownable extends Field {
      * @param propertyRent the rent a player has to pay on the field
      * @param propertyPledgePrice When you need money you can pledge your field and get some money back
      */
-    public Ownable(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice) {
+    public Ownable(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice){
         super(fieldName);
         this.propertyPrice = propertyPrice;
         this.propertyRent = propertyRent;
         this.propertyPledgePrice = propertyPledgePrice;
         this.ownerID = 0;
-        this.propertyColor = Color.BLACK;
-    }
+}
 
 
     public int getPropertyPrice() {
@@ -56,11 +55,5 @@ public abstract class Ownable extends Field {
         this.ownerID = ownerID;
     }
 
-    public Color getPropertyColor() {
-        return propertyColor;
-    }
 
-    public void setPropertyColor(Color propertyColor) {
-        this.propertyColor = propertyColor;
-    }
 }

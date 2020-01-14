@@ -6,11 +6,8 @@ public class Field {
 
     private String fieldName;
 
-    private Color color;
-
-    public Field(String fieldName,Color color) {
+    public Field(String fieldName) {
         this.fieldName = fieldName;
-        this.color = color;
     }
 
 
