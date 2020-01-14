@@ -1,5 +1,7 @@
 package Test;
 
+import Entity.Player;
+
 /**
  * Tests' the moveability of a player on the board
  * @author David

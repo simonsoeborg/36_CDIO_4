@@ -1,6 +1,7 @@
 package Test;
 
 import Entity.DiceCup;
+import Entity.Player;
 
 import static org.junit.Assert.*;
 

@@ -1,5 +1,7 @@
 package Test;
 
+import Entity.Player;
+
 public class TrytobuyField {
 
     public static void main(String[] args) {
