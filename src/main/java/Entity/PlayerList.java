@@ -5,7 +5,6 @@ public class PlayerList {
 
     private String players[];
     private int playerNumber;
-    Player player = new Player();
 
     public int getPlayerNumber(int number) {
         int playerNumber;
