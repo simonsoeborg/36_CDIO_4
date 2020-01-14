@@ -10,10 +10,8 @@ public class PropertyFields {
 
     private static GameBoard gb = GameBoard.getInstance();
     private Field[] fields = gb.getFields();
-
     public int CheckFieldOwner(int fieldIndex, int currentPlayer) {
 
-        int i = fields[fieldIndex].getOwnerID();
 
     }
 

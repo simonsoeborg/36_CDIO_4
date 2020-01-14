@@ -8,7 +8,7 @@ public class TrytobuyField {
     public static void main(String[] args) {
 
         // test om CheckFieldType retunerer den korrekte string
-        Player p = new Player(null, null);
+        Player p = new Player(null, null,1);
         GameBoard fl = new GameBoard();
        // LogicController test = new LogicController();
 
