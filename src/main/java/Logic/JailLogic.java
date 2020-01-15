@@ -1,6 +1,7 @@
 package Logic;
 
 
+import Entity.DiceCup;
 import Entity.Player;
 
 /**
@@ -15,11 +16,20 @@ public class JailLogic {
 
     /**
      * checkNumDoubles is responsible for making sure the rule regarding 3 equal facevalue rolls are followed accordingly
-     * @param player The player who's rolling the dies
-     * @param check The boolean returnvalue from the Dicecup-class
+     * @param p The player who's rolling the dies
      * @return Boolean value which is true if the player is set in jail
      */
-    public boolean checkNumDoubles(Player player, boolean check){
+
+    public boolean checkInJail (Player p){
+
+        boolean pInJail = false;
+        if (p.getInJail())
+            pInJail = true;
+
+        return pInJail;
+    }
+
+    public boolean checkNumDoubles(Player p, boolean check){
 
         boolean jail = false;
 
@@ -27,7 +37,7 @@ public class JailLogic {
             counter++;
 
         if(counter > 2){
-            player.setFieldIndex(10);
+            p.setInJail(true);
             jail = true;
 
         }
@@ -36,4 +46,24 @@ public class JailLogic {
 
     }
 
+    // spilleren har valgt om han vil betale eller roll med terningerne
+    public boolean getOutJail (Player p, int choice, Boolean check){
+
+        // til at der skal vise noget tekst at de er fri fra fængsel
+        boolean outOfJailSignal = false;
+
+        switch (choice) {
+            case 1: {
+                p.addMoney(-1000);
+                p.setInJail(false);
+                outOfJailSignal = true;
+            }
+            break;
+            case 2: case 3:
+                p.setInJail(false);
+                outOfJailSignal = true;
+            break;
+        }
+        return outOfJailSignal;
+    }
 }
