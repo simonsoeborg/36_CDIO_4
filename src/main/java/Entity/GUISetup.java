@@ -114,43 +114,60 @@ public class GUISetup {
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
                         reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Slut tur");
                 break;
+
             case "BuyRoll":
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
                         reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Rul");
                 break;
+
             case "Yours":
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
                         reader.read(1, fieldIndex + 1) + reader.read(3,4), "Slut");
                 break;
+
             case "YoursRoll":
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
                         reader.read(1, fieldIndex + 1) + reader.read(3,4), "Rul");
                 break;
+
             case "Theirs":
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
                         reader.read(1, fieldIndex + 1) + reader.read(3,5), "Slut");
                 break;
+
             case "TheirsRoll":
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
                         reader.read(1, fieldIndex + 1) + reader.read(3,5), "Rul");
                 break;
 
-
-
-
-                //TODO indfør passende tekster til de forskellige felter
             case "Chance":
-            case "Extraordinary state tax":
-            case "Default":
-            case "Jail":
-            case "Income tax":
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
                         reader.read(1, fieldIndex + 1), "Slut");
+                break;
+            case "Extraordinary state tax":
+                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,9),  "Betal 2000kr.-");
+                break;
+
+            case "Jail":
+                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3, 8), "Slut");
+                break;
+
+            case "Income tax":
+                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,7), "Betal 10%", "Betal 4000kr.-");
+                break;
+
+            case "InJail":
+                choice = gui.getUserButtonPressed(name + reader.read(3, 6), "Betal 1.000kr.-", "Prøv at slå par");
                 break;
 
 
 
 
+
+            case "Roll":
             default: choice = gui.getUserButtonPressed(name + reader.read(3,1), "Rul");
                 break;
         }

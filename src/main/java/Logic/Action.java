@@ -23,13 +23,18 @@ public class Action {
                 dc.roll();
                 mp.movePlayer(p, gb);
                 option += ll.checkFieldType(p.getFieldIndex(), p);
-                if (dc.isFaceValueSame()) {
+                if (dc.isFaceValueSame())
                     option += "Roll";
-                }
+
                 break;
             case "Køb":
                 po.buyField(p, fl);
+                if (dc.isFaceValueSame())
+                    option += "Roll";
+                else
+                    option += "End";
                 break;
+            case "Betal 2000kr.-":
 
 
 

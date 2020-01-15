@@ -36,42 +36,29 @@ public class MainController {
 
             p = pl.getPlayer(turn);
             name = p.getName();
-            action = "";
+            action = "Roll";
 
 
 
             while (true) {
+
+                if (p.IsInJail())
+                    action = "InJail";
                 option = gui.action(name, p.getFieldIndex(), action);
                 gui.showGameStatus(pl.getPlayers(), fl.getFields());
-                if (option.equals("Slut")) {
+                if (option.equals("Slut") || action.equals("End")) {
                     break;
                 }
                 action = ac.decideAction(option, p);
-                gui.showDice(dc.getDie1(), dc.getDie2());
+                if (option.equals("Rul"))
+                    gui.showDice(dc.getDie1(), dc.getDie2());
 
             }
 
-
-
-
-
             turn = ++turn%playerNumber;
-
-
-
-
-
-
-
 
         }
 
-
-
     }
-
-
-
-
 
 }

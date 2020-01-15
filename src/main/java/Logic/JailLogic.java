@@ -1,7 +1,6 @@
 package Logic;
 
 
-import Entity.DiceCup;
 import Entity.Player;
 
 /**
@@ -23,7 +22,7 @@ public class JailLogic {
     public boolean checkInJail (Player p){
 
         boolean pInJail = false;
-        if (p.getInJail())
+        if (p.IsInJail())
             pInJail = true;
 
         return pInJail;
