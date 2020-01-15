@@ -1,6 +1,8 @@
 package Entity;
 
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Player {
     private String name;
@@ -12,6 +14,8 @@ public class Player {
     private boolean inJail;
     private boolean freeOutOfJail;
     private boolean buying;
+    private boolean isAbleToBuyHouses;
+    private ArrayList<Integer> propertyList;
 
     public Player(String name, Color color, int id) {
 
@@ -24,6 +28,8 @@ public class Player {
         inJail =false;
         freeOutOfJail=false;
         buying=false;
+        isAbleToBuyHouses=false;
+        propertyList= new ArrayList<>();
     }
 
     public String getName() { return name; }
@@ -66,7 +72,7 @@ public class Player {
 
     public void setFieldIndex(int fieldIndex) { this.fieldIndex = fieldIndex; }
 
-    public boolean getInJail(){return inJail;}
+    public boolean IsInJail(){return inJail;}
 
     public void setInJail(boolean inJail) { this.inJail = inJail; }
 
@@ -85,6 +91,16 @@ public class Player {
     public void setId(int id) {
         this.id = id;
     }
+
+    public boolean isAbleToBuyHouses() {
+        return isAbleToBuyHouses;
+    }
+
+    public void setAbleToBuyHouses(boolean ableToBuyHouses) {
+        isAbleToBuyHouses = ableToBuyHouses;
+    }
+
+    //public void addProperty
 
     @Override
     public String toString() { return name; }

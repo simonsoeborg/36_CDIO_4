@@ -16,6 +16,7 @@ public class DiceCup {
 
         this.die1 = die1.getFaceValue();
         this.die2 = die2.getFaceValue();
+
     }
 
     /**
@@ -32,15 +33,13 @@ public class DiceCup {
      */
     // tjekker om der bliver slået 2 ens
     public boolean isFaceValueSame(){
-        boolean check;
-
+       boolean check;
        if (die1 == die2){
            check = true;
        }
        else{
            check = false;
        }
-
        return check;
     }
 

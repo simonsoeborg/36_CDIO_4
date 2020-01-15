@@ -2,6 +2,7 @@ package Entity;
 
 import Entity.Fields.Field;
 import Entity.Fields.Ownable;
+import Entity.Fields.Street;
 import gui_fields.*;
 import Entity.FileReader;
 import gui_main.GUI;
@@ -24,10 +25,9 @@ public class GUISetup {
         gui = new GUI(guiFields, Color.WHITE);
     }
 
-    public String displayChance(String fieldText) {
-        return "";
+    public void displayChanceCard(String fieldText) {
+        gui.setChanceCard(fieldText);
     }
-
 
     public void addPlayers(Player[] p) {
         players = new GUI_Player[p.length];
@@ -49,6 +49,7 @@ public class GUISetup {
      * @param pl Takes a list of players.
      * @param fl Takes a list of fields.
      */
+
     public void showGameStatus(Player[] pl, Field[] fl) {
         for (int i = 0; i < guiFields.length; i++) {
             if (guiFields[i] != null) {
@@ -63,7 +64,8 @@ public class GUISetup {
     }
 
     private void movePlayer(int i, Player[] pl) {
-        guiFields[pl[i].getFieldIndex()].setCar(players[i], true);
+        if (!pl[i].getBankruptcy())
+            guiFields[pl[i].getFieldIndex()].setCar(players[i], true);
     }
 
     private void updateBalance(int i, Player[] pl) {
@@ -71,14 +73,12 @@ public class GUISetup {
     }
 
     private void updateOwner(int i, Player[] pl, Field[] fl) {
-        int owner = ((Ownable)fl[i]).getOwnerID();
-        if (owner != 0) {
-            ((GUI_Ownable) guiFields[i]).setBorder(pl[owner-1].getColor());
+        if (fl[i] instanceof Ownable) {
+            int owner = ((Ownable) fl[i]).getOwnerID();
+            if (owner != 0) {
+                ((GUI_Ownable) guiFields[i]).setBorder(pl[owner - 1].getColor());
+            }
         }
-    }
-
-    public void winner(int winner) {
-        displayChance("Tilykke " + players[winner].getName() + "!! Du vandt spillet med " + players[winner].getBalance() + " penge");
     }
 
     public void showDice(int val1, int val2){
@@ -103,16 +103,64 @@ public class GUISetup {
     }
 
     public String action(String name, int fieldIndex, String action) {
-        String choice;
+        String choice = "";
         switch (action) {
-            default: choice = gui.getUserButtonPressed(name + reader.read(3,1), "Rul");
-            break;
-            case "buy": choice = gui.getUserButtonPressed(name + reader.read(3,2) +
-                    reader.read(1, fieldIndex) + reader.read(3,3), "Køb", "Køb ikke");
-            break;
-            case "buyOrRoll": choice = gui.getUserButtonPressed(name + reader.read(3,2) +
-                    reader.read(1, fieldIndex) + reader.read(3,3), "Køb", "Rul");
 
+            case "Buy":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Køb ikke");
+                break;
+
+            case "Yours":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,4), "Slut");
+                break;
+
+            case "YoursRoll":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,4), "Rul");
+                break;
+
+            case "Theirs":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,5), "Slut");
+                break;
+
+            case "TheirsRoll":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,5), "Rul");
+                break;
+
+            case "Chance":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1), "Slut");
+                break;
+            case "Extraordinary state tax":
+                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,9),  "Betal 2000kr.-");
+                break;
+
+            case "Jail":
+                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3, 8), "Slut");
+                break;
+
+            case "Income tax":
+                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,7), "Betal 10%", "Betal 4000kr.-");
+                break;
+
+            case "InJail":
+                choice = gui.getUserButtonPressed(name + reader.read(3, 6), "Betal 1.000kr.-", "Prøv at slå par");
+                break;
+
+
+
+
+
+            case "Roll":
+            default: choice = gui.getUserButtonPressed(name + reader.read(3,1), "Rul");
+                break;
         }
         return choice;
     }

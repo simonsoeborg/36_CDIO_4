@@ -20,4 +20,6 @@ public class Field {
     public void setFieldName(String fieldName) {
         this.fieldName = fieldName;
     }
+
+    public boolean isOwnable() { return false; }
 }

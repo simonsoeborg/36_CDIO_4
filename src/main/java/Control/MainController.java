@@ -9,7 +9,7 @@ public class MainController {
 
     private GameBoard fl = GameBoard.getInstance();
     private PlayerList pl = PlayerList.getInstance();
-
+    private Action ac = new Action();
     private PlayerMove pm = new PlayerMove();
     private DiceCup dc =  DiceCup.getINSTANCE();
 
@@ -29,40 +29,40 @@ public class MainController {
         int turn = 0;
         Player p;
         String name;
-        String action = "";
+        String action;
+        String option = "";
 
         while (true) {
 
             p = pl.getPlayer(turn);
             name = p.getName();
+            action = "Roll";
 
-            action = gui.action(name, p.getFieldIndex(), action);
 
-            if (action.equals("Rul")) {
-                dc.roll();
-                gui.showDice(dc.getDie1(), dc.getDie2());
-                pm.movePlayer(p,fl);
+
+            while (true) {
+
+                if (p.IsInJail())
+                    action = "InJail";
+                option = gui.action(name, p.getFieldIndex(), action);
                 gui.showGameStatus(pl.getPlayers(), fl.getFields());
+                if (option.equals("Slut")) {
+                    break;
+                }
+                action = ac.decideAction(option, p);
+                if (option.equals("Rul")) {
+                    gui.showDice(dc.getDie1(), dc.getDie2());
+                }
+                gui.showGameStatus(pl.getPlayers(), fl.getFields());
+                if (action.equals("End")) {
+                    break;
+                }
             }
 
-
-            turn = ++turn%playerNumber;
-
-
-
-
-
-
-
+            turn = ++turn % playerNumber;
 
         }
 
-
-
     }
-
-
-
-
 
 }

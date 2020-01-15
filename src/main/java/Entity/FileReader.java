@@ -7,10 +7,6 @@ import java.util.stream.Stream;
 
 public class FileReader {
 
-    private String file1 = "src/TextFiles/1FieldName_da.txt";
-    private String file2 = "src/TextFiles/2FieldDescription_da.txt";
-    private String file3 = "src/TextFiles/3ActionDescriptions_da.txt";
-    private String file4 = "src/TextFiles/4ChanceCards.txt";
     /**
      * @param file1 : First file to read from
      * @param file2 : Second file to read from
@@ -27,6 +23,11 @@ public class FileReader {
         String file = "";
 
         //Hvis vi vil have flere filer skal vi tilføje flere cases i switch-casen
+        String file1 = "src/TextFiles/1FieldName_da.txt";
+        String file2 = "src/TextFiles/2FieldDescription_da.txt";
+        String file3 = "src/TextFiles/3ActionDescriptions_da.txt";
+        String file4 = "src/TextFiles/4SameColoredFieldsInfo.txt";
+        String file5 = "src/TextFiles/5ChanceCards.txt";
         switch (filenumber) {
             case 1: file = file1;
                 break;
@@ -35,6 +36,8 @@ public class FileReader {
             case 3: file = file3;
                 break;
             case 4: file = file4;
+                break;
+            case 5: file = file5;
                 break;
             default: System.out.println("Filen findes ikke");
         }

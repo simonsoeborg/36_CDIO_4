@@ -1,13 +1,31 @@
 package Entity.Fields;
 
+import Entity.Player;
+
 public class IncomeTax extends Field {
 
     private int payCash;
-    private double payPercentage;
+    private int payPercentage;
 
-    public IncomeTax(String fieldName, int payCash, double payPercentage) {
+    public IncomeTax(String fieldName, int payCash, int payPercentage) {
         super(fieldName);
         this.payCash = payCash;
+        this.payPercentage = payPercentage;
+    }
+
+    public int getPayCash() {
+        return payCash;
+    }
+
+    public void setPayCash(int payCash) {
+        this.payCash = payCash;
+    }
+
+    public int getPayPercentage() {
+        return payPercentage;
+    }
+
+    public void setPayPercentage(int payPercentage) {
         this.payPercentage = payPercentage;
     }
 }
