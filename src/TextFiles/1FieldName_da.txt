@@ -2,17 +2,17 @@ Start
 Rødovrevej
 Prøv lykken
 Hvidovrevej
-Betal Indkomst- \n skat
+Betal Indkomst-skat
 Øresund
 Roskildevej
 Prøv lykken
 Vallby Langade
 Allégade
 Fængsel
-Frederiks- \nberg Allé
+Frederiksberg Allé
 Tuborg
 Bülowsvej
-Gammel \nKongevej
+Gammel Kongevej
 Kalun./Århus
 Bernstoffsvej
 Prøvlykken
@@ -30,11 +30,11 @@ Carlsberg
 Østergade
 Gå i fængsel
 Amagertorv
-Vimmel- \nskaftet
+Vimmelskaftet
 Prøv lykken
 Nygade
 Hals./Knuds.
 Prøv lykken
-Frederiks- \nberggade
-Ekstra- \nordinær \nstatskat
+Frederiksberggade
+Ekstraordinær statskat
 Rådhuspladsen

@@ -111,11 +111,11 @@ public class GUISetup {
         switch (action) {
             default: choice = gui.getUserButtonPressed(name + reader.read(3,1), "Rul");
             break;
-            case "buy": choice = gui.getUserButtonPressed(name + reader.read(3,2) +
-                    reader.read(1, fieldIndex) + reader.read(3,3), "Køb", "Køb ikke");
+            case "StreetBuy": choice = gui.getUserButtonPressed(name + reader.read(3,2) +
+                    reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Køb ikke");
             break;
             case "buyOrRoll": choice = gui.getUserButtonPressed(name + reader.read(3,2) +
-                    reader.read(1, fieldIndex) + reader.read(3,3), "Køb", "Rul");
+                    reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Rul");
 
         }
         return choice;

@@ -9,7 +9,7 @@ public class MainController {
 
     private GameBoard fl = GameBoard.getInstance();
     private PlayerList pl = PlayerList.getInstance();
-
+    private LogicList ll = new LogicList();
     private PlayerMove pm = new PlayerMove();
     private DiceCup dc =  DiceCup.getINSTANCE();
 
@@ -43,6 +43,8 @@ public class MainController {
                 gui.showDice(dc.getDie1(), dc.getDie2());
                 pm.movePlayer(p,fl);
                 gui.showGameStatus(pl.getPlayers(), fl.getFields());
+                action = ll.checkFieldType(p.getFieldIndex(), turn);
+                gui.action(name, p.getFieldIndex(), action);
             }
 
 
