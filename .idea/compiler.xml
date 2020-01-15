@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="36_M1" />
         <module name="36_M2" />
+        <module name="36_M1" />
+        <module name="36_CDIO_4" />
       </profile>
     </annotationProcessing>
   </component>
