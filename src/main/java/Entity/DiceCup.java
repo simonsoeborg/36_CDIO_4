@@ -32,15 +32,13 @@ public class DiceCup {
      */
     // tjekker om der bliver slået 2 ens
     public boolean isFaceValueSame(){
-        boolean check;
-
+       boolean check;
        if (die1 == die2){
            check = true;
        }
        else{
            check = false;
        }
-
        return check;
     }
 
