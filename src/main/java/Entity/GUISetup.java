@@ -2,6 +2,7 @@ package Entity;
 
 import Entity.Fields.Field;
 import Entity.Fields.Ownable;
+import Entity.Fields.Street;
 import gui_fields.*;
 import Entity.FileReader;
 import gui_main.GUI;
@@ -53,17 +54,18 @@ public class GUISetup {
         for (int i = 0; i < guiFields.length; i++) {
             if (guiFields[i] != null) {
                 guiFields[i].removeAllCars();
+                updateOwner(i, pl, fl);
             }
         }
         for (int j = 0; j < pl.length; j++) {
             movePlayer(j, pl);
             updateBalance(j, pl);
-            updateOwner(j, pl, fl);
         }
     }
 
     private void movePlayer(int i, Player[] pl) {
-        guiFields[pl[i].getFieldIndex()].setCar(players[i], true);
+        if (!pl[i].getBankruptcy())
+            guiFields[pl[i].getFieldIndex()].setCar(players[i], true);
     }
 
     private void updateBalance(int i, Player[] pl) {
@@ -71,7 +73,7 @@ public class GUISetup {
     }
 
     private void updateOwner(int i, Player[] pl, Field[] fl) {
-        if (fl[i].equals((Ownable)fl[i])) {
+        if (fl[i] instanceof Ownable) {
             int owner = ((Ownable) fl[i]).getOwnerID();
             if (owner != 0) {
                 ((GUI_Ownable) guiFields[i]).setBorder(pl[owner - 1].getColor());
