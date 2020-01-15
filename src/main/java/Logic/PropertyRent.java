@@ -1,5 +1,6 @@
 package Logic;
 
+import Entity.DiceCup;
 import Entity.Fields.Field;
 import Entity.Fields.Ownable;
 import Entity.Fields.Street;
@@ -15,6 +16,7 @@ public class PropertyRent {
 
     private GameBoard gameBoard;
     private FileReader reader = new FileReader();
+    private DiceCup dc = DiceCup.getINSTANCE();
 
     public PropertyRent(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
@@ -28,20 +30,10 @@ public class PropertyRent {
      * @param pl - the player list
      * @param fl - the field list
      */
-    public void payRent(int ownerID, Player p, Player[] pl, Field[] fl){
+    public void payRentStreet(int ownerID, Player p, Player[] pl, Field[] fl){
 
-        // vi bruger et for-loop til at gennemløbe alle elementer i feltlisten
-        // hvis et felt har samme farve som propertyField sættes count 1 op
-        int count = 0;
         int rentDouble = 1;
-        int actualColor = Integer.parseInt(reader.read(4, p.getFieldIndex()));
-        int sameColor;
-        for (int i = 1; i < fl.length+1; i++) {
-            sameColor = Integer.parseInt(reader.read(4, i));
-            if (actualColor == sameColor && fl[i] instanceof Ownable)
-                if (ownerID == ((Ownable)fl[i]).getOwnerID())
-                    count++;
-        }
+        int count = countProperties(ownerID, p, fl);
 
         // her tjekker vi om navnet for propertyField er en af de felter hvor der kun er 2 af samme farve
         // hvis ikke skal der være 3.
@@ -55,7 +47,75 @@ public class PropertyRent {
             break;
         }
 
-        p.addMoney(-(((Street)fl[p.getFieldIndex()]).getPropertyRent()*rentDouble));
-        pl[ownerID-1].addMoney(((Street)fl[p.getFieldIndex()]).getPropertyRent()*rentDouble);
+        p.addMoney(-(((Ownable)fl[p.getFieldIndex()]).getPropertyRent()*rentDouble));
+        pl[ownerID-1].addMoney(((Ownable)fl[p.getFieldIndex()]).getPropertyRent()*rentDouble);
     }
+
+
+    public void payRentFerry(int ownerID, Player p, Player[] pl, Field[] fl){
+
+        int rentDouble = 1;
+        int count = countProperties(ownerID, p, fl);
+
+        // her tjekker vi om navnet for propertyField er en af de felter hvor der kun er 2 af samme farve
+        // hvis ikke skal der være 3.
+        switch (count){
+            case 1: rentDouble = 1;
+            break;
+            case 2: rentDouble = 2;
+            break;
+            case 3: rentDouble = 4;
+            break;
+            case 4: rentDouble = 8;
+            break;
+        }
+
+        p.addMoney(-(((Ownable)fl[p.getFieldIndex()]).getPropertyRent()*rentDouble));
+        pl[ownerID-1].addMoney(((Ownable)fl[p.getFieldIndex()]).getPropertyRent()*rentDouble);
+    }
+
+
+    public void payRentBrewery(int ownerID, Player p, Player[] pl, Field[] fl){
+
+        int rentDouble = 1;
+        int count = countProperties(ownerID, p, fl);
+
+        // her tjekker vi om navnet for propertyField er en af de felter hvor der kun er 2 af samme farve
+        // hvis ikke skal der være 3.
+        switch (count){
+            case 1: rentDouble = 1;
+                break;
+            case 2: rentDouble = 2;
+                break;
+        }
+
+        p.addMoney(-(((Ownable)fl[p.getFieldIndex()]).getPropertyRent()*rentDouble*dc.faceValues()));
+        pl[ownerID-1].addMoney(((Ownable)fl[p.getFieldIndex()]).getPropertyRent()*rentDouble*dc.faceValues());
+    }
+
+
+    private int countProperties(int ownerID, Player p, Field[] fl) {
+
+        // vi bruger et for-loop til at gennemløbe alle elementer i feltlisten
+        // hvis et felt har samme farve som propertyField sættes count 1 op
+        int count = 0;
+        int actualColor = Integer.parseInt(reader.read(4, p.getFieldIndex()+1));
+        int sameColor;
+        for (int i = 0; i < fl.length; i++) {
+            sameColor = Integer.parseInt(reader.read(4, i + 1));
+            if (actualColor == sameColor && fl[i] instanceof Ownable)
+                if (ownerID == ((Ownable)fl[i]).getOwnerID())
+                    count++;
+        }
+
+        return count;
+    }
+
+
+
+
+
 }
+
+
+

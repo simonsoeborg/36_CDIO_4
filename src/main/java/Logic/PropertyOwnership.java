@@ -1,5 +1,6 @@
 package Logic;
 
+import Entity.Fields.Field;
 import Entity.Fields.Ownable;
 import Entity.GameBoard;
 import Entity.Player;
@@ -17,12 +18,10 @@ public class PropertyOwnership {
     /**
      * Buyfield withdraw the price for the field from the players account and set him as the owner
      * @param - p the current player
-     * @param propertyField - a field that you can own. Which the player have landed on.
-     * @return - the players color
      */
-        public void buyField(Player p, Ownable propertyField){
+        public void buyField(Player p, Field[] fl){
 
-        p.addMoney(-(propertyField.getPropertyPrice()));
-        propertyField.setOwnerID(p.getId());
+        p.addMoney(-(((Ownable)fl[p.getFieldIndex()]).getPropertyPrice()));
+        ((Ownable)fl[p.getFieldIndex()]).setOwnerID(p.getId());
         }
 }

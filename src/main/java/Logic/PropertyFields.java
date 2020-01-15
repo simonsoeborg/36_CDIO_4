@@ -29,7 +29,7 @@ public class PropertyFields {
         }
         else {
             int owner = whoseProberty(p.getFieldIndex());
-            pr.payRent(owner, p, pl.getPlayers(), fields );
+            pr.payRentStreet(owner, p, pl.getPlayers(), fields );
             return "Theirs";
         }
     }
@@ -45,7 +45,7 @@ public class PropertyFields {
         }
         else {
             int owner = whoseProberty(p.getFieldIndex());
-            pr.payRent(owner, p, pl.getPlayers(), fields );
+            pr.payRentFerry(owner, p, pl.getPlayers(), fields );
             return "Theirs";
         }
     }
@@ -61,7 +61,7 @@ public class PropertyFields {
         }
         else {
             int owner = whoseProberty(p.getFieldIndex());
-            pr.payRent(owner, p, pl.getPlayers(), fields );
+            pr.payRentBrewery(owner, p, pl.getPlayers(), fields );
             return "Theirs";
         }
     }

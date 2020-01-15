@@ -42,11 +42,12 @@ public class MainController {
 
             while (true) {
                 option = gui.action(name, p.getFieldIndex(), action);
-                if (option.equals("Slut"))
+                gui.showGameStatus(pl.getPlayers(), fl.getFields());
+                if (option.equals("Slut")) {
                     break;
+                }
                 action = ac.decideAction(option, p);
                 gui.showDice(dc.getDie1(), dc.getDie2());
-                gui.showGameStatus(pl.getPlayers(), fl.getFields());
 
             }
 
