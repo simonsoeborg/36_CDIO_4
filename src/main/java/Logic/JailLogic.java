@@ -39,7 +39,7 @@ public class JailLogic {
         if(counter > 2){
             p.setInJail(true);
             jail = true;
-
+            counter = 0;
         }
 
     return jail;

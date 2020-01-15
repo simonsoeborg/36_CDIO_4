@@ -1,3 +1,5 @@
  hvad vil du gøre?
  landede på
 , som ikke er ejet og kan derfor købes.
+, som du allerede ejer.
+, som allerede ejes af en andre, og du må derfor betale leje.

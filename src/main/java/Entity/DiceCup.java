@@ -16,6 +16,7 @@ public class DiceCup {
 
         this.die1 = die1.getFaceValue();
         this.die2 = die2.getFaceValue();
+
     }
 
     /**

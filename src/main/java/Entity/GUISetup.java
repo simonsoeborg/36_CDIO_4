@@ -107,27 +107,52 @@ public class GUISetup {
     }
 
     public String action(String name, int fieldIndex, String action) {
-        String choice;
+        String choice = "";
         switch (action) {
-            default: choice = gui.getUserButtonPressed(name + reader.read(3,1), "Rul");
-            break;
-            case "StreetBuy":
-            case "FerryBuy":
-            case "BreweryBuy":
-                choice = gui.getUserButtonPressed(name + reader.read(3,2) +
-                reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Køb ikke");
+
+            case "Buy":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Slut tur");
                 break;
-            case "buyOrRoll":
-                choice = gui.getUserButtonPressed(name + reader.read(3,2) +
-                reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Rul");
+            case "BuyRoll":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Rul");
                 break;
-            case "StreetYours":
-            case "FerryYours":
-            case "BreweryYours":
-                choice = gui.getUserButtonPressed(name + reader.read(3,2) +
-                reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Rul");
+            case "Yours":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,4), "Slut");
+                break;
+            case "YoursRoll":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,4), "Rul");
+                break;
+            case "Theirs":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,5), "Slut");
+                break;
+            case "TheirsRoll":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,5), "Rul");
                 break;
 
+
+
+
+                //TODO indfør passende tekster til de forskellige felter
+            case "Chance":
+            case "Extraordinary state tax":
+            case "Default":
+            case "Jail":
+            case "Income tax":
+                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1), "Slut");
+                break;
+
+
+
+
+            default: choice = gui.getUserButtonPressed(name + reader.read(3,1), "Rul");
+                break;
         }
         return choice;
     }

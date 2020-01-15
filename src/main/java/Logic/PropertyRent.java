@@ -24,22 +24,21 @@ public class PropertyRent {
      * first it checks all the fields on the gameboard to see if the owner owns all fields of same color
      * Which result in double rent
      * @param ownerID - the ownerID of the player who owns the field
-     * @param turn - turn of the current player
+     * @param p - the current player
      * @param pl - the player list
      * @param fl - the field list
      */
-    public void payRent(int ownerID, int turn, Player[] pl, Field[] fl){
+    public void payRent(int ownerID, Player p, Player[] pl, Field[] fl){
 
         // vi bruger et for-loop til at gennemløbe alle elementer i feltlisten
         // hvis et felt har samme farve som propertyField sættes count 1 op
-        Player p = pl[turn];
         int count = 0;
         int rentDouble = 1;
         int actualColor = Integer.parseInt(reader.read(4, p.getFieldIndex()));
         int sameColor;
         for (int i = 1; i < fl.length+1; i++) {
             sameColor = Integer.parseInt(reader.read(4, i));
-            if (actualColor == sameColor)
+            if (actualColor == sameColor && fl[i] instanceof Ownable)
                 if (ownerID == ((Ownable)fl[i]).getOwnerID())
                     count++;
         }
@@ -49,7 +48,7 @@ public class PropertyRent {
         switch (fl[p.getFieldIndex()].getFieldName()){
 
             case "Rødovrevej": case "Hvidovrevej":
-            case "Frederiks- \\nberggade": case"Rådhuspladsen":
+            case "Frederiksberggade": case"Rådhuspladsen":
                 if (count == 2) rentDouble = 2;
             break;
             default: if (count == 3) rentDouble = 2;

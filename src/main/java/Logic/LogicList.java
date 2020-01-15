@@ -7,7 +7,7 @@ public class LogicList {
 
     private PropertyFields pf = new PropertyFields();
 
-    public String checkFieldType(int fieldIndex,int turn){
+    public String checkFieldType(int fieldIndex, Player p){
 
         String felt = "";
 
@@ -15,7 +15,7 @@ public class LogicList {
             // Dette er ejendomsfelter
             case 1: case 3: case 6: case 8: case 9: case 11: case 13: case 14: case 16: case 18: case 19:
             case 21: case 23: case 24: case 26: case 27: case 29: case 31: case 32: case 34: case 37: case 39:
-                felt = "Street"+pf.checkFieldOwner(fieldIndex,turn);
+                felt = pf.checkFieldOwnerStreet(fieldIndex,p);
                 break;
 
             // Prøv lykken felter
@@ -25,12 +25,13 @@ public class LogicList {
 
             // færge felter
             case 5: case 15: case 25: case 35:
-                felt = "Ferry"+pf.checkFieldOwner(fieldIndex,turn);;
+                felt = pf.checkFieldOwnerFerry(fieldIndex,p);
                 break;
 
             // brygerier
             case 12: case 28:
-                felt = "Brewery"+pf.checkFieldOwner(fieldIndex,turn);;
+                felt = pf.checkFieldOwnerBrewery(fieldIndex,p);
+
                 break;
 
             //Indkomstskat
