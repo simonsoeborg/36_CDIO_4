@@ -53,12 +53,12 @@ public class GUISetup {
         for (int i = 0; i < guiFields.length; i++) {
             if (guiFields[i] != null) {
                 guiFields[i].removeAllCars();
-                updateOwner(i, pl, fl);
             }
         }
         for (int j = 0; j < pl.length; j++) {
             movePlayer(j, pl);
             updateBalance(j, pl);
+            updateOwner(j, pl, fl);
         }
     }
 
@@ -71,9 +71,11 @@ public class GUISetup {
     }
 
     private void updateOwner(int i, Player[] pl, Field[] fl) {
-        int owner = ((Ownable)fl[i]).getOwnerID();
-        if (owner != 0) {
-            ((GUI_Ownable) guiFields[i]).setBorder(pl[owner-1].getColor());
+        if (fl[i].equals((Ownable)fl[i])) {
+            int owner = ((Ownable) fl[i]).getOwnerID();
+            if (owner != 0) {
+                ((GUI_Ownable) guiFields[i]).setBorder(pl[owner - 1].getColor());
+            }
         }
     }
 
