@@ -35,10 +35,16 @@ public class PropertyRent {
         for (Field field:gameBoard.getFields()){
 
             /// TODO: 14-01-2020 tilføj GUIField farverne
+
             //if ( det ene felt farve == andetfeltes farve)
+
+            if (propertyField.getColorolor() ==)
+
 
             count++;
         }
+
+        count -= 1;
 
         // her tjekker vi om navnet for propertyField er en af de felter hvor der kun er 2 af samme farve
         // hvis ikke skal der være 3.
