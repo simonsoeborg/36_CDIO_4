@@ -1,40 +1,40 @@
-Start
+0 Start
 1 Rødovrevej
-Prøv lykken
+0 Prøv lykken
 1 Hvidovrevej
-Betal Indkomst- \n skat
-Øresund
+0 Betal Indkomst- \n skat
+9 Øresund
 2 Roskildevej
-Prøv lykken
+0 Prøv lykken
 2 Vallby Langade
 2 Allégade
-Fængsel
+0 Fængsel
 3 Frederiks- \nberg Allé
-Tuborg
+10 Tuborg
 3 Bülowsvej
 3 Gammel \nKongevej
-Kalun./Århus
+9 Kalun./Århus
 4 Bernstoffsvej
-Prøvlykken
+0 Prøvlykken
 4 Hellerupvej
 4 Strandvejen
-Parkering
-5Tranglen
-Prøv lykken
+0 Parkering
+5 Trianglen
+0 Prøv lykken
 5 Østerbrogade
 5 Grønningen
-Seaways
+9 Seaways
 6 Bredgade
 6 Kgs. Nytorv
-Carlsberg
+10 Carlsberg
 6 Østergade
-Gå i fængsel
+0 Gå i fængsel
 7 Amagertorv
 7 Vimmel- \nskaftet
-Prøv lykken
+0 Prøv lykken
 7 Nygade
-Hals./Knuds.
-Prøv lykken
+9 Hals./Knuds.
+0 Prøv lykken
 8 Frederiks- \nberggade
-Ekstra- \nordinær \nstatskat
+0 Ekstra- \nordinær \nstatskat
 8 Rådhuspladsen
