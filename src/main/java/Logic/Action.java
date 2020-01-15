@@ -12,10 +12,14 @@ public class Action {
     private PropertyOwnership po = new PropertyOwnership();
     private GameBoard gb = GameBoard.getInstance();
     private Field[] fl = gb.getFields();
+    private Taxes taxes = new Taxes();
+    private String option;
+
+
 
     public String decideAction (String action, Player p) {
 
-        String option = "";
+        option = "";
 
         switch (action){
 
@@ -23,18 +27,41 @@ public class Action {
                 dc.roll();
                 mp.movePlayer(p, gb);
                 option += ll.checkFieldType(p.getFieldIndex(), p);
-                if (dc.isFaceValueSame())
-                    option += "Roll";
+
+                //TODO fængsel efter tre ens
+
+
 
                 break;
+
             case "Køb":
                 po.buyField(p, fl);
-                if (dc.isFaceValueSame())
-                    option += "Roll";
-                else
-                    option += "End";
+                checkForExtra();
                 break;
+
+            case "Køb ikke":
+                checkForExtra();
+                break;
+
             case "Betal 2000kr.-":
+                taxes.stateTax(p);
+                checkForExtra();
+                break;
+
+            case "Betal 4000kr.-":
+                taxes.incomeTaxCash(p);
+                checkForExtra();
+                break;
+
+            case "Betal 10%":
+                taxes.incomeTaxPercentage(p);
+                checkForExtra();
+                break;
+
+            case "Betal":
+
+
+
 
 
 
@@ -43,5 +70,18 @@ public class Action {
 
 
         return option;
+    }
+
+
+
+
+
+
+
+    private void checkForExtra() {
+        if (dc.isFaceValueSame())
+            option += "Roll";
+        else
+            option += "End";
     }
 }

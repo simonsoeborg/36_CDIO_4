@@ -1,6 +1,6 @@
 Leje af grund 50,- \nm/ 1 hus: 250,- \nm/ 2 huse: 750,- \nm/ 3 huse: 2.250,- \nm/ 4 huse: 4.000,- \nm/ hotel: 6.000,- \nHvert hus/Hotel koster 1.000,- \nPantsætningsværdi: 600,-
 Leje af grund 50,- \nm/ 1 hus: 250,- \nm/ 2 huse: 750,- \nm/ 3 huse: 2.250,- \nm/ 4 huse: 4.000,- \nm/ hotel: 6.000,- \nHvert hus/Hotel koster 1.000.- \nPantsætningsværdi: 600,-
-Leje  500,- \nhvis 2 rederier ejes: 1.000,- \nhvis 3 rederier ejes: 2.000,- \nhvis 3 rederier ejes: 2.000,- \nhvis 4 rederier ejes: 4.000,- \n \nPantsætningsværdi: 2.000,-
+Leje  500,- \nhvis 2 rederier ejes: 1.000,- \nhvis 3 rederier ejes: 2.000,- \nhvis 4 rederier ejes: 4.000,- \n \nPantsætningsværdi: 2.000,-
 Leje af grund 100,- \nm/ 1 hus: 600,- \nm/ 2 huse: 1.800,- \nm/ 3 huse: 5.400,- \nm/ 4 huse: 8.000,- \nm/ hotel: 11.000,- \nHvert hus/Hotel koster 1.000,- \nPantsætningsværdi: 1.000,-
 Leje af grund 100,- \nm/ 1 hus: 600,- \nm/ 2 huse: 1.800,- \nm/ 3 huse: 5.400,- \nm/ 4 huse: 8.000,- \nm/ hotel: 11.000,- \nHvert hus/Hotel koster 1.000,- \nPantsætningsværdi: 1.000,-
 Leje af grund 150,- \nm/ 1 hus: 800,- \nm/ 2 huse: 2.000,- \nm/ 3 huse: 6.000,- \nm/ 4 huse: 9.000,- \nm/ hotel: 12.000,- \nHvert hus/Hotel koster 1.000,- \nPantsætningsværdi: 1.200,-

@@ -46,13 +46,15 @@ public class MainController {
                     action = "InJail";
                 option = gui.action(name, p.getFieldIndex(), action);
                 gui.showGameStatus(pl.getPlayers(), fl.getFields());
-                if (option.equals("Slut") || action.equals("End")) {
+                if (option.equals("Slut")) {
                     break;
                 }
                 action = ac.decideAction(option, p);
                 if (option.equals("Rul"))
                     gui.showDice(dc.getDie1(), dc.getDie2());
-
+                gui.showGameStatus(pl.getPlayers(), fl.getFields());
+                if (action.equals("End"))
+                    break;
             }
 
             turn = ++turn%playerNumber;

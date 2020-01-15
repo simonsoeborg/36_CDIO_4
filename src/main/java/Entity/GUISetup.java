@@ -112,12 +112,7 @@ public class GUISetup {
 
             case "Buy":
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Slut tur");
-                break;
-
-            case "BuyRoll":
-                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Rul");
+                        reader.read(1, fieldIndex + 1) + reader.read(3,3), "Køb", "Køb ikke");
                 break;
 
             case "Yours":

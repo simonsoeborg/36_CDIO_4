@@ -21,7 +21,7 @@ public class GameBoard {
         fields[1] = new Street(reader.read(1, 2), 1200, 50, 600, 1000, new Color(75,155,225));
         fields[2] = new ChanceCard(reader.read(1, 3));
         fields[3] = new Street(reader.read(1, 4), 1200, 50, 600, 1000, new Color(75,155,225));
-        fields[4] = new IncomeTax(reader.read(1, 5), 4000, 0.1);
+        fields[4] = new IncomeTax(reader.read(1, 5), 4000, 10);
         fields[5] = new Ferry(reader.read(1, 6), 4000, 500, 2000);
         fields[6] = new Street(reader.read(1, 7), 2000, 100, 1000, 1000, new Color(255,150,167));
         fields[7] = new ChanceCard(reader.read(1, 8));
@@ -55,7 +55,7 @@ public class GameBoard {
         fields[35] = new Ferry(reader.read(1, 36), 4000, 500, 2000);
         fields[36] = new ChanceCard(reader.read(1, 37));
         fields[37] = new Street(reader.read(1, 38), 7000, 700, 3500, 4000, new Color(150 ,104,141));
-        fields[38] = new StateTax(reader.read(1, 39));
+        fields[38] = new StateTax(reader.read(1, 39), 2000);
         fields[39] = new Street(reader.read(1, 40), 8000, 1000, 4000, 4000, new Color(150 ,104,141));
     }
 
