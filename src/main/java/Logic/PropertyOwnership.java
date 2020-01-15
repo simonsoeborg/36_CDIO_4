@@ -20,10 +20,9 @@ public class PropertyOwnership {
      * @param propertyField - a field that you can own. Which the player have landed on.
      * @return - the players color
      */
-        public Color buyField(Player p, Ownable propertyField){
+        public void buyField(Player p, Ownable propertyField){
 
         p.addMoney(-(propertyField.getPropertyPrice()));
         propertyField.setOwnerID(p.getId());
-        return p.getColor();
         }
 }

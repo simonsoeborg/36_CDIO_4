@@ -29,13 +29,13 @@ public class MainController {
         int turn = 0;
         Player p;
         String name;
-        String action = "";
+        String action;
 
         while (true) {
 
             p = pl.getPlayer(turn);
             name = p.getName();
-
+            action = "";
             action = gui.action(name, p.getFieldIndex(), action);
 
             if (action.equals("Rul")) {
