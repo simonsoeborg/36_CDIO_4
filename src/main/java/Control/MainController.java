@@ -1,5 +1,6 @@
 package Control;
 
+import Boundary.GUISetup;
 import Entity.*;
 import Logic.*;
 

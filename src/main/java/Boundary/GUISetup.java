@@ -1,10 +1,11 @@
-package Entity;
+package Boundary;
 
 import Entity.Fields.Field;
 import Entity.Fields.Ownable;
-import Entity.Fields.Street;
-import gui_fields.*;
 import Entity.FileReader;
+import Entity.GameBoard;
+import Entity.Player;
+import gui_fields.*;
 import gui_main.GUI;
 
 import java.awt.*;
