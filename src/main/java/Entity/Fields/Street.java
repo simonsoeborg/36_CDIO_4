@@ -18,7 +18,15 @@ public class Street extends Ownable {
         this.threeHouse = threeHouse;
         this.fourHouse = fourHouse;
         this.hotel = hotel;
-        numberOfHouses = 0;
+        this.numberOfHouses = 0;
+    }
+
+    public int getNumberOfHouses() {
+        return numberOfHouses;
+    }
+
+    public void setNumberOfHouses(int numberOfHouses) {
+        this.numberOfHouses = numberOfHouses;
     }
 
     public int getHousePrice() {
