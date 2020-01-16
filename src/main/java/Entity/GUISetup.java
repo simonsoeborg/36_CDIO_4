@@ -151,8 +151,13 @@ public class GUISetup {
                 choice = gui.getUserButtonPressed(name + reader.read(3, 6), "Betal 1.000kr.-", "Prøv at slå par");
                 break;
 
+            case "RollAgain":
+                choice = gui.getUserButtonPressed(name + reader.read(3,10), "Rul");
+                break;
+
             case "Roll":
-            default: choice = gui.getUserButtonPressed(name + reader.read(3,1), "Rul");
+            default:
+                choice = gui.getUserButtonPressed(name + reader.read(3,1), "Rul");
                 break;
         }
 
