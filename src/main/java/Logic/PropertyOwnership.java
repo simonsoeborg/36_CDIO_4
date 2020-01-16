@@ -17,6 +17,10 @@ import java.awt.*;
 
 public class PropertyOwnership {
 
+
+    private FileReader reader = new FileReader();
+    int blue = 0, pink = 0, green = 0, grey = 0, red = 0, yellow = 0, purple = 0, white = 0;
+
     /**
      * Buyfield withdraw the price for the field from the players account and set him as the owner
      *
@@ -32,10 +36,65 @@ public class PropertyOwnership {
      *
      * @param fields
      * @param p
-     * @param reader
      */
-    public void buildHouse(Field[] fields, Player p, FileReader reader) {
-        int blue = 0, pink = 0, green = 0, grey = 0, red = 0, yellow = 0, purple = 0;
+    public void buildableSets(Field[] fields, Player p) {
+        propertySetCounter(fields, p);
+
+        if (blue == 2) {
+            // retuner de blå felter til guien
+        }
+        if (purple == 2) {
+            // retuner de lilla felter til guien
+        }
+        if (pink == 3) {
+            // retuner de pink felter til guien
+        }
+        if (green == 3) {
+            // retuner grøn felter til guien
+        }
+        if (grey == 3) {
+            // retuner de grå felter til guien
+        }
+        if (red == 3) {
+            // retuner de red felter til guien
+        }
+        if (yellow == 3) {
+            // retuner de gul felter til guien
+        }
+        if (white == 3) {
+            // retuner de hvid felter til guien
+        }
+    }
+
+    //blue og purple har hver især to felter - Resten har tre felter
+
+    /**
+     * Builds a house on a owned field, and redrawm money from the players account.
+     * @param field - one of the owners field
+     * @param p - the owners turn
+     */
+    public void houseBuilder(Street field, Player p) {
+        if (field.getNumberOfHouses() <= 5) {
+            p.addMoney(-(field.getHousePrice()));
+            field.setNumberOfHouses(field.getNumberOfHouses() + 1);
+
+        }
+    }
+
+    /**
+     * sells/removes a house on a owned field
+     * @param field - one of the owners field
+     * @param p - the owners turn
+     */
+    public void houseSeller (Street field, Player p){
+            if (field.getNumberOfHouses() > 0) {
+                p.addMoney(field.getHousePrice()/2);
+                field.setNumberOfHouses(field.getNumberOfHouses() - 1);
+            }
+    }
+
+    public void propertySetCounter(Field[] fields, Player p) {
+        blue = 0; pink = 0; green = 0; grey = 0; red = 0; yellow = 0; purple = 0; white = 0;
         int index = 0;
 
         for (Field field : fields) {
@@ -63,6 +122,8 @@ public class PropertyOwnership {
                         case "7":
                             purple++;
                             break;
+                        case "8":
+                            white++;
                         default:
                             ;
                             break;
@@ -72,57 +133,17 @@ public class PropertyOwnership {
 
             index++;
         }
-
-        if (blue == 2) {
-            // retuner de blå felter til guien
-        }
-        if (purple == 2) {
-            // retuner de lilla felter til guien
-        }
-        if (pink == 3) {
-            // retuner de pink felter til guien
-        }
-        if (green == 3) {
-            // retuner green felter til guien
-        }
-        if (grey == 3) {
-            // retuner de grå felter til guien
-        }
-        if (red == 3) {
-            // retuner de red felter til guien
-        }
-        if (yellow == 3) {
-            // retuner de yellow felter til guien
-        }
     }
 
-    //blue og purple har hver især to felter - Resten har tre felter
 
-    /**
-     * Builds a house on a owned field, and redrawm money from the players account.
-     * @param field - one of the owners field
-     * @param p - the owners turn
-     */
-    public void houseBuilder(Street field, Player p) {
-        if (field.getNumberOfHouses() < 5) {
-            p.addMoney(-(field.getHousePrice()));
-            field.setNumberOfHouses(field.getNumberOfHouses() + 1);
-
-        }
+    public void canBuildHouse(Field[] fields, Player p) {
+        propertySetCounter(fields, p);
+        if (blue == 2 || purple == 2|| pink == 3|| green == 3|| grey == 3|| red == 3|| yellow == 3|| white == 3)
+            p.setAbleToBuyHouses(true);
+        else
+            p.setAbleToBuyHouses(false);
     }
-
-    /**
-     * sells/removes a house on a owned field
-     * @param field - one of the owners field
-     * @param p - the owners turn
-     */
-    public void houseSeller (Street field, Player p){
-            if (field.getNumberOfHouses() > 0) {
-                p.addMoney(field.getHousePrice()/2);
-                field.setNumberOfHouses(field.getNumberOfHouses() - 1);
-            }
-        }
-    }
+}
 
 
 

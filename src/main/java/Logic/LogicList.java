@@ -46,7 +46,6 @@ public class LogicList {
 
             // gå i fængsel
             case 30:
-                p.setFieldIndex(10);
                 p.setInJail(true);
                 felt = "Jail";
                 break;

@@ -131,29 +131,61 @@ public class GUISetup {
 
             case "Chance":
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1), "Slut");
+                        reader.read(1, fieldIndex + 1), "Slut tur");
                 break;
+            case "Income tax":
+                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3,7), "Betal 10%", "Betal 4000kr.-");
+                break;
+
             case "Extraordinary state tax":
                 choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
                         reader.read(1, fieldIndex + 1) + reader.read(3,9),  "Betal 2000kr.-");
                 break;
 
+//----------------------------------JAIL------------------------------------------------------------------//
+
             case "Jail":
                 choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3, 8), "Slut");
-                break;
-
-            case "Income tax":
-                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3,7), "Betal 10%", "Betal 4000kr.-");
+                        reader.read(1, fieldIndex + 1) + reader.read(3, 8), "Ryk i fængsel");
                 break;
 
             case "InJail":
                 choice = gui.getUserButtonPressed(name + reader.read(3, 6), "Betal 1.000kr.-", "Prøv at slå par");
                 break;
 
+            case "NotFree":
+                choice = gui.getUserButtonPressed(name + reader.read(3, 12), "Ok");
+                break;
+
+            case "Free":
+                choice = gui.getUserButtonPressed(name + reader.read(3,14), "Rul");
+                break;
+
+            case "ThreeRoundsInJail":
+                choice = gui.getUserButtonPressed(name + reader.read(3, 13), "Betal");
+                break;
+
+            case "3Doubles":
+                choice = gui.getUserButtonPressed(name + reader.read(3, 15), "Ryk i fængsel");
+                break;
+
+
             case "RollAgain":
                 choice = gui.getUserButtonPressed(name + reader.read(3,10), "Rul");
+                break;
+
+            case "House":
+                choice = gui.getUserButtonPressed(reader.read(3, 16), "Byg Hus", "Slut tur");
+                break;
+
+            case "HouseRoll":
+                choice = gui.getUserButtonPressed(reader.read(3, 16), "Byg Hus", "Rul");
+                break;
+
+            case "Default":
+                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3, 11), "Ok");
                 break;
 
             case "Roll":

@@ -16,6 +16,7 @@ public class Player {
     private boolean buying;
     private boolean isAbleToBuyHouses;
     private int roundsInJail;
+    private int doublesInARow;
 
     public Player(String name, Color color, int id) {
 
@@ -30,6 +31,8 @@ public class Player {
         buying = false;
         isAbleToBuyHouses = false;
         roundsInJail = 0;
+        doublesInARow = 0;
+
     }
 
     public String getName() { return name; }
@@ -72,7 +75,7 @@ public class Player {
 
     public void setFieldIndex(int fieldIndex) { this.fieldIndex = fieldIndex; }
 
-    public boolean IsInJail(){return inJail;}
+    public boolean isInJail(){return inJail;}
 
     public void setInJail(boolean inJail) { this.inJail = inJail; }
 
@@ -106,6 +109,18 @@ public class Player {
 
     public void setRoundsInJail(int roundsInJail) {
         this.roundsInJail = roundsInJail;
+    }
+
+    public void addRoundInJail() {
+        this.roundsInJail++;
+    }
+
+    public int getDoublesInARow() {
+        return doublesInARow;
+    }
+
+    public void setDoublesInARow(int doublesInARow) {
+        this.doublesInARow = doublesInARow;
     }
 
     @Override

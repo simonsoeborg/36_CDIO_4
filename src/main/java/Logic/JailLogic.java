@@ -25,27 +25,23 @@ public class JailLogic {
     public boolean checkInJail (Player p){
 
         boolean pInJail = false;
-        if (p.IsInJail())
+        if (p.isInJail())
             pInJail = true;
 
         return pInJail;
     }
 
     public boolean checkNumDoubles(Player p, boolean check){
-
-        boolean jail = false;
-
-        if(check)
-            counter++;
-
-        if(counter > 2){
+        if (check)
+            p.setDoublesInARow(p.getDoublesInARow()+1);
+        else
+            p.setDoublesInARow(0);
+        if(p.getDoublesInARow() > 2){
             p.setInJail(true);
-            jail = true;
-            counter = 0;
+            p.setDoublesInARow(0);
+            return true;
         }
-
-    return jail;
-
+        return false;
     }
 
     // spilleren har valgt om han vil betale eller roll med terningerne
@@ -75,6 +71,7 @@ public class JailLogic {
         p.setInJail(false);
         p.setRoundsInJail(0);
     }
+
 
 
 }

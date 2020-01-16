@@ -29,53 +29,68 @@ public class Action {
 
         option = "";
 
-        switch (action){
+        switch (action) {
 
             case "Rul":
-                dc.roll();
-                mp.movePlayer(p, gb);
-                option += ll.checkFieldType(p.getFieldIndex(), p);
+                dc.testRoll(); //Test
 
-                //TODO fængsel efter tre ens
-
-
+                if (jl.checkNumDoubles(p, dc.isFaceValueSame()))
+                    option = "3Doubles";
+                else {
+                    mp.movePlayer(p, gb);
+                    option += ll.checkFieldType(p.getFieldIndex(), p);
+                }
                 break;
 
             case "Køb":
                 po.buyField(p, fl);
-                checkForExtra();
+                checkForExtra(p);
                 break;
 
             case "Køb ikke":
             case "Ok":
-                checkForExtra();
+                checkForExtra(p);
                 break;
 
             case "Betal 2000kr.-":
                 taxes.stateTax(p);
-                checkForExtra();
+                checkForExtra(p);
                 break;
 
             case "Betal 4000kr.-":
                 taxes.incomeTaxCash(p);
-                checkForExtra();
+                checkForExtra(p);
                 break;
 
             case "Betal 10%":
                 taxes.incomeTaxPercentage(p);
-                checkForExtra();
+                checkForExtra(p);
                 break;
 
             case "Betal":
                 payRent(p);
-                checkForExtra();
+                checkForExtra(p);
                 break;
 
             case "Betal 1000kr.-":
                 jl.payOutOfJail(p);
                 option = "Roll";
+                break;
 
             case "Prøv at slå par":
+                dc.testRoll(); // test
+                if (dc.isFaceValueSame()) {
+                    p.setInJail(false);
+                    option = "Free";
+                    p.setRoundsInJail(0);
+                } else
+                    option = "NotFree";
+                break;
+
+            case "Ryk i fængsel":
+                p.setFieldIndex(10);
+                option = "End";
+                break;
 
 
         }
@@ -90,10 +105,14 @@ public class Action {
 
 
 
-    private void checkForExtra() {
+    private void checkForExtra(Player p) {
+        if (p.isAbleToBuyHouses())
+            option += "House";
+
         if (dc.isFaceValueSame())
             option += "RollAgain";
-        else
+
+        if (!(dc.isFaceValueSame() && !(p.isAbleToBuyHouses())))
             option += "End";
     }
 
@@ -107,6 +126,20 @@ public class Action {
 
         if (fl[p.getFieldIndex()] instanceof Brewery)
             pr.payRentBrewery(owner, p, pl.getPlayers(), fl);
+    }
+
+    public void jailCountUp(Player p) {
+        if (p.isInJail())
+            p.addRoundInJail();
+    }
+
+    public boolean threeRoundsInJail(Player p) {
+        if (p.getRoundsInJail() == 3) {
+            p.addMoney(-1000);
+            p.setInJail(false);
+            return false;
+        } else
+            return true;
     }
 
 }

@@ -8,3 +8,9 @@
  og skal rykke til fængsel.
 , og skattefar vil ha' flere penge.
  slog et par og må derfor slå igen.
+, der sker ikke noget.
+ slog ikke et par og må derfor forblive i fængsel.
+ har nu siddet i fængsel i tre runder og skal derfor betale 1000kr.-, du må rykke i næste runde.
+ slog et par, slå igen for at ryke ud af fængslet.
+ har slået tre par i træk og skal derfor rykke i fængsel.
+Vil du bygge et hus?
