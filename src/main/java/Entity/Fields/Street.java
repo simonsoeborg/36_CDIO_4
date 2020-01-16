@@ -18,11 +18,6 @@ public class Street extends Ownable {
         this.hotel = hotel;
     }
 
-    public Street(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice, int housePrice, Color color) {
-        super(fieldName, propertyPrice, propertyRent, propertyPledgePrice);
-        this.housePrice = housePrice;
-    }
-
     public int getHousePrice() {
         return housePrice;
     }
