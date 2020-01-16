@@ -78,7 +78,7 @@ public class Action {
                 break;
 
             case "Prøv at slå par":
-                dc.testRoll(); // test
+                dc.roll(); // test
                 if (dc.isFaceValueSame()) {
                     p.setInJail(false);
                     option = "Free";
@@ -91,6 +91,9 @@ public class Action {
                 p.setFieldIndex(10);
                 option = "End";
                 break;
+
+//            case "Byg hus":
+//                option = po.buildableSets(fl, p);;
 
 
         }
@@ -106,13 +109,13 @@ public class Action {
 
 
     private void checkForExtra(Player p) {
-        if (p.isAbleToBuyHouses())
+        if (po.canBuildHouse(fl, p))
             option += "House";
 
         if (dc.isFaceValueSame())
             option += "RollAgain";
 
-        if (!(dc.isFaceValueSame() && !(p.isAbleToBuyHouses())))
+        if (!(dc.isFaceValueSame()) && !(po.canBuildHouse(fl, p)))
             option += "End";
     }
 

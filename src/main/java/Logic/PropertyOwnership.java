@@ -37,34 +37,36 @@ public class PropertyOwnership {
      * @param fields
      * @param p
      */
-    public void buildableSets(Field[] fields, Player p) {
-        propertySetCounter(fields, p);
-
-        if (blue == 2) {
-            // retuner de blå felter til guien
-        }
-        if (purple == 2) {
-            // retuner de lilla felter til guien
-        }
-        if (pink == 3) {
-            // retuner de pink felter til guien
-        }
-        if (green == 3) {
-            // retuner grøn felter til guien
-        }
-        if (grey == 3) {
-            // retuner de grå felter til guien
-        }
-        if (red == 3) {
-            // retuner de red felter til guien
-        }
-        if (yellow == 3) {
-            // retuner de gul felter til guien
-        }
-        if (white == 3) {
-            // retuner de hvid felter til guien
-        }
-    }
+//    public Stirng buildableSets(Field[] fields, Player p) {
+//        propertySetCounter(fields, p);
+//
+//        Stir
+//
+//        if (blue == 2) {
+//
+//        }
+//        if (purple == 2) {
+//            // retuner de lilla felter til guien
+//        }
+//        if (pink == 3) {
+//            // retuner de pink felter til guien
+//        }
+//        if (green == 3) {
+//            // retuner grøn felter til guien
+//        }
+//        if (grey == 3) {
+//            // retuner de grå felter til guien
+//        }
+//        if (red == 3) {
+//            // retuner de red felter til guien
+//        }
+//        if (yellow == 3) {
+//            // retuner de gul felter til guien
+//        }
+//        if (white == 3) {
+//            // retuner de hvid felter til guien
+//        }
+//    }
 
     //blue og purple har hver især to felter - Resten har tre felter
 
@@ -93,55 +95,57 @@ public class PropertyOwnership {
             }
     }
 
+    public boolean canBuildHouse(Field[] fields, Player p) {
+        propertySetCounter(fields, p);
+        if (p.getBlue() == 2 || p.getPurple() == 2|| p.getPink() == 3|| p.getGreen() == 3|| p.getGrey() == 3|| p.getRed() == 3|| p.getYellow() == 3|| p.getWhite() == 3)
+            return true;
+        else
+            return false;
+    }
+
     public void propertySetCounter(Field[] fields, Player p) {
-        blue = 0; pink = 0; green = 0; grey = 0; red = 0; yellow = 0; purple = 0; white = 0;
-        int index = 0;
+
+        p.Altf4();
+
+        int line = 1;
 
         for (Field field : fields) {
             if (field instanceof Street) {
                 if (p.getId() == ((Street) field).getOwnerID()) {
-                    switch (reader.read(4, index)) {
+                    switch (reader.read(4, line)) {
                         case "1":
-                            blue++;
+                            p.setBlue(p.getBlue()+1);
                             break;
                         case "2":
-                            pink++;
+                            p.setPink(p.getPink()+1);
                             break;
                         case "3":
-                            green++;
+                            p.setGreen(p.getGreen()+1);
                             break;
                         case "4":
-                            grey++;
+                            p.setGrey(p.getGrey()+1);
                             break;
                         case "5":
-                            red++;
+                            p.setRed(p.getRed()+1);
                             break;
                         case "6":
-                            yellow++;
+                            p.setWhite(p.getWhite()+1);
                             break;
                         case "7":
-                            purple++;
+                            p.setYellow(p.getYellow()+1);
                             break;
                         case "8":
-                            white++;
+                            p.setPurple(p.getPurple()+1);
+                            break;
                         default:
-                            ;
                             break;
                     }
                 }
             }
 
-            index++;
+            line++;
         }
-    }
 
-
-    public void canBuildHouse(Field[] fields, Player p) {
-        propertySetCounter(fields, p);
-        if (blue == 2 || purple == 2|| pink == 3|| green == 3|| grey == 3|| red == 3|| yellow == 3|| white == 3)
-            p.setAbleToBuyHouses(true);
-        else
-            p.setAbleToBuyHouses(false);
     }
 }
 

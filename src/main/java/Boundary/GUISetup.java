@@ -8,6 +8,7 @@ import Entity.Player;
 import gui_fields.*;
 import gui_main.GUI;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class GUISetup {
@@ -48,6 +49,7 @@ public class GUISetup {
             guiFields[0].setCar(player, true);
         }
     }
+
 
     /**
      * Updates the board (balance, car placements, ownerships).
@@ -178,6 +180,13 @@ public class GUISetup {
             case "House":
                 choice = gui.getUserButtonPressed(reader.read(3, 16), "Byg Hus", "Slut tur");
                 break;
+
+            case "BuildHouse":
+                choice = gui.getUserSelection(reader.read(3, 16), "Blå", "Pink", "Grøn", "Grå", "Rød", "Hvid", "Gul", "Lilla");
+                break;
+
+
+
 
             case "HouseRoll":
                 choice = gui.getUserButtonPressed(reader.read(3, 16), "Byg Hus", "Rul");

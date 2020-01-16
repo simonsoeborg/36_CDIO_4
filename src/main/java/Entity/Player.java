@@ -17,6 +17,7 @@ public class Player {
     private boolean isAbleToBuyHouses;
     private int roundsInJail;
     private int doublesInARow;
+    private int blue = 0, pink = 0, green = 0, grey = 0, red = 0, yellow = 0, purple = 0, white = 0;
 
     public Player(String name, Color color, int id) {
 
@@ -121,6 +122,81 @@ public class Player {
 
     public void setDoublesInARow(int doublesInARow) {
         this.doublesInARow = doublesInARow;
+    }
+
+    public int getBlue() {
+        return blue;
+    }
+
+    public void setBlue(int blue) {
+        this.blue = blue;
+    }
+
+    public int getPink() {
+        return pink;
+    }
+
+    public void setPink(int pink) {
+        this.pink = pink;
+    }
+
+    public int getGreen() {
+        return green;
+    }
+
+    public void setGreen(int green) {
+        this.green = green;
+    }
+
+    public int getGrey() {
+        return grey;
+    }
+
+    public void setGrey(int grey) {
+        this.grey = grey;
+    }
+
+    public int getRed() {
+        return red;
+    }
+
+    public void setRed(int red) {
+        this.red = red;
+    }
+
+    public int getYellow() {
+        return yellow;
+    }
+
+    public void setYellow(int yellow) {
+        this.yellow = yellow;
+    }
+
+    public int getPurple() {
+        return purple;
+    }
+
+    public void setPurple(int purple) {
+        this.purple = purple;
+    }
+
+    public int getWhite() {
+        return white;
+    }
+
+    public void setWhite(int white) {
+        this.white = white;
+    }
+
+    public void Altf4() {
+        setBlue(0);
+        setRed(0);
+        setPink(0);
+        setGrey(0);
+        setGreen(0);
+        setYellow(0);
+        setWhite(0);
+        setPurple(0);
     }
 
     @Override
