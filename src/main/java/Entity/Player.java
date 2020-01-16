@@ -15,7 +15,7 @@ public class Player {
     private boolean freeOutOfJail;
     private boolean buying;
     private boolean isAbleToBuyHouses;
-    private ArrayList<Integer> propertyList;
+    private int roundsInJail;
 
     public Player(String name, Color color, int id) {
 
@@ -24,12 +24,12 @@ public class Player {
         this.id = id;
         money=30000;
         fieldIndex = 0;
-        bankruptcy =false;
-        inJail =false;
-        freeOutOfJail=false;
-        buying=false;
-        isAbleToBuyHouses=false;
-        propertyList= new ArrayList<>();
+        bankruptcy = false;
+        inJail = false;
+        freeOutOfJail = false;
+        buying = false;
+        isAbleToBuyHouses = false;
+        roundsInJail = 0;
     }
 
     public String getName() { return name; }
@@ -100,7 +100,13 @@ public class Player {
         isAbleToBuyHouses = ableToBuyHouses;
     }
 
-    //public void addProperty
+    public int getRoundsInJail() {
+        return roundsInJail;
+    }
+
+    public void setRoundsInJail(int roundsInJail) {
+        this.roundsInJail = roundsInJail;
+    }
 
     @Override
     public String toString() { return name; }

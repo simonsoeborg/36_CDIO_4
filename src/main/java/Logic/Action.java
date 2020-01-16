@@ -20,6 +20,7 @@ public class Action {
     private Taxes taxes = new Taxes();
     private PropertyRent pr = new PropertyRent(gb);
     private PropertyFields pf = new PropertyFields();
+    private JailLogic jl = new JailLogic();
     private String option;
 
 
@@ -71,9 +72,11 @@ public class Action {
                 break;
 
             case "Betal 1000kr.-":
-
+                jl.payOutOfJail(p);
+                option = "Roll";
 
             case "Prøv at slå par":
+
 
         }
 

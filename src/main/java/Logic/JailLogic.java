@@ -10,7 +10,10 @@ import Entity.Player;
  */
 public class JailLogic {
 
-    private int counter = 0;
+    private int counter =0 ;
+
+
+
 
 
     /**
@@ -65,4 +68,13 @@ public class JailLogic {
         }
         return outOfJailSignal;
     }
+
+
+    public void payOutOfJail(Player p) {
+        p.addMoney(-1000);
+        p.setInJail(false);
+        p.setRoundsInJail(0);
+    }
+
+
 }
