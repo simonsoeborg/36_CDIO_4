@@ -5,7 +5,6 @@ import java.awt.*;
 public abstract class Ownable extends Field {
 
     private int propertyPrice, propertyRent, propertyPledgePrice, ownerID;
-    private Color color;
 
     /**
      * @param fieldName name on the field

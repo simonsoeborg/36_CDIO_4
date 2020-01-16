@@ -70,6 +70,11 @@ public class Action {
                 checkForExtra();
                 break;
 
+            case "Betal 1000kr.-":
+
+
+            case "Prøv at slå par":
+
         }
 
 

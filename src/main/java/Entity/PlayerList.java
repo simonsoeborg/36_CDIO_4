@@ -7,7 +7,7 @@ public class PlayerList {
     private static final PlayerList INSTANCE = new PlayerList();
     private Player[] players;
     private int playerNumber;
-    private Color[] colorList = {Color.BLACK, Color.YELLOW, Color.BLUE, Color.GREEN, Color.RED, Color.MAGENTA};
+    private Color[] colorList = {Color.RED , Color.YELLOW, Color.BLUE, Color.GREEN, Color.MAGENTA, Color.CYAN};
 //    public String [] playerNames = {"Bo i folkswagen","Lis i Up", "Jens i goCar", "Brian i BMW","Britta Jensen", "Olga på cykel"};
 
     public PlayerList() {}
