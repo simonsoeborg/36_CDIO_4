@@ -65,23 +65,8 @@ public class PropertyOwnership {
         }
     //blue og purple har hver især to felter - Resten har tre felter
 
-
-
-    private int countProperties(int ownerID, Player p, Field[] fl) {
-
-        // vi bruger et for-loop til at gennemløbe alle elementer i feltlisten
-        // hvis et felt har samme farve som propertyField sættes count 1 op
-        int count = 0;
-        int actualColor = Integer.parseInt(reader.read(4, p.getFieldIndex()+1));
-        int sameColor;
-        for (int i = 0; i < fl.length; i++) {
-            sameColor = Integer.parseInt(reader.read(4, i + 1));
-            if (actualColor == sameColor && fl[i] instanceof Ownable)
-                if (ownerID == ((Ownable)fl[i]).getOwnerID())
-                    count++;
-        }
-
-        return count;
+    public void houseBuilder(Street field){
+            switch (field)
     }
 }
 
