@@ -29,6 +29,9 @@ public class GUISetup {
         return "";
     }
 
+    public void displayChanceCard(String fieldText) {
+        gui.setChanceCard(fieldText);
+    }
 
     public void addPlayers(Player[] p) {
         players = new GUI_Player[p.length];
@@ -117,22 +120,12 @@ public class GUISetup {
 
             case "Yours":
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3,4), "Slut");
-                break;
-
-            case "YoursRoll":
-                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3,4), "Rul");
+                        reader.read(1, fieldIndex + 1) + reader.read(3,4), "Ok");
                 break;
 
             case "Theirs":
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3,5), "Slut");
-                break;
-
-            case "TheirsRoll":
-                choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3,5), "Rul");
+                        reader.read(1, fieldIndex + 1) + reader.read(3,5), "Betal");
                 break;
 
             case "Chance":
@@ -158,14 +151,11 @@ public class GUISetup {
                 choice = gui.getUserButtonPressed(name + reader.read(3, 6), "Betal 1.000kr.-", "Prøv at slå par");
                 break;
 
-
-
-
-
             case "Roll":
             default: choice = gui.getUserButtonPressed(name + reader.read(3,1), "Rul");
                 break;
         }
+
         return choice;
     }
 

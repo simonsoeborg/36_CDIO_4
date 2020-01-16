@@ -11,6 +11,7 @@ public class FileReader {
     private String file2 = "src/TextFiles/2FieldDescription_da.txt";
     private String file3 = "src/TextFiles/3ActionDescriptions_da.txt";
     private String file4 = "src/TextFiles/4SameColoredFieldsInfo.txt";
+    private String file5 = "src/TextFiles/5ChanceCards.txt";
 
     /**
      * @param file1 : First file to read from
@@ -36,6 +37,8 @@ public class FileReader {
             case 3: file = file3;
                 break;
             case 4: file = file4;
+                break;
+            case 5: file = file5;
                 break;
             default: System.out.println("Filen findes ikke");
         }

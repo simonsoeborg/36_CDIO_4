@@ -2,6 +2,7 @@ package Logic;
 
 import Entity.DiceCup;
 import Entity.Fields.Field;
+import Entity.Fields.Street;
 import Entity.GameBoard;
 import Entity.Player;
 
@@ -40,6 +41,7 @@ public class Action {
                 break;
 
             case "Køb ikke":
+            case "Ok":
                 checkForExtra();
                 break;
 
@@ -59,12 +61,8 @@ public class Action {
                 break;
 
             case "Betal":
-
-
-
-
-
-
+     //           if (fl[p.getFieldIndex()] instanceof Street)
+     //               pr.payRentStreet();
 
         }
 
@@ -80,7 +78,7 @@ public class Action {
 
     private void checkForExtra() {
         if (dc.isFaceValueSame())
-            option += "Roll";
+            option += "RollAgain";
         else
             option += "End";
     }
