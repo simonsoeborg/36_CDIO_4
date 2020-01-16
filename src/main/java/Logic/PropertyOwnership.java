@@ -2,6 +2,8 @@ package Logic;
 
 import Entity.Fields.Field;
 import Entity.Fields.Ownable;
+import Entity.Fields.Street;
+import Entity.FileReader;
 import Entity.GameBoard;
 import Entity.Player;
 
@@ -24,4 +26,62 @@ public class PropertyOwnership {
         p.addMoney(-(((Ownable)fl[p.getFieldIndex()]).getPropertyPrice()));
         ((Ownable)fl[p.getFieldIndex()]).setOwnerID(p.getId());
         }
+
+        public void buildHouse(Field[] fields, Player p, FileReader reader){
+            int blue=0, pink=0, green=0, grey=0, red=0, yellow=0, purple=0;
+            int index = 0;
+
+            for (Field field: fields) {
+                if (field instanceof Street){
+                    if (p.getId()==((Street) field).getOwnerID()){
+                        switch (reader.read(4,index)){
+                            case "1": blue++;
+                            break;
+                            case "2": pink++;
+                            break;
+                            case "3": green++;
+                            break;
+                            case "4": grey++;
+                            break;
+                            case "5": red++;
+                            break;
+                            case "6": yellow++;
+                            break;
+                            case "7": purple++;
+                            break;
+                            default: ;
+                            break;
+                        }
+                    }
+                }
+
+                index++;
+            }
+
+            if (blue==2||purple==2||pink==3||green==3||grey==3||red==3||yellow==3){
+              //Send besked til GUI om at knappen 'byg hus' skal oprettes
+            }
+            else //Send besked at han ikke kan købe
+        }
+    //blue og purple har hver især to felter - Resten har tre felter
+
+
+
+    private int countProperties(int ownerID, Player p, Field[] fl) {
+
+        // vi bruger et for-loop til at gennemløbe alle elementer i feltlisten
+        // hvis et felt har samme farve som propertyField sættes count 1 op
+        int count = 0;
+        int actualColor = Integer.parseInt(reader.read(4, p.getFieldIndex()+1));
+        int sameColor;
+        for (int i = 0; i < fl.length; i++) {
+            sameColor = Integer.parseInt(reader.read(4, i + 1));
+            if (actualColor == sameColor && fl[i] instanceof Ownable)
+                if (ownerID == ((Ownable)fl[i]).getOwnerID())
+                    count++;
+        }
+
+        return count;
+    }
 }
+
