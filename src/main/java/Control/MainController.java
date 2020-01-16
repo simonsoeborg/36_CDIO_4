@@ -50,14 +50,16 @@ public class MainController {
                     break;
                 }
                 action = ac.decideAction(option, p);
-                if (option.equals("Rul"))
+                if (option.equals("Rul")) {
                     gui.showDice(dc.getDie1(), dc.getDie2());
+                }
                 gui.showGameStatus(pl.getPlayers(), fl.getFields());
-                if (action.equals("End"))
+                if (action.equals("End")) {
                     break;
+                }
             }
 
-            turn = ++turn%playerNumber;
+            turn = ++turn % playerNumber;
 
         }
 
