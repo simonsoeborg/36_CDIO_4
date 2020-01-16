@@ -28,6 +28,12 @@ public class PropertyOwnership {
         ((Ownable) fl[p.getFieldIndex()]).setOwnerID(p.getId());
     }
 
+    /**
+     *
+     * @param fields
+     * @param p
+     * @param reader
+     */
     public void buildHouse(Field[] fields, Player p, FileReader reader) {
         int blue = 0, pink = 0, green = 0, grey = 0, red = 0, yellow = 0, purple = 0;
         int index = 0;
@@ -92,6 +98,11 @@ public class PropertyOwnership {
 
     //blue og purple har hver især to felter - Resten har tre felter
 
+    /**
+     * Builds a house on a owned field, and redrawm money from the players account.
+     * @param field - one of the owners field
+     * @param p - the owners turn
+     */
     public void houseBuilder(Street field, Player p) {
         if (field.getNumberOfHouses() < 5) {
             p.addMoney(-(field.getHousePrice()));
@@ -100,6 +111,11 @@ public class PropertyOwnership {
         }
     }
 
+    /**
+     * sells/removes a house on a owned field
+     * @param field - one of the owners field
+     * @param p - the owners turn
+     */
     public void houseSeller (Street field, Player p){
             if (field.getNumberOfHouses() > 0) {
                 p.addMoney(field.getHousePrice()/2);
