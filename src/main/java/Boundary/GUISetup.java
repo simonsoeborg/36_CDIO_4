@@ -145,7 +145,7 @@ public class GUISetup {
                         reader.read(1, fieldIndex + 1) + reader.read(3,9),  "Betal 2000kr.-");
                 break;
 
-//----------------------------------JAIL------------------------------------------------------------------//
+//----------------------------------------------JAIL------------------------------------------------------------------//
 
             case "Jail":
                 choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
@@ -172,29 +172,28 @@ public class GUISetup {
                 choice = gui.getUserButtonPressed(name + reader.read(3, 15), "Ryk i fængsel");
                 break;
 
-
-            case "RollAgain":
-                choice = gui.getUserButtonPressed(name + reader.read(3,10), "Rul");
-                break;
+//----------------------------------------------House-----------------------------------------------------------------//
 
             case "House":
                 choice = gui.getUserButtonPressed(reader.read(3, 16), "Byg Hus", "Slut tur");
                 break;
 
-            case "BuildHouse":
-                choice = gui.getUserSelection(reader.read(3, 16), "Blå", "Pink", "Grøn", "Grå", "Rød", "Hvid", "Gul", "Lilla");
-                break;
-
-
-
-
             case "HouseRoll":
-                choice = gui.getUserButtonPressed(reader.read(3, 16), "Byg Hus", "Rul");
+                choice = gui.getUserButtonPressed(reader.read(3, 17), "Byg Hus", "Rul");
                 break;
+
+            case "BuildHouse":
+                choice = gui.getUserSelection(reader.read(3, 18), "Blå", "Pink", "Grøn", "Grå", "Rød", "Hvid", "Gul", "Lilla");
+                break;
+//----------------------------------------------JAIL------------------------------------------------------------------//
 
             case "Default":
                 choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
                         reader.read(1, fieldIndex + 1) + reader.read(3, 11), "Ok");
+                break;
+
+            case "RollAgain":
+                choice = gui.getUserButtonPressed(name + reader.read(3,10), "Rul");
                 break;
 
             case "Roll":

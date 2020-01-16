@@ -14,3 +14,5 @@
  slog et par, slå igen for at ryke ud af fængslet.
  har slået tre par i træk og skal derfor rykke i fængsel.
 Vil du bygge et hus?
+Vil du bygge et hus eller kaste igen?
+Hvor vil du bygge?

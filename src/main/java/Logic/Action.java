@@ -32,7 +32,7 @@ public class Action {
         switch (action) {
 
             case "Rul":
-                dc.testRoll(); //Test
+                dc.roll(); //Test
 
                 if (jl.checkNumDoubles(p, dc.isFaceValueSame()))
                     option = "3Doubles";
@@ -92,8 +92,77 @@ public class Action {
                 option = "End";
                 break;
 
-//            case "Byg hus":
-//                option = po.buildableSets(fl, p);;
+            case "Byg hus":
+                option = "BuildHouse";
+                break;
+
+                //TODO Sørge for at huse bliver bygget under vores kontrol dvs. jævnt.
+
+            case "Blå":
+                if (p.getBlue() == 2) {
+                    po.houseBuilder(((Street)fl[1]), p);
+                } else {
+                    option = "House";
+                }
+                break;
+
+            case "Pink":
+                if (p.getPink() == 2) {
+                    po.houseBuilder(((Street)fl[1]), p);
+                } else {
+                    option = "House";
+                }
+                break;
+
+            case "Grøn":
+                if (p.getGreen() == 2) {
+                    po.houseBuilder(((Street)fl[1]), p);
+                } else {
+                    option = "House";
+                }
+                break;
+
+            case "Grå":
+                if (p.getGrey() == 2) {
+                    po.houseBuilder(((Street)fl[1]), p);
+                } else {
+                    option = "House";
+                }
+                break;
+
+            case "Rød":
+                if (p.getRed() == 2) {
+                    po.houseBuilder(((Street)fl[1]), p);
+                } else {
+                    option = "House";
+                }
+                break;
+
+            case "Hvid":
+                if (p.getWhite() == 2) {
+                    po.houseBuilder(((Street)fl[1]), p);
+                } else {
+                    option = "House";
+                }
+                break;
+
+            case "Gul":
+                if (p.getYellow() == 2) {
+                    po.houseBuilder(((Street)fl[1]), p);
+                } else {
+                    option = "House";
+                }
+                break;
+
+            case "Lilla":
+                if (p.getPurple() == 2) {
+                    po.houseBuilder(((Street)fl[1]), p);
+                } else {
+                    option = "House";
+                }
+                break;
+
+
 
 
         }
