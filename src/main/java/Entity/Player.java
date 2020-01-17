@@ -3,6 +3,7 @@ package Entity;
 import java.awt.*;
 
 public class Player {
+
     private String name;
     private Color color;
     private int money;

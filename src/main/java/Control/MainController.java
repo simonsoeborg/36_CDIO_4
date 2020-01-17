@@ -47,6 +47,7 @@ public class MainController {
             if (p.getMoney() <= 0) {
                 p.setBankruptcy(true);
             }
+            
             while (true) {
 
                 option = gui.action(name, p.getFieldIndex(), action);
