@@ -83,6 +83,8 @@ public class GameBoard {
         return selectField;
     }
 
+
+
     public static GameBoard getInstance() {
         return INSTANCE;
     }

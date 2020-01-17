@@ -5,6 +5,8 @@ import Entity.Fields.Ownable;
 import Entity.FileReader;
 import Entity.GameBoard;
 import Entity.Player;
+import Logic.Action;
+import Logic.ChanceCardLogic;
 import gui_fields.*;
 import gui_main.GUI;
 
@@ -16,6 +18,8 @@ public class GUISetup {
     private static final GUISetup INSTANCE = new GUISetup();
     private FileReader reader = new FileReader();
     private GameBoard fl = GameBoard.getInstance();
+    private ChanceCardLogic cl = ChanceCardLogic.getInstance();
+
 
     private GUI gui;
     private String[] playerNames;
@@ -31,8 +35,8 @@ public class GUISetup {
         return "";
     }
 
-    private void displayChanceCard(String fieldText) {
-        gui.setChanceCard(fieldText);
+    private void displayChanceCard() {
+        gui.setChanceCard(reader.read(5, cl.getRandom()));
     }
 
     public void addPlayers(Player[] p) {
@@ -139,10 +143,35 @@ public class GUISetup {
                         reader.read(1, fieldIndex + 1) + reader.read(3,5), "Betal");
                 break;
 
+            case "Default":
+                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3, 11), "Ok");
+                break;
+
+//----------------------------------------------Chance----------------------------------------------------------------//
+
             case "Chance":
                 choice = gui.getUserButtonPressed(name + reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1), "Slut tur");
+                        reader.read(1, fieldIndex + 1), "Træk kort");
                 break;
+
+            case "Pay":
+                displayChanceCard();
+                choice = gui.getUserButtonPressed("", "Betal penge");
+                break;
+
+            case "Receive":
+                displayChanceCard();
+                choice = gui.getUserButtonPressed("", "Modtag penge");
+                break;
+
+            case "Move":
+                displayChanceCard();
+                choice = gui.getUserButtonPressed("", "Ryk");
+                break;
+
+//----------------------------------------------Tax-----------------------------------------------------------------//
+
             case "Income tax":
                 choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
                         reader.read(1, fieldIndex + 1) + reader.read(3,7), "Betal 10%", "Betal 4000kr.-");
@@ -153,10 +182,7 @@ public class GUISetup {
                         reader.read(1, fieldIndex + 1) + reader.read(3,9),  "Betal 2000kr.-");
                 break;
 
-            case "Default":
-                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3, 11), "Ok");
-                break;
+
 
 //----------------------------------------------JAIL------------------------------------------------------------------//
 

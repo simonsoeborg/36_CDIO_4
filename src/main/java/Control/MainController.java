@@ -63,8 +63,8 @@ public class MainController {
                 gui.showGameStatus(pl.getPlayers(), fl.getFields());
 
                 if (p.getBankruptcy()) {
-                    option = gui.action(name, p.getFieldIndex(), "Bankrupt");
-                    option = ac.decideAction("Bankrupt", p);
+                    gui.action(name, p.getFieldIndex(), "Bankrupt");
+                    ac.decideAction("Bankrupt", p);
                     break;
                 }
 
@@ -77,11 +77,11 @@ public class MainController {
 
 
             if (p.isInJail() && !(ac.threeRoundsInJail(p))){
-                option = gui.action(name, p.getFieldIndex(), "ThreeRoundsInJail");
+                gui.action(name, p.getFieldIndex(), "ThreeRoundsInJail");
                 gui.showGameStatus(pl.getPlayers(), fl.getFields());
                 if (p.getBankruptcy()) {
-                    option = gui.action(name, p.getFieldIndex(), "Bankrupt");
-                    option = ac.decideAction("Bankrupt", p);
+                    gui.action(name, p.getFieldIndex(), "Bankrupt");
+                    ac.decideAction("Bankrupt", p);
                     break;
                 }
             }

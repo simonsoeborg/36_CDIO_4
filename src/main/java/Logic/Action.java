@@ -18,7 +18,11 @@ public class Action {
     private PropertyRent pr = new PropertyRent(gb);
     private PropertyFields pf = new PropertyFields();
     private JailLogic jl = new JailLogic();
+    private ChanceCardLogic cl = ChanceCardLogic.getInstance();
     private String option;
+    private int random;
+
+    private static final Action INSTANCE = new Action();
 
 
 
@@ -165,14 +169,40 @@ public class Action {
                 }
                 break;
 
-
+//-------------------------Bankrupt-----------------------------------------------------------------------------------//
 
             case "Bankrupt":
                 removePlayerFields(gb, p);
                 option = "End";
                 break;
 
+//-------------------------Chance-----------------------------------------------------------------------------------//
 
+            case "Træk kort":
+                cl.getRandomNumber();
+                random = cl.getRandom();
+                if ( random > 0 && random < 12)
+                    option = "Pay";
+                else if ( random > 11 && random < 23)
+                    option = "Receive";
+                else if (random > 22 && random < 33)
+                    option = "Move";
+                break;
+
+            case "Betal penge":
+                cl.payChanceCard(p, random);
+                checkForExtra(p);
+                break;
+
+            case "Modtag penge":
+                cl.receiveMoneyChanceCard(p, random);
+                checkForExtra(p);
+                break;
+
+            case "Ryk":
+                cl.moveChanceCard(p, random);
+                option += ll.checkFieldType(p.getFieldIndex(), p);
+                break;
 
         }
 
@@ -263,4 +293,11 @@ public class Action {
         return winner;
     }
 
+    public static Action getInstance() {
+        return INSTANCE;
+    }
+
+    public int getRandom() {
+        return random;
+    }
 }
