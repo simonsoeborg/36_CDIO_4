@@ -6,6 +6,7 @@ import Entity.Fields.Street;
 import Entity.FileReader;
 import Entity.GameBoard;
 import Entity.Player;
+import Entity.PlayerList;
 
 import java.awt.*;
 
@@ -17,9 +18,32 @@ import java.awt.*;
 
 public class PropertyOwnership {
 
-
+    int a;
     private FileReader reader = new FileReader();
+    private GameBoard gb = GameBoard.getInstance();
+    private Field[] fl = gb.getFields();
     int blue = 0, pink = 0, green = 0, grey = 0, red = 0, yellow = 0, purple = 0, white = 0;
+
+    private int[][] streetSets =  {{1,2},{6,8,9},{11,13,14},{16,18,19},{21,23,24},{26,27,29},{31,32,34},{37,39}};
+
+    public int whereToBuild(int set) {
+        int fieldIndex = 0;
+        int houses = 0;
+        int fewest = 5;
+        for (int i = 0; i < streetSets[set].length; i++) {
+            houses = ((Street)fl[streetSets[set][i]]).getNumberOfHouses();
+            if (fewest > houses)
+                fewest = houses;
+        }
+        for (int i = streetSets[set].length - 1 ; i >= 0 ; i--) {
+            if (houses == ((Street)fl[streetSets[set][i]]).getNumberOfHouses()) {
+                fieldIndex = streetSets[set][i];
+            }
+        }
+
+        return fieldIndex;
+    }
+
 
     /**
      * Buyfield withdraw the price for the field from the players account and set him as the owner
@@ -102,6 +126,8 @@ public class PropertyOwnership {
         else
             return false;
     }
+
+
 
     public void propertySetCounter(Field[] fields, Player p) {
 

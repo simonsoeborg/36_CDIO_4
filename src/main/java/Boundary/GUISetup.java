@@ -170,7 +170,7 @@ public class GUISetup {
                 choice = gui.getUserButtonPressed("", "Ryk");
                 break;
 
-//----------------------------------------------Tax-----------------------------------------------------------------//
+//------------------------------------------------Tax-----------------------------------------------------------------//
 
             case "Income tax":
                 choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
@@ -217,12 +217,16 @@ public class GUISetup {
                 choice = gui.getUserButtonPressed(reader.read(3, 16), "Byg Hus", "Slut tur");
                 break;
 
-            case "HouseRoll":
+            case "HouseRollAgain":
                 choice = gui.getUserButtonPressed(reader.read(3, 17), "Byg Hus", "Rul");
                 break;
 
             case "BuildHouse":
                 choice = gui.getUserSelection(reader.read(3, 18), "Blå", "Pink", "Grøn", "Grå", "Rød", "Hvid", "Gul", "Lilla");
+                break;
+
+            case "NotAllSets":
+                choice = gui.getUserButtonPressed(reader.read(3, 20), "Ok");
                 break;
 
 //----------------------------------------------Bankruptcy------------------------------------------------------------//

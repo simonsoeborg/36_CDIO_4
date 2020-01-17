@@ -17,3 +17,4 @@ Vil du bygge et hus?
 Vil du bygge et hus eller kaste igen?
 Hvor vil du bygge?
  kunne ikke betale, så banken får dine skøder og dækker din gæld. Du er nu gået fallit og er ude af spillet.
+Du har ikke alle grunde i denne farve og kan derfor ikke bygge.

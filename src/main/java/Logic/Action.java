@@ -100,72 +100,87 @@ public class Action {
             case "Byg hus":
                 option = "BuildHouse";
                 break;
-                //-----------------------------------------------------------------------------------------------------//
 
 
                 //TODO Sørge for at huse bliver bygget under vores kontrol dvs. jævnt.
 
             case "Blå":
                 if (p.getBlue() == 2) {
-                    po.houseBuilder(((Street)fl[1]), p);
+                    int fieldIndex = po.whereToBuild(0);
+                    po.houseBuilder(((Street)fl[fieldIndex]), p);
+                    checkForExtra(p);
                 } else {
-                    option = "House";
+                    option = "NotAllSets";
                 }
                 break;
 
             case "Pink":
-                if (p.getPink() == 2) {
-                    po.houseBuilder(((Street)fl[1]), p);
+                if (p.getPink() == 3) {
+                    int fieldIndex = po.whereToBuild(1);
+                    po.houseBuilder(((Street)fl[fieldIndex]), p);
+                    checkForExtra(p);
                 } else {
-                    option = "House";
+                    option = "NotAllSets";
                 }
                 break;
 
             case "Grøn":
-                if (p.getGreen() == 2) {
-                    po.houseBuilder(((Street)fl[1]), p);
+                if (p.getGreen() == 3) {
+                    int fieldIndex = po.whereToBuild(2);
+                    po.houseBuilder(((Street)fl[fieldIndex]), p);
+                    checkForExtra(p);
                 } else {
-                    option = "House";
+                    option = "NotAllSets";
                 }
                 break;
 
             case "Grå":
-                if (p.getGrey() == 2) {
-                    po.houseBuilder(((Street)fl[1]), p);
+                if (p.getGrey() == 3) {
+                    int fieldIndex = po.whereToBuild(3);
+                    po.houseBuilder(((Street)fl[fieldIndex]), p);
+                    checkForExtra(p);
                 } else {
-                    option = "House";
+                    option = "NotAllSets";
                 }
                 break;
 
             case "Rød":
-                if (p.getRed() == 2) {
-                    po.houseBuilder(((Street)fl[1]), p);
+                if (p.getRed() == 3) {
+                    int fieldIndex = po.whereToBuild(4);
+                    po.houseBuilder(((Street)fl[fieldIndex]), p);
+                    checkForExtra(p);
                 } else {
-                    option = "House";
+                    option = "NotAllSets";
                 }
                 break;
 
             case "Hvid":
-                if (p.getWhite() == 2) {
-                    po.houseBuilder(((Street)fl[1]), p);
+                if (p.getWhite() == 3) {
+                    int fieldIndex = po.whereToBuild(5);
+                    po.houseBuilder(((Street)fl[fieldIndex]), p);
+                    checkForExtra(p);
                 } else {
-                    option = "House";
+                    option = "NotAllSets";
                 }
                 break;
 
             case "Gul":
-                if (p.getYellow() == 2) {
-                    po.houseBuilder(((Street)fl[1]), p);
+                if (p.getYellow() == 3) {
+                    int fieldIndex = po.whereToBuild(6);
+                    po.houseBuilder(((Street)fl[fieldIndex]), p);
+                    checkForExtra(p);
                 } else {
-                    option = "House";
+                    option = "NotAllSets";
                 }
                 break;
 
             case "Lilla":
                 if (p.getPurple() == 2) {
-                    po.houseBuilder(((Street)fl[1]), p);
+                    int fieldIndex = po.whereToBuild(7);
+                    po.houseBuilder(((Street)fl[fieldIndex]), p);
+                    checkForExtra(p);
                 } else {
-                    option = "House";
+                    option = "NotAllSets";
                 }
                 break;
 
