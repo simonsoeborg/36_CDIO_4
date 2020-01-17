@@ -16,8 +16,6 @@ public class TrytobuyField {
         p.setFieldIndex(2);
      //   System.out.println(test.checkFieldType(p.getFieldIndex()));
 
-
-
     }
 
 

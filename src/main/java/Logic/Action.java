@@ -96,6 +96,8 @@ public class Action {
             case "Byg hus":
                 option = "BuildHouse";
                 break;
+                //-----------------------------------------------------------------------------------------------------//
+
 
                 //TODO Sørge for at huse bliver bygget under vores kontrol dvs. jævnt.
 
