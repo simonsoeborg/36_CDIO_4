@@ -17,7 +17,7 @@ public abstract class Ownable extends Field {
         this.propertyPrice = propertyPrice;
         this.propertyRent = propertyRent;
         this.propertyPledgePrice = propertyPledgePrice;
-        this.ownerID = 1;
+        this.ownerID = 0;
 }
 
 
