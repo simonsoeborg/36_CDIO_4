@@ -43,6 +43,10 @@ public class MainController {
                 ac.jailCountUp(p);
                 action = "InJail";
             }
+
+            if (p.getBankruptcy())
+                action = "IsBankrupt";
+
             while (true) {
 
                 option = gui.action(name, p.getFieldIndex(), action);
@@ -55,10 +59,19 @@ public class MainController {
                     gui.showDice(dc.getDie1(), dc.getDie2());
 
                 }
+
                 gui.showGameStatus(pl.getPlayers(), fl.getFields());
+
+                if (p.getBankruptcy()) {
+                    option = gui.action(name, p.getFieldIndex(), "Bankrupt");
+                    option = ac.decideAction("Bankrupt", p);
+                    break;
+                }
+
                 if (action.equals("End")) {
                     break;
                 }
+
             }
 
 
@@ -66,6 +79,16 @@ public class MainController {
             if (p.isInJail() && !(ac.threeRoundsInJail(p))){
                 option = gui.action(name, p.getFieldIndex(), "ThreeRoundsInJail");
                 gui.showGameStatus(pl.getPlayers(), fl.getFields());
+                if (p.getBankruptcy()) {
+                    option = gui.action(name, p.getFieldIndex(), "Bankrupt");
+                    option = ac.decideAction("Bankrupt", p);
+                    break;
+                }
+            }
+
+            if (ac.checkGameOver()) {
+                gui.winner(ac.whoWins());
+                System.exit(0);
             }
 
             turn = ++turn % playerNumber;
