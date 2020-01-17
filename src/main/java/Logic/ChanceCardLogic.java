@@ -1,114 +1,159 @@
 package Logic;
 
+import Entity.Fields.Field;
 import Entity.FileReader;
+import Entity.Player;
+import Entity.PlayerList;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class ChanceCardLogic {
-    private int case6Count = 1;
-    private int case12Count = 1;
-    private int case13Count = 1;
-    private int case17Count = 1;
-    private int case24Count = 1;
-    private int case26Count = 1;
-    private int case28Count = 1;
-    private int case35Count = 1;
-    private int case36Count = 1;
+    private String newChanceCard;
     FileReader reader = new FileReader();
 
-    public String drawChanceCard() {
-        // Variables
-        Random rand = new Random();
-        int MAX = 36;
-        int n = rand.nextInt(MAX + 1);
-        String newChanceCard;
-        int fileNumber = 5;
+    PlayerList pl = PlayerList.getInstance();
+    PlayerMove PM = PlayerMove.getInstance();
 
-        switch (n) {
-            case 6:
-                if (case6Count < 2) {
-                    // If case 6 has been drawn more than 2 times, then draw new card.
-                    newChanceCard = reader.read(fileNumber, 6);
-                    case6Count++;
-                } else {
-                    // Draw new card
-                    newChanceCard = reader.read(fileNumber, rand.nextInt(MAX +1));
-                }
-                break;
-            case 12:
-                if (case12Count < 2) {
-                    newChanceCard = reader.read(fileNumber, 12);
-                    case12Count++;
-                } else {
-                    // Draw new card
-                    newChanceCard = reader.read(fileNumber, rand.nextInt(MAX +1));
-                }
-                break;
-            case 13:
-                if (case13Count < 3) {
-                    newChanceCard = reader.read(fileNumber, 13);
-                    case13Count++;
-                } else {
-                    // Draw new card
-                    newChanceCard = reader.read(fileNumber, rand.nextInt(MAX +1));
-                }
-                break;
-            case 17:
-                if (case17Count < 2) {
-                    newChanceCard = reader.read(fileNumber, 17);
-                    case17Count++;
-                } else {
-                    // Draw new card
-                    newChanceCard = reader.read(fileNumber, rand.nextInt(MAX +1));
-                }
-                break;
-            case 24:
-                if (case24Count < 2) {
-                    newChanceCard = reader.read(fileNumber, 24);
-                    case24Count++;
-                } else {
-                    // Draw new card
-                    newChanceCard = reader.read(fileNumber, rand.nextInt(MAX +1));
-                }
-                break;
-            case 26:
-                if (case26Count < 2) {
-                    newChanceCard = reader.read(fileNumber, 26);
-                    case26Count++;
-                } else {
-                    // Draw new card
-                    newChanceCard = reader.read(fileNumber, rand.nextInt(MAX +1));
-                }
-                break;
-            case 28:
-                if (case28Count < 2) {
-                    newChanceCard = reader.read(fileNumber, 28);
-                    case28Count++;
-                } else {
-                    // Draw new card
-                    newChanceCard = reader.read(fileNumber, rand.nextInt(MAX +1));
-                }
-                break;
-            case 35:
-                if (case35Count < 2) {
-                    newChanceCard = reader.read(fileNumber, 35);
-                    case35Count++;
-                } else {
-                    // Draw new card
-                    newChanceCard = reader.read(fileNumber, rand.nextInt(MAX +1));
-                }
-                break;
-            case 36:
-                if (case36Count < 2) {
-                    newChanceCard = reader.read(fileNumber, 36);
-                    case36Count++;
-                } else {
-                    // Draw new card
-                    newChanceCard = reader.read(fileNumber, rand.nextInt(MAX +1));
-                }
-                break;
-            default:
-                newChanceCard = reader.read(fileNumber, rand.nextInt(MAX +1));
+    Random rand = new Random();
+
+    private int[] nArr = {1,2,3,4,5,6,6,7,8,9,10,
+            11,12,12,13,13,13,14,15,16,17,17,18,19,
+            20,21,22,23,24,24,25,26,27,28,29,
+            30,31,32,33,34,35,35,36,36};
+
+    private int[] payArr = {1,2,3,4,5,6,7,8,9,10,11};
+
+    private int[] receiveArr = {12,13,14,15,16,17,18,19,20,21,22};
+
+    private int[] moveArr = {23,24,25,26,27,28,29,30,31,32,33,34};
+
+
+
+    public boolean contains(int[] arr, int key) {
+        return Arrays.stream(arr).anyMatch(i -> i == key);
+    }
+
+    public int getRandomNumber() {
+        return nArr[rand.nextInt(nArr.length)];
+    }
+
+    public String drawChanceCard(Player p, Field[] fl) {
+        // Variables
+        int pay;
+        int fileNumber = 5;
+        // int MAX = nArr.length;
+        int n = getRandomNumber();
+
+
+        if (contains(payArr, n)) {
+//            Player has to pay for something.
+            if (n == 4) {
+                pay = 300;
+                newChanceCard = reader.read(fileNumber,n);
+                p.setMoney(p.getMoney() - pay);
+            }
+
+            if (n == 3 || n == 7 || n == 9) {
+                pay = 1000;
+                newChanceCard = reader.read(fileNumber,n);
+                p.setMoney(p.getMoney() - pay);
+            }
+
+            if (n == 5 || n == 8 || n == 10) {
+                pay = 200;
+                newChanceCard = reader.read(fileNumber,n);
+                p.setMoney(p.getMoney() - pay);
+            }
+
+        }
+
+        if(contains(receiveArr, n)) {
+            // Player will receive money from something.
+            if (n == 13 || n == 15 || n == 16 || n == 17 || n == 18) {
+                pay = 1000;
+                newChanceCard = reader.read(fileNumber,n);
+                p.addMoney(pay);
+            }
+            if (n == 12 || n == 21 || n == 22) {
+                pay = 500;
+                newChanceCard = reader.read(fileNumber,n);
+                p.addMoney(pay);
+            }
+            // Get 200 kr from each player in the game.
+            if (n == 20) {
+                newChanceCard = reader.read(fileNumber,n);
+                int amountOfPlayers = pl.getPlayers().length;
+                pay = 200 * amountOfPlayers;
+                p.addMoney(pay);
+            }
+            if (n == 19) {
+                pay = 200;
+                newChanceCard = reader.read(fileNumber,n);
+                p.addMoney(pay);
+            }
+            if (n == 14) {
+                pay = 3000;
+                newChanceCard = reader.read(fileNumber,n);
+                p.addMoney(pay);
+            }
+        }
+
+        if(contains(moveArr, n)) {
+            // Player will move to some fields.
+            switch (n) {
+                case 23:
+                    // Move player to "Start" field. Start field has Index 0
+                    p.setFieldIndex(0); // Will player get 4000 ?
+                    newChanceCard = reader.read(fileNumber,n);
+                    break;
+                case 24:
+                    // Move player to 3 fields forward
+                    p.setFieldIndex(p.getFieldIndex()+3);
+                    newChanceCard = reader.read(fileNumber,n);
+                    break;
+                case 25:
+                    // Move player to 3 fields backwards
+                    p.setFieldIndex(p.getFieldIndex()-3);
+                    newChanceCard = reader.read(fileNumber,n);
+                    break;
+                case 26:
+                    // Move player to fieldIndex 29
+                    PM.movePlayerChanceCard(p, 38+1);
+                    newChanceCard = reader.read(fileNumber,n);
+                    break;
+                case 27:
+                    // Tag med Mols-Linien \nflyt brikken frem og hvis De passerer START indkassér da 4000 kroner.
+                    PM.movePlayerChanceCard(p, 16+1);
+                    newChanceCard = reader.read(fileNumber,n);
+                    break;
+                case 28:
+                    // Tag til grønningen
+                    PM.movePlayerChanceCard(p, 25+1);
+                    newChanceCard = reader.read(fileNumber,n);
+                    break;
+                case 29:
+                    // Tag til Vimmelskaftet
+                    PM.movePlayerChanceCard(p, 33+1);
+                    newChanceCard = reader.read(fileNumber,n);
+                    break;
+                case 30:
+                    // Tag til Strandvejen
+                    PM.movePlayerChanceCard(p, 20+1);
+                    newChanceCard = reader.read(fileNumber,n);
+                    break;
+                case 31:
+                    // Tag til Rådhuspladsen
+                    PM.movePlayerChanceCard(p, 40+1);
+                    newChanceCard = reader.read(fileNumber,n);
+                    break;
+                case 32:
+                    // Move player to Prison, will not receive 4k to pass over Start
+                    p.setInJail(true);
+                    p.setFieldIndex(10);
+                    newChanceCard = reader.read(fileNumber,n);
+                    break;
+            }
         }
         return newChanceCard;
     }

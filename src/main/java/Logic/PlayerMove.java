@@ -7,7 +7,11 @@ import Entity.Player;
 
 public class PlayerMove {
 
+    private static final PlayerMove INSTANCE = new PlayerMove();
+
     private DiceCup dc =  DiceCup.getINSTANCE();
+
+    GameBoard gameBoard = GameBoard.getInstance();
 
     /**
      * @param p  : The player whose turn it is.
@@ -22,6 +26,20 @@ public class PlayerMove {
         // todo Add value er endnu ikke relevant iforhold til vores test.
         if (actual < previous)
             p.addMoney(4000);
+    }
+
+    public void movePlayerChanceCard(Player p, int toFieldNumber) {
+
+        int previous = p.getFieldIndex();
+        p.setFieldIndex((p.getFieldIndex() + toFieldNumber) % gameBoard.getSize());
+        int actual = p.getFieldIndex();
+
+        if (actual < previous)
+            p.addMoney(4000);
+    }
+
+    public static PlayerMove getInstance() {
+        return INSTANCE;
     }
 
 }
