@@ -50,6 +50,8 @@ public class Action {
 
             case "Køb ikke":
             case "Ok":
+            case "Fortryd":
+            case " ":
                 checkForExtra(p);
                 break;
 
@@ -101,14 +103,10 @@ public class Action {
                 option = "BuildHouse";
                 break;
 
-
-                //TODO Sørge for at huse bliver bygget under vores kontrol dvs. jævnt.
-
             case "Blå":
                 if (p.getBlue() == 2) {
                     int fieldIndex = po.whereToBuild(0);
-                    po.houseBuilder(((Street)fl[fieldIndex]), p);
-                    checkForExtra(p);
+                    option = po.houseBuilder(((Street)fl[fieldIndex]), p);
                 } else {
                     option = "NotAllSets";
                 }
@@ -117,8 +115,7 @@ public class Action {
             case "Pink":
                 if (p.getPink() == 3) {
                     int fieldIndex = po.whereToBuild(1);
-                    po.houseBuilder(((Street)fl[fieldIndex]), p);
-                    checkForExtra(p);
+                    option = po.houseBuilder(((Street)fl[fieldIndex]), p);
                 } else {
                     option = "NotAllSets";
                 }
@@ -127,8 +124,7 @@ public class Action {
             case "Grøn":
                 if (p.getGreen() == 3) {
                     int fieldIndex = po.whereToBuild(2);
-                    po.houseBuilder(((Street)fl[fieldIndex]), p);
-                    checkForExtra(p);
+                    option = po.houseBuilder(((Street)fl[fieldIndex]), p);
                 } else {
                     option = "NotAllSets";
                 }
@@ -137,8 +133,7 @@ public class Action {
             case "Grå":
                 if (p.getGrey() == 3) {
                     int fieldIndex = po.whereToBuild(3);
-                    po.houseBuilder(((Street)fl[fieldIndex]), p);
-                    checkForExtra(p);
+                    option = po.houseBuilder(((Street)fl[fieldIndex]), p);
                 } else {
                     option = "NotAllSets";
                 }
@@ -147,8 +142,7 @@ public class Action {
             case "Rød":
                 if (p.getRed() == 3) {
                     int fieldIndex = po.whereToBuild(4);
-                    po.houseBuilder(((Street)fl[fieldIndex]), p);
-                    checkForExtra(p);
+                    option = po.houseBuilder(((Street)fl[fieldIndex]), p);
                 } else {
                     option = "NotAllSets";
                 }
@@ -157,8 +151,7 @@ public class Action {
             case "Hvid":
                 if (p.getWhite() == 3) {
                     int fieldIndex = po.whereToBuild(5);
-                    po.houseBuilder(((Street)fl[fieldIndex]), p);
-                    checkForExtra(p);
+                    option = po.houseBuilder(((Street)fl[fieldIndex]), p);
                 } else {
                     option = "NotAllSets";
                 }
@@ -167,8 +160,7 @@ public class Action {
             case "Gul":
                 if (p.getYellow() == 3) {
                     int fieldIndex = po.whereToBuild(6);
-                    po.houseBuilder(((Street)fl[fieldIndex]), p);
-                    checkForExtra(p);
+                    option = po.houseBuilder(((Street)fl[fieldIndex]), p);
                 } else {
                     option = "NotAllSets";
                 }
@@ -177,8 +169,7 @@ public class Action {
             case "Lilla":
                 if (p.getPurple() == 2) {
                     int fieldIndex = po.whereToBuild(7);
-                    po.houseBuilder(((Street)fl[fieldIndex]), p);
-                    checkForExtra(p);
+                    option = po.houseBuilder(((Street)fl[fieldIndex]), p);
                 } else {
                     option = "NotAllSets";
                 }

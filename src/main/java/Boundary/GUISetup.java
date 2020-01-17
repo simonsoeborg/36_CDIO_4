@@ -2,6 +2,7 @@ package Boundary;
 
 import Entity.Fields.Field;
 import Entity.Fields.Ownable;
+import Entity.Fields.Street;
 import Entity.FileReader;
 import Entity.GameBoard;
 import Entity.Player;
@@ -65,6 +66,7 @@ public class GUISetup {
             if (guiFields[i] != null) {
                 guiFields[i].removeAllCars();
                 updateOwner(i, pl, fl);
+                updateHouses(i, fl);
             }
         }
         for (int j = 0; j < pl.length; j++) {
@@ -95,7 +97,16 @@ public class GUISetup {
             } else {
                 ((GUI_Ownable) guiFields[i]).setBorder(Color.BLACK);
             }
+        }
+    }
 
+    private void updateHouses(int i, Field[] fl) {
+        if (fl[i] instanceof Street) {
+            int houses = ((Street) fl[i]).getNumberOfHouses();
+            if (houses < 5)
+                ((GUI_Street) guiFields[i]).setHouses(houses);
+            else
+                ((GUI_Street) guiFields[i]).setHotel(true);
         }
     }
 
@@ -214,19 +225,31 @@ public class GUISetup {
 //----------------------------------------------House-----------------------------------------------------------------//
 
             case "House":
-                choice = gui.getUserButtonPressed(reader.read(3, 16), "Byg Hus", "Slut tur");
+                choice = gui.getUserButtonPressed(reader.read(3, 16), "Byg hus", "Slut tur");
                 break;
 
             case "HouseRollAgain":
-                choice = gui.getUserButtonPressed(reader.read(3, 17), "Byg Hus", "Rul");
+                choice = gui.getUserButtonPressed(reader.read(3, 17), "Byg hus", "Rul");
                 break;
 
             case "BuildHouse":
-                choice = gui.getUserSelection(reader.read(3, 18), "Blå", "Pink", "Grøn", "Grå", "Rød", "Hvid", "Gul", "Lilla");
+                choice = gui.getUserSelection(reader.read(3, 18), "Fortryd", " ", "Blå", "Pink", "Grøn", "Grå", "Rød", "Hvid", "Gul", "Lilla");
                 break;
 
             case "NotAllSets":
                 choice = gui.getUserButtonPressed(reader.read(3, 20), "Ok");
+                break;
+
+            case "Full":
+                choice = gui.getUserButtonPressed(reader.read(3, 21), "Ok");
+                break;
+
+            case "Hus":
+                choice = gui.getUserButtonPressed(reader.read(3, 22), "Ok");
+                break;
+
+            case "Hotel":
+                choice = gui.getUserButtonPressed(reader.read(3, 23), "Ok");
                 break;
 
 //----------------------------------------------Bankruptcy------------------------------------------------------------//

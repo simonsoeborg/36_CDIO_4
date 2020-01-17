@@ -24,7 +24,7 @@ public class PropertyOwnership {
     private Field[] fl = gb.getFields();
     int blue = 0, pink = 0, green = 0, grey = 0, red = 0, yellow = 0, purple = 0, white = 0;
 
-    private int[][] streetSets =  {{1,2},{6,8,9},{11,13,14},{16,18,19},{21,23,24},{26,27,29},{31,32,34},{37,39}};
+    private int[][] streetSets =  {{1,3},{6,8,9},{11,13,14},{16,18,19},{21,23,24},{26,27,29},{31,32,34},{37,39}};
 
     public int whereToBuild(int set) {
         int fieldIndex = 0;
@@ -36,8 +36,9 @@ public class PropertyOwnership {
                 fewest = houses;
         }
         for (int i = streetSets[set].length - 1 ; i >= 0 ; i--) {
-            if (houses == ((Street)fl[streetSets[set][i]]).getNumberOfHouses()) {
+            if (fewest == ((Street)fl[streetSets[set][i]]).getNumberOfHouses()) {
                 fieldIndex = streetSets[set][i];
+                break;
             }
         }
 
@@ -99,12 +100,17 @@ public class PropertyOwnership {
      * @param field - one of the owners field
      * @param p - the owners turn
      */
-    public void houseBuilder(Street field, Player p) {
-        if (field.getNumberOfHouses() <= 5) {
+    public String houseBuilder(Street field, Player p) {
+        if (field.getNumberOfHouses() < 5) {
             p.addMoney(-(field.getHousePrice()));
             field.setNumberOfHouses(field.getNumberOfHouses() + 1);
+            if (field.getNumberOfHouses() == 5)
+                return "Hotel";
+            else
+                return "Hus";
 
         }
+        return "Full";
     }
 
     /**

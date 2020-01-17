@@ -30,27 +30,57 @@ public class PropertyRent {
      * @param pl - the player list
      * @param fl - the field list
      */
-    public void payRentStreet(int ownerID, Player p, Player[] pl, Field[] fl){
+    public void payRentStreet(int ownerID, Player p, Player[] pl, Field[] fl) {
 
         int rentDouble = 1;
         int count = countProperties(ownerID, p, fl);
+        int houses = ((Street) fl[p.getFieldIndex()]).getNumberOfHouses();
 
         // her tjekker vi om navnet for propertyField er en af de felter hvor der kun er 2 af samme farve
         // hvis ikke skal der være 3.
-        switch (fl[p.getFieldIndex()].getFieldName()){
+        if (houses == 0) {
+            switch (fl[p.getFieldIndex()].getFieldName()) {
 
-            case "Rødovrevej": case "Hvidovrevej":
-            case "Frederiksberggade": case"Rådhuspladsen":
-                if (count == 2) rentDouble = 2;
-            break;
-            default: if (count == 3) rentDouble = 2;
-            break;
+                case "Rødovrevej":
+                case "Hvidovrevej":
+                case "Frederiksberggade":
+                case "Rådhuspladsen":
+                    if (count == 2) rentDouble = 2;
+                    break;
+                default:
+                    if (count == 3) rentDouble = 2;
+                    break;
+            }
+
+            p.addMoney(-(((Ownable) fl[p.getFieldIndex()]).getPropertyRent() * rentDouble));
+            pl[ownerID - 1].addMoney(((Ownable) fl[p.getFieldIndex()]).getPropertyRent() * rentDouble);
+
+        } else {
+            switch (houses) {
+                case 1:
+                    p.addMoney(-(((Street) fl[p.getFieldIndex()]).getOneHouse()));
+                    pl[ownerID - 1].addMoney(((Street) fl[p.getFieldIndex()]).getOneHouse());
+                    break;
+                case 2:
+                    p.addMoney(-(((Street) fl[p.getFieldIndex()]).getTwoHouse()));
+                    pl[ownerID - 1].addMoney(((Street) fl[p.getFieldIndex()]).getTwoHouse());
+                    break;
+                case 3:
+                    p.addMoney(-(((Street) fl[p.getFieldIndex()]).getThreeHouse()));
+                    pl[ownerID - 1].addMoney(((Street) fl[p.getFieldIndex()]).getThreeHouse());
+                    break;
+                case 4:
+                    p.addMoney(-(((Street) fl[p.getFieldIndex()]).getFourHouse()));
+                    pl[ownerID - 1].addMoney(((Street) fl[p.getFieldIndex()]).getFourHouse());
+                    break;
+                case 5:
+                    p.addMoney(-(((Street) fl[p.getFieldIndex()]).getHotel()));
+                    pl[ownerID - 1].addMoney(((Street) fl[p.getFieldIndex()]).getHotel());
+                    break;
+
+            }
         }
-
-        p.addMoney(-(((Ownable)fl[p.getFieldIndex()]).getPropertyRent()*rentDouble));
-        pl[ownerID-1].addMoney(((Ownable)fl[p.getFieldIndex()]).getPropertyRent()*rentDouble);
     }
-
 
     public void payRentFerry(int ownerID, Player p, Player[] pl, Field[] fl){
 

@@ -31,7 +31,7 @@ public class PlayerMove {
     public void movePlayerChanceCard(Player p, int toFieldNumber) {
 
         int previous = p.getFieldIndex();
-        p.setFieldIndex((p.getFieldIndex() + toFieldNumber) % gameBoard.getSize());
+        p.setFieldIndex(toFieldNumber);
         int actual = p.getFieldIndex();
 
         if (actual < previous)

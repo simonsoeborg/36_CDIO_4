@@ -73,18 +73,22 @@ public class ChanceCardLogic {
             pay = 1000;
             p.addMoney(pay);
         }
-        if (number == 12 || number == 21 || number == 22) {
-            pay = 500 * pl.getPlayers().length;
-            p.addMoney(pay);
+        if (number == 21 || number == 22) {
+            pay = 500;
+            p.addMoney(pay * pl.getPlayers().length);
             for (Player player : pl.getPlayers()) {
                 player.addMoney(-pay);
             }
         }
+        if (number == 12) {
+            pay = 500;
+            p.addMoney(pay);
+        }
         // Get 200 kr from each player in the game.
         if (number == 20) {
 
-            pay = 200 * pl.getPlayers().length;
-            p.addMoney(pay);
+            pay = 200;
+            p.addMoney(pay * pl.getPlayers().length);
             for (Player player : pl.getPlayers()) {
                 player.addMoney(-pay);
             }
