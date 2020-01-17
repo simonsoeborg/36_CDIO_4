@@ -1,10 +1,7 @@
 package Logic;
 
 import Entity.DiceCup;
-import Entity.Fields.Brewery;
-import Entity.Fields.Ferry;
-import Entity.Fields.Field;
-import Entity.Fields.Street;
+import Entity.Fields.*;
 import Entity.GameBoard;
 import Entity.Player;
 import Entity.PlayerList;
@@ -72,6 +69,8 @@ public class Action {
                 checkForExtra(p);
                 break;
 
+//----------------------------------------------JAIL------------------------------------------------------------------//
+
             case "Betal 1000kr.-":
                 jl.payOutOfJail(p);
                 option = "Roll";
@@ -91,6 +90,8 @@ public class Action {
                 p.setFieldIndex(10);
                 option = "End";
                 break;
+
+//----------------------------------------------House-----------------------------------------------------------------//
 
             case "Byg hus":
                 option = "BuildHouse";
@@ -164,6 +165,12 @@ public class Action {
 
 
 
+            case "Bankrupt":
+                removePlayerFields(gb, p);
+                option = "End";
+                break;
+
+
 
         }
 
@@ -212,6 +219,46 @@ public class Action {
             return false;
         } else
             return true;
+    }
+
+
+
+
+    private void removePlayerFields(GameBoard gb, Player p){
+        // Gennemløber alle felter og setter de felter der har samme id som spilleren til 0, så han ikke ejer dem mere.
+        for (Field field: gb.getFields()) {
+
+            if( field instanceof Ownable){
+
+                if(p.getId() == ((Ownable) field).getOwnerID()){
+
+                    ((Ownable) field).setOwnerID(0);
+                }
+            }
+        }
+    }
+
+    public boolean checkGameOver() {
+        int playersNotOut = pl.getPlayers().length;
+        for (int i = 0; i < pl.getPlayers().length; i++) {
+            if (pl.getPlayer(i).getBankruptcy())
+                playersNotOut--;
+        }
+
+        if (playersNotOut == 1)
+            return true;
+        else
+            return false;
+
+    }
+
+    public int whoWins() {
+        int winner = 0;
+        for (int i = 0; i < pl.getPlayers().length; i++) {
+            if (!(pl.getPlayer(i).getBankruptcy()))
+                winner = i;
+        }
+        return winner;
     }
 
 }

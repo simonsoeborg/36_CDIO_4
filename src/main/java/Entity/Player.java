@@ -23,7 +23,7 @@ public class Player {
         this.name = name;
         this.color = color;
         this.id = id;
-        money=30000;
+        money=1000;
         fieldIndex = 0;
         bankruptcy = false;
         inJail = false;
@@ -63,7 +63,7 @@ public class Player {
             money = money + diff;
         } else {
             setBankruptcy(true);
-            money = money + diff;
+            money = 0;
         }
     }
 

@@ -31,7 +31,7 @@ public class GUISetup {
         return "";
     }
 
-    public void displayChanceCard(String fieldText) {
+    private void displayChanceCard(String fieldText) {
         gui.setChanceCard(fieldText);
     }
 
@@ -72,6 +72,11 @@ public class GUISetup {
     private void movePlayer(int i, Player[] pl) {
         if (!pl[i].getBankruptcy())
             guiFields[pl[i].getFieldIndex()].setCar(players[i], true);
+        for (int j = 0; j < pl.length; j++) {
+            if (pl[j].getBankruptcy()) {
+                guiFields[pl[j].getFieldIndex()].setCar(players[i], false);
+            }
+        }
     }
 
     private void updateBalance(int i, Player[] pl) {
@@ -83,12 +88,15 @@ public class GUISetup {
             int owner = ((Ownable) fl[i]).getOwnerID();
             if (owner != 0) {
                 ((GUI_Ownable) guiFields[i]).setBorder(pl[owner - 1].getColor());
+            } else {
+                ((GUI_Ownable) guiFields[i]).setBorder(Color.BLACK);
             }
+
         }
     }
 
     public void winner(int winner) {
-        displayChance("Tilykke " + players[winner].getName() + "!! Du vandt spillet med " + players[winner].getBalance() + " penge");
+        gui.showMessage("Tillykke " + players[winner].getName() + "!!! \nDu vandt spillet og er en ægte MATADOR.");
     }
 
     public void showDice(int val1, int val2){
@@ -145,6 +153,11 @@ public class GUISetup {
                         reader.read(1, fieldIndex + 1) + reader.read(3,9),  "Betal 2000kr.-");
                 break;
 
+            case "Default":
+                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
+                        reader.read(1, fieldIndex + 1) + reader.read(3, 11), "Ok");
+                break;
+
 //----------------------------------------------JAIL------------------------------------------------------------------//
 
             case "Jail":
@@ -185,12 +198,18 @@ public class GUISetup {
             case "BuildHouse":
                 choice = gui.getUserSelection(reader.read(3, 18), "Blå", "Pink", "Grøn", "Grå", "Rød", "Hvid", "Gul", "Lilla");
                 break;
-//----------------------------------------------JAIL------------------------------------------------------------------//
 
-            case "Default":
-                choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3, 11), "Ok");
+//----------------------------------------------Bankruptcy------------------------------------------------------------//
+
+            case "Bankrupt":
+                choice = gui.getUserButtonPressed(name + reader.read(3, 19), "Slut tur");
                 break;
+
+            case "IsBankrupt":
+                choice = "Slut tur";
+                break;
+
+//----------------------------------------------Roll------------------------------------------------------------------//
 
             case "RollAgain":
                 choice = gui.getUserButtonPressed(name + reader.read(3,10), "Rul");

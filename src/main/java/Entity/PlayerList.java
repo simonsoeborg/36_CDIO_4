@@ -1,6 +1,7 @@
 package Entity;
 
 import java.awt.*;
+import java.util.Optional;
 
 public class PlayerList {
 
@@ -33,6 +34,13 @@ public class PlayerList {
     public Player getPlayer(int index) {
         return players[index];
     }
+
+    public void setPlayerNull(int index){
+
+
+    }
+
+
 
     public static PlayerList getInstance() {
         return INSTANCE;
