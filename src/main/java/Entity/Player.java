@@ -16,9 +16,6 @@ public class Player {
     private int id;
     private boolean bankruptcy;
     private boolean inJail;
-    private boolean freeOutOfJail;
-    private boolean buying;
-    private boolean isAbleToBuyHouses;
     private int roundsInJail;
     private int doublesInARow;
     private int blue = 0, pink = 0, green = 0, grey = 0, red = 0, yellow = 0, purple = 0, white = 0;
@@ -38,9 +35,6 @@ public class Player {
         fieldIndex = 0;
         bankruptcy = false;
         inJail = false;
-        freeOutOfJail = false;
-        buying = false;
-        isAbleToBuyHouses = false;
         roundsInJail = 0;
         doublesInARow = 0;
 
@@ -56,17 +50,9 @@ public class Player {
         return color;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
     public int getMoney() {
 
         return money;
-    }
-
-    public void setMoney(int money) {
-        this.money = money;
     }
 
     // their start money is set to 30.000
@@ -91,28 +77,8 @@ public class Player {
 
     public void setInJail(boolean inJail) { this.inJail = inJail; }
 
-    public boolean getFreeOutOfJail() { return freeOutOfJail; }
-
-    public void setFreeOutOfJail(boolean freeOutOfJail) { this.freeOutOfJail = freeOutOfJail; }
-
-    public boolean getBuying() {return buying; }
-
-    public void setBuying(boolean buying) { this.buying = buying; }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public boolean isAbleToBuyHouses() {
-        return isAbleToBuyHouses;
-    }
-
-    public void setAbleToBuyHouses(boolean ableToBuyHouses) {
-        isAbleToBuyHouses = ableToBuyHouses;
     }
 
     public int getRoundsInJail() {

@@ -66,12 +66,5 @@ public class DiceCup {
         return  INSTANCE;
     }
 
-    public void setDie1(int die1) {
-        this.die1 = die1;
-    }
-
-    public void setDie2(int die2) {
-        this.die2 = die2;
-    }
 }
 

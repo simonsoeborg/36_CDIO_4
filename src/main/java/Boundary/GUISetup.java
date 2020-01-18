@@ -18,7 +18,6 @@ public class GUISetup {
 
     private static final GUISetup INSTANCE = new GUISetup();
     private FileReader reader = new FileReader();
-    private GameBoard fl = GameBoard.getInstance();
     private ChanceCardLogic cl = ChanceCardLogic.getInstance();
 
 
