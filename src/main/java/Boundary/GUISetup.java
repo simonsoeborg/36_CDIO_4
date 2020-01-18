@@ -32,14 +32,17 @@ public class GUISetup {
         gui = new GUI(guiFields, Color.WHITE);
     }
 
-    public String displayChance(String fieldText) {
-        return "";
-    }
-
+    /**
+     * Displays the chance card the player draws when landing on a ChanceCard field.
+     */
     private void displayChanceCard() {
         gui.setChanceCard(reader.read(5, cl.getRandom()));
     }
 
+    /**
+     * Adds the players to the GUI board.
+     * @param p - The list of players, whose in the game.
+     */
     public void addPlayers(Player[] p) {
         players = new GUI_Player[p.length];
         cars = new GUI_Car[p.length];
@@ -49,7 +52,7 @@ public class GUISetup {
             gui.addPlayer(players[i]);
         }
 
-        // sæt alle biler på start
+        // Places all of the players on START.
         for (GUI_Player player : players){
             guiFields[0].setCar(player, true);
         }
@@ -57,7 +60,7 @@ public class GUISetup {
 
 
     /**
-     * Updates the board (balance, car placements, ownerships).
+     * Updates the board (balance, car placements, ownerships and houses/hotels).
      * @param pl Takes a list of players.
      * @param fl Takes a list of fields.
      */
@@ -118,14 +121,12 @@ public class GUISetup {
         gui.setDice(val1, val2);
     }
 
-    public void showMessage(String message){
-        gui.showMessage(message);
-    }
 
     public int askForPlayers() {
         String s = gui.getUserButtonPressed("Vælg antal spillere", "3", "4", "5", "6");
         return Integer.parseInt(s);
     }
+
 
     public String[] getPlayerNames(int playerNumber) {
         playerNames = new String[playerNumber];
@@ -135,6 +136,14 @@ public class GUISetup {
         return playerNames;
     }
 
+    /**
+     * This method receives a string from the logic controller, which determines the set of options the player
+     * gets from the GUI.
+     * @param name - Name of the player whose turn it is.
+     * @param fieldIndex - The fieldIndex where the player are on the board.
+     * @param action - The string which is returned from the logic method decideAction.
+     * @return - It returns a string equal to the string on the button the player pressed.
+     */
     public String action(String name, int fieldIndex, String action) {
         String choice = "";
         switch (action) {
@@ -276,11 +285,6 @@ public class GUISetup {
 
         return choice;
     }
-
-
-
-
-
 
     public static GUISetup getInstance() {
         return INSTANCE;
