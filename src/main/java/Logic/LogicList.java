@@ -7,6 +7,13 @@ public class LogicList {
 
     private PropertyFields pf = new PropertyFields();
 
+    /**
+     *
+     * @param fieldIndex Hole array of fields on the board
+     * @param p - player
+     * @return What kind of field the player have landed on
+     */
+
     public String checkFieldType(int fieldIndex, Player p){
 
         String felt = "";
@@ -49,32 +56,7 @@ public class LogicList {
                 p.setInJail(true);
                 felt = "Jail";
                 break;
-
         }
-
         return felt;
-    }
-
-    public void decideLogik(String fieldtype){
-
-        switch (fieldtype){
-
-            case "Street": //Evt underpakke med logik til ejendomsfelter;
-                break;
-            case "Chance": // logik chance felter;
-                break;
-            case "Ferry": // logik til færger;
-                break;
-            case "Brewery": // logik til bryggerier;
-                break;
-            case "Income tax": //logik til indkomstskat;
-                break;
-            case "Extraordinary state tax": //logik til ekstra.....skat;
-                break;
-            case "Default": // intet logik da der ikke sker noget på disse felter;
-                break;
-            case "Jail": // fængselslogik;
-                break;
-        }
     }
 }
