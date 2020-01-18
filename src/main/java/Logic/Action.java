@@ -55,12 +55,12 @@ public class Action {
                 checkForExtra(p);
                 break;
 
-            case "Betal 2000kr.-":
+            case "Betal 2.000kr.-":
                 taxes.stateTax(p);
                 checkForExtra(p);
                 break;
 
-            case "Betal 4000kr.-":
+            case "Betal 4.000kr.-":
                 taxes.incomeTaxCash(p);
                 checkForExtra(p);
                 break;
@@ -77,7 +77,7 @@ public class Action {
 
 //----------------------------------------------JAIL------------------------------------------------------------------//
 
-            case "Betal 1000kr.-":
+            case "Betal 1.000kr.-":
                 jl.payOutOfJail(p);
                 option = "Roll";
                 break;
