@@ -57,7 +57,7 @@ public class JailLogic {
                 outOfJailSignal = true;
             }
             break;
-            case 2: case 3:
+            case 2:
                 p.setInJail(false);
                 outOfJailSignal = true;
             break;
