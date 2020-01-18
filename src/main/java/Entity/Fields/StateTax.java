@@ -13,7 +13,4 @@ public class StateTax extends Field {
         return tax;
     }
 
-    public void setTax(int tax) {
-        this.tax = tax;
-    }
 }

@@ -1,6 +1,5 @@
 package Entity.Fields;
 
-import Entity.Player;
 
 public class IncomeTax extends Field {
 
@@ -17,15 +16,7 @@ public class IncomeTax extends Field {
         return payCash;
     }
 
-    public void setPayCash(int payCash) {
-        this.payCash = payCash;
-    }
-
     public int getPayPercentage() {
         return payPercentage;
-    }
-
-    public void setPayPercentage(int payPercentage) {
-        this.payPercentage = payPercentage;
     }
 }

@@ -1,7 +1,5 @@
 package Entity.Fields;
 
-import java.awt.*;
-
 public class Street extends Ownable {
 
     private int housePrice;
@@ -33,47 +31,23 @@ public class Street extends Ownable {
         return housePrice;
     }
 
-    public void setHousePrice(int housePrice) {
-        this.housePrice = housePrice;
-    }
-
     public int getOneHouse() {
         return oneHouse;
-    }
-
-    public void setOneHouse(int oneHouse) {
-        this.oneHouse = oneHouse;
     }
 
     public int getTwoHouse() {
         return twoHouse;
     }
 
-    public void setTwoHouse(int twoHouse) {
-        this.twoHouse = twoHouse;
-    }
-
     public int getThreeHouse() {
         return threeHouse;
-    }
-
-    public void setThreeHouse(int threeHouse) {
-        this.threeHouse = threeHouse;
     }
 
     public int getFourHouse() {
         return fourHouse;
     }
 
-    public void setFourHouse(int fourHouse) {
-        this.fourHouse = fourHouse;
-    }
-
     public int getHotel() {
         return hotel;
-    }
-
-    public void setHotel(int hotel) {
-        this.hotel = hotel;
     }
 }

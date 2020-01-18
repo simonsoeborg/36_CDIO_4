@@ -26,24 +26,8 @@ public abstract class Ownable extends Field {
         return propertyPrice;
     }
 
-    public void setPropertyPrice(int propertyPrice) {
-        this.propertyPrice = propertyPrice;
-    }
-
     public int getPropertyRent() {
         return propertyRent;
-    }
-
-    public void setPropertyRent(int propertyRent) {
-        this.propertyRent = propertyRent;
-    }
-
-    public int getPropertyPledgePrice() {
-        return propertyPledgePrice;
-    }
-
-    public void setPropertyPledgePrice(int propertyPledgePrice) {
-        this.propertyPledgePrice = propertyPledgePrice;
     }
 
     public int getOwnerID() {
