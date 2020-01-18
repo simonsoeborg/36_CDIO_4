@@ -1,18 +1,21 @@
 package Entity;
 
 /**
- * This class is a dice cup. We use our die class to make two dice for our game.
+ * This class is a dice cup which create two die objects and roll them.
+ * @author Kristoffer
+ * @version 1.0.0
  */
 public class DiceCup {
 
     private static final DiceCup INSTANCE = new DiceCup();
     private int die1 = 0;
     private int die2 = 0;
-
     private int i = 0;
 
 
-    /* Terningekastet defineres. */
+    /**
+     * Creates two die objects and roll them by assigning the random values of each die to the intance variables die1 and die2
+     */
     public void roll() {
         Die die1 = new Die();
         Die die2 = new Die();
@@ -23,38 +26,26 @@ public class DiceCup {
     }
 
 
-    public void testRoll() {
-        int[][] test = {{1,4,1,3,4,6,4,2,1,3,4,5,4,2,3,4},
-                        {1,4,1,2,1,3,3,5,4,1,2,4,5,4,6,3}};
-
-        setDie1(test[0][i]);
-        setDie2(test[1][i]);
-        i = (i + 1) %test[0].length;
-
-    }
-
-
     /**
-     * show the value of two dice.
+     * Adds the value of the two facevalues
+     * @return - The sum of the facevalues
      */
     public int faceValues(){
         int sum = this.die1+this.die2;
         return sum;
-
     }
 
     /**
-     * it checks if you roll two of the same eyes.
+     * Checks both facevalues to see weather their values are equal
+     * @return - Boolean true if the facevalues are equal or boolean false if they're not
      */
-    // tjekker om der bliver slået 2 ens
     public boolean isFaceValueSame(){
-       boolean check;
-       if (die1 == die2){
+
+       boolean check = false;
+
+       if (die1 == die2)
            check = true;
-       }
-       else{
-           check = false;
-       }
+
        return check;
     }
 
@@ -66,6 +57,11 @@ public class DiceCup {
         return die2;
     }
 
+    //todo --- Den der har lavet den statiske metode getIntance, må gerne lige beskrive den
+    /**
+     * ?????????????????????
+     * @return
+     */
     public static DiceCup getINSTANCE(){
         return  INSTANCE;
     }
