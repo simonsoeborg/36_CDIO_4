@@ -7,6 +7,12 @@ import Entity.PlayerList;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ *  The logic behind the chanceCards
+ * @author Simon Søborg
+ * @version 1.0.0
+ */
+
 public class ChanceCardLogic {
     private String newChanceCard;
     private String updateChanceCard;
