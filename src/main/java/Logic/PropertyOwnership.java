@@ -18,23 +18,24 @@ import java.awt.*;
 
 public class PropertyOwnership {
 
-    int a;
     private FileReader reader = new FileReader();
     private GameBoard gb = GameBoard.getInstance();
     private Field[] fl = gb.getFields();
-    int blue = 0, pink = 0, green = 0, grey = 0, red = 0, yellow = 0, purple = 0, white = 0;
 
+// det er en to demintionel array, hvor du kan se hvilken farver der høre sammen.
     private int[][] streetSets =  {{1,3},{6,8,9},{11,13,14},{16,18,19},{21,23,24},{26,27,29},{31,32,34},{37,39}};
 
     public int whereToBuild(int set) {
         int fieldIndex = 0;
         int houses = 0;
         int fewest = 5;
+        // Dette tjekker hvilken af setsene (oven over) hvor der kan bygges.
         for (int i = 0; i < streetSets[set].length; i++) {
             houses = ((Street)fl[streetSets[set][i]]).getNumberOfHouses();
             if (fewest > houses)
                 fewest = houses;
         }
+        // Her sætter den på det sidste felt i array og bygge den "modsatte vej" fra den dyreste til de billigeste
         for (int i = streetSets[set].length - 1 ; i >= 0 ; i--) {
             if (fewest == ((Street)fl[streetSets[set][i]]).getNumberOfHouses()) {
                 fieldIndex = streetSets[set][i];
@@ -44,7 +45,6 @@ public class PropertyOwnership {
 
         return fieldIndex;
     }
-
 
     /**
      * Buyfield withdraw the price for the field from the players account and set him as the owner
@@ -56,44 +56,6 @@ public class PropertyOwnership {
         p.addMoney(-(((Ownable) fl[p.getFieldIndex()]).getPropertyPrice()));
         ((Ownable) fl[p.getFieldIndex()]).setOwnerID(p.getId());
     }
-
-    /**
-     *
-     * @param fields
-     * @param p
-     */
-//    public Stirng buildableSets(Field[] fields, Player p) {
-//        propertySetCounter(fields, p);
-//
-//        Stir
-//
-//        if (blue == 2) {
-//
-//        }
-//        if (purple == 2) {
-//            // retuner de lilla felter til guien
-//        }
-//        if (pink == 3) {
-//            // retuner de pink felter til guien
-//        }
-//        if (green == 3) {
-//            // retuner grøn felter til guien
-//        }
-//        if (grey == 3) {
-//            // retuner de grå felter til guien
-//        }
-//        if (red == 3) {
-//            // retuner de red felter til guien
-//        }
-//        if (yellow == 3) {
-//            // retuner de gul felter til guien
-//        }
-//        if (white == 3) {
-//            // retuner de hvid felter til guien
-//        }
-//    }
-
-    //blue og purple har hver især to felter - Resten har tre felter
 
     /**
      * Builds a house on a owned field, and redrawm money from the players account.
@@ -125,6 +87,7 @@ public class PropertyOwnership {
             }
     }
 
+    // Den tjekker de ejer felene og sætter det til true, at de kan bygge.
     public boolean canBuildHouse(Field[] fields, Player p) {
         propertySetCounter(fields, p);
         if (p.getBlue() == 2 || p.getPurple() == 2|| p.getPink() == 3|| p.getGreen() == 3|| p.getGrey() == 3|| p.getRed() == 3|| p.getYellow() == 3|| p.getWhite() == 3)
@@ -133,8 +96,7 @@ public class PropertyOwnership {
             return false;
     }
 
-
-
+    // her tjekker vi om vi kan spilleren kan bygge på feltet ( har alle felter)
     public void propertySetCounter(Field[] fields, Player p) {
 
         p.Altf4();
@@ -174,10 +136,8 @@ public class PropertyOwnership {
                     }
                 }
             }
-
             line++;
         }
-
     }
 }
 

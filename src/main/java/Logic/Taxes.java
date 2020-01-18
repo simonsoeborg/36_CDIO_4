@@ -7,6 +7,11 @@ import Entity.Fields.StateTax;
 import Entity.GameBoard;
 import Entity.Player;
 
+/**
+ * There are two fields on the board with taxes (income tax and state tax).
+ * @author David, Kristoffer
+ * @version 1.0.0
+ */
 public class Taxes {
 
     private GameBoard gb = GameBoard.getInstance();

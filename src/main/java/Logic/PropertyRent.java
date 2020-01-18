@@ -56,6 +56,7 @@ public class PropertyRent {
             pl[ownerID - 1].addMoney(((Ownable) fl[p.getFieldIndex()]).getPropertyRent() * rentDouble);
 
         } else {
+            // kodestykket under tjekker nu, hvor mange huse der er op feltet og betale det beløb.
             switch (houses) {
                 case 1:
                     p.addMoney(-(((Street) fl[p.getFieldIndex()]).getOneHouse()));
@@ -82,6 +83,13 @@ public class PropertyRent {
         }
     }
 
+    /**
+     *
+     * @param ownerID - The player who owns the ferry
+     * @param p - the player
+     * @param pl - playerlist
+     * @param fl - field list
+     */
     public void payRentFerry(int ownerID, Player p, Player[] pl, Field[] fl){
 
         int rentDouble = 1;

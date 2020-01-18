@@ -187,6 +187,7 @@ public class Player {
         this.white = white;
     }
 
+    // antal felter i farver en spiller ejer
     public void Altf4() {
         setBlue(0);
         setRed(0);
