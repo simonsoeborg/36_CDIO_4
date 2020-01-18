@@ -19,7 +19,6 @@ public class Player {
     private int roundsInJail;
     private int doublesInARow;
     private int blue = 0, pink = 0, green = 0, grey = 0, red = 0, yellow = 0, purple = 0, white = 0;
-
     /**
      *
      * @param name - the person who's going to play the game, as the possibility to set a name on the current player
@@ -37,7 +36,6 @@ public class Player {
         inJail = false;
         roundsInJail = 0;
         doublesInARow = 0;
-
     }
 
     public String getName() { return name; }

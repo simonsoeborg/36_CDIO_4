@@ -1,11 +1,8 @@
 package Logic;
 
-import Entity.FileReader;
 import Entity.Player;
 import Entity.PlayerList;
-
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  *  The logic behind the chanceCards
@@ -16,24 +13,13 @@ import java.util.Random;
 public class ChanceCardLogic {
     private String newChanceCard;
     private String updateChanceCard;
-    FileReader reader = new FileReader();
     private int pay;
-    private int fileNumber = 5;
     private int random;
 
     private static final ChanceCardLogic INSTANCE = new ChanceCardLogic();
 
-
     PlayerList pl = PlayerList.getInstance();
     PlayerMove PM = PlayerMove.getInstance();
-
-
-    Random rand = new Random(36);
-
-    private int[] nArr = {1,2,3,4,5,6,6,7,8,9,10,
-            11,12,12,13,13,13,14,15,16,17,17,18,19,
-            20,21,22,23,24,24,25,26,27,28,29,
-            30,31,32};
 
     private int[] payArr = {1,2,3,4,5,6,7,8,9,10,11};
 
@@ -41,8 +27,14 @@ public class ChanceCardLogic {
 
     private int[] moveArr = {23,24,25,26,27,28,29,30,31,32};
 
-
-
+    /**
+     * contains method is used to search an integer array for a specific integer match.
+     * the array can be of any size and the key can be any integer. If the key is within the array of integers
+     * the method will return a boolean.
+     * @param key is the key which we want to check if the array contains
+     * @param arr is the array
+     * @return returns true or false. If the key is in the array the statement is true. If not it is false.
+     */
     public boolean contains(int key, int[] arr) {
         return Arrays.stream(arr).anyMatch(i -> i == key);
     }
@@ -50,6 +42,13 @@ public class ChanceCardLogic {
     public void getRandomNumber() {
         random = (int)(Math.random() * 30) + 3;
     }
+
+    /**
+     * payChanceCard is a method used for all the chance cards that will make the player, whom have landed on the "Prøv lykken" field,
+     * to pay something to the game bank.
+     * @param p is to make sure that it will be the current player who will lose money
+     * @param number is the random generated integer that will determine how much the player will have to pay.
+     */
 
     public String payChanceCard(Player p, int number) {
         // Player has to pay for something.
@@ -69,9 +68,15 @@ public class ChanceCardLogic {
             pay = 3000;
             p.addMoney(-pay);
         }
-
         return updateChanceCard;
     }
+
+    /**
+     * receiveMoneyChanceCard is a method used for all the chance cards that will make the player, whom have landed on the "Prøv lykken" field,
+     * to receive something from the game bank or other players.
+     * @param p is to make sure that it will be the current player who will get money
+     * @param number is the random generated integer that will determine how much the player will have to receive.
+     */
 
     public String receiveMoneyChanceCard(Player p, int number) {
         // Player will receive money from something.
@@ -109,6 +114,12 @@ public class ChanceCardLogic {
         }
         return updateChanceCard;
     }
+
+    /**
+     * moveChanceCard is a method that will make the current player move to a new field.
+     * @param p is to make sure that it will be the current player who will be moved
+     * @param number is the random generated integer that will determine which chance card.
+     */
 
     public String moveChanceCard(Player p, int number) {
 
@@ -160,6 +171,9 @@ public class ChanceCardLogic {
         return updateChanceCard;
     }
 
+    /**
+     * getRandom returns the integer that was random generated.
+     */
     public int getRandom() {
         return random;
     }
@@ -168,8 +182,11 @@ public class ChanceCardLogic {
         return INSTANCE;
     }
 
-
-        public String drawChanceCard(Player p) {
+    /**
+     * drawChanceCard is the method used when a player lands on a "Prøv lykken" field.
+     * @param p determines which player who shall draw a card.
+     */
+    public String drawChanceCard(Player p) {
         int n = getRandom();
 
         if (contains(n, payArr)) {

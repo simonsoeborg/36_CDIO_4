@@ -26,7 +26,6 @@ public class MainController {
 
         gui.addPlayers(pl.getPlayers());
 
-
         int turn = 0;
         Player p;
         String name;
@@ -57,7 +56,6 @@ public class MainController {
                 action = ac.decideAction(option, p);
                 if (option.equals("Rul") || option.equals("Prøv at slå par")) {
                     gui.showDice(dc.getDie1(), dc.getDie2());
-
                 }
 
                 gui.showGameStatus(pl.getPlayers(), fl.getFields());
@@ -71,10 +69,7 @@ public class MainController {
                 if (action.equals("End")) {
                     break;
                 }
-
             }
-
-
 
             if (p.isInJail() && !(ac.threeRoundsInJail(p))){
                 gui.action(name, p.getFieldIndex(), "ThreeRoundsInJail");
@@ -90,11 +85,7 @@ public class MainController {
                 gui.winner(ac.whoWins());
                 System.exit(0);
             }
-
             turn = ++turn % playerNumber;
-
         }
-
     }
-
 }

@@ -39,12 +39,6 @@ public class LogicController_MovePlayer_Test {
             System.out.println("previous: " + previous);
             System.out.println("facevalue: " + d.faceValues());
             System.out.println("actual: " + actual);
-
         }
-
-
-
-
-
     }
 }

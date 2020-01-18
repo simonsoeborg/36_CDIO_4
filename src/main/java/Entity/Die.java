@@ -11,7 +11,6 @@ public class Die {
     // We say +1 infront of (math.random() * MAX) because else it would be from 0-5.
     private int faceValue = (int) (Math.random() * MAX) + 1;
 
-
     public int getFaceValue() {
         return faceValue;
     }

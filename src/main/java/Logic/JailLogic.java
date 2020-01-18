@@ -2,14 +2,12 @@ package Logic;
 
 
 import Entity.Player;
-
 /**
  *
  * @author Kristoffer, Freja, David
  * @version 1.0.0
  */
 public class JailLogic {
-
     /**
      * checkNumDoubles is responsible for making sure the rule regarding 3 equal facevalue rolls are followed accordingly
      * 3 equal rolls after another results in jail-time

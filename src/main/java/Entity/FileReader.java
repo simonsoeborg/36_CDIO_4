@@ -48,7 +48,6 @@ public class FileReader {
         // så gør vi det der står i catch
         try{
             //Stream
-
             //Laver en stream af Strings som kaldes text. Derefter specificeres at de Strings vores Stream kommer til at
             //bestå af, skal være linjer i en fil, hvis sti pliver specifiseret af file stringen.
             // til sidst bedes text om at skippe et vis antal linjer fra tekstdokumentet og derefter konvaterer det til

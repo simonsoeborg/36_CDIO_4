@@ -11,8 +11,6 @@ public class DiceCup {
     private int die1 = 0;
     private int die2 = 0;
     private int i = 0;
-
-
     /**
      * Creates two die objects and roll them by assigning the random values of each die to the intance variables die1 and die2
      */
@@ -24,8 +22,6 @@ public class DiceCup {
         this.die2 = die2.getFaceValue();
 
     }
-
-
     /**
      * Adds the value of the two facevalues
      * @return - The sum of the facevalues
@@ -41,12 +37,12 @@ public class DiceCup {
      */
     public boolean isFaceValueSame(){
 
-       boolean check = false;
+        boolean check = false;
 
-       if (die1 == die2)
-           check = true;
+        if (die1 == die2)
+            check = true;
 
-       return check;
+        return check;
     }
 
     public int getDie1() {
@@ -57,11 +53,6 @@ public class DiceCup {
         return die2;
     }
 
-    //todo --- Den der har lavet den statiske metode getIntance, må gerne lige beskrive den
-    /**
-     * ?????????????????????
-     * @return
-     */
     public static DiceCup getINSTANCE(){
         return  INSTANCE;
     }

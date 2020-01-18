@@ -12,5 +12,4 @@ public class StateTax extends Field {
     public int getTax() {
         return tax;
     }
-
 }

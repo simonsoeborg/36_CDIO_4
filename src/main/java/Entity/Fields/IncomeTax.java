@@ -1,8 +1,6 @@
 package Entity.Fields;
 
-
 public class IncomeTax extends Field {
-
     private int payCash;
     private int payPercentage;
 

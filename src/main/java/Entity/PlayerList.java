@@ -1,7 +1,6 @@
 package Entity;
 
 import java.awt.*;
-import java.util.Optional;
 
 /**
  * Creates an array of type Player which contains references to the players
@@ -44,7 +43,6 @@ public class PlayerList {
     public Player getPlayer(int index) {
         return players[index];
     }
-
 
     public static PlayerList getInstance() {
         return INSTANCE;

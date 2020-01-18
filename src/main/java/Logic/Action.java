@@ -26,9 +26,7 @@ public class Action {
     private ChanceCardLogic cl = ChanceCardLogic.getInstance();
     private String option;
     private int random;
-
     private static final Action INSTANCE = new Action();
-
 
     /**
      * So on the button in game is a String. When you click on it, it copy that String on the botton
@@ -43,8 +41,7 @@ public class Action {
 
         switch (action) {
 
-
- //----------------------------------------------Roll Dice------------------------------------------------------------//
+            //----------------------------------------------Roll Dice------------------------------------------------------------//
             // rul terning for at bevæge spilleren.
             case "Rul":
                 dc.roll(); //Test
@@ -58,7 +55,7 @@ public class Action {
                 }
                 break;
 
- //----------------------------------------------Land on a field------------------------------------------------------//
+            //----------------------------------------------Land on a field------------------------------------------------------//
             // vil du købe feltet
             case "Køb":
                 po.buyField(p, fl);
@@ -74,25 +71,25 @@ public class Action {
                 checkForExtra(p);
                 break;
 
-                // extradordinær skat
+            // extradordinær skat
             case "Betal 2.000kr.-":
                 taxes.stateTax(p);
                 checkForExtra(p);
                 break;
 
-                // inkomstaskat
+            // inkomstaskat
             case "Betal 4.000kr.-":
                 taxes.incomeTaxCash(p);
                 checkForExtra(p);
                 break;
 
-                // -||-
+            // -||-
             case "Betal 10%":
                 taxes.incomeTaxPercentage(p);
                 checkForExtra(p);
                 break;
 
-                // betal for renten af en spillers felt
+            // betal for renten af en spillers felt
             case "Betal":
                 payRent(p);
                 checkForExtra(p);
@@ -233,13 +230,9 @@ public class Action {
                 cl.moveChanceCard(p, random);
                 option += ll.checkFieldType(p.getFieldIndex(), p);
                 break;
-
         }
-
-
         return option;
     }
-
 
     /**
      * A method to make sure the player, can do a thing multiable times, and have a choice afterward.
@@ -297,7 +290,6 @@ public class Action {
             return true;
     }
 
-
     /**
      * When the player goes bankrupcty they needs to be removed from the board
      * @param gb - it check the gameboard for their ID and removes them
@@ -333,7 +325,6 @@ public class Action {
             return true;
         else
             return false;
-
     }
 
     /**
@@ -348,7 +339,6 @@ public class Action {
         }
         return winner;
     }
-
     public static Action getInstance() {
         return INSTANCE;
     }

@@ -4,14 +4,11 @@ import Entity.Fields.Field;
 import Entity.Fields.Ownable;
 import Entity.Fields.Street;
 import Entity.FileReader;
-import Entity.GameBoard;
 import Entity.Player;
-import Logic.Action;
 import Logic.ChanceCardLogic;
 import gui_fields.*;
 import gui_main.GUI;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class GUISetup {
@@ -19,8 +16,6 @@ public class GUISetup {
     private static final GUISetup INSTANCE = new GUISetup();
     private FileReader reader = new FileReader();
     private ChanceCardLogic cl = ChanceCardLogic.getInstance();
-
-
     private GUI gui;
     private String[] playerNames;
     private GUI_Player[] players;
@@ -30,14 +25,12 @@ public class GUISetup {
     public GUISetup(){
         gui = new GUI(guiFields, Color.WHITE);
     }
-
     /**
      * Displays the chance card the player draws when landing on a ChanceCard field.
      */
     private void displayChanceCard() {
         gui.setChanceCard(reader.read(5, cl.getRandom()));
     }
-
     /**
      * Adds the players to the GUI board.
      * @param p - The list of players, whose in the game.
@@ -56,8 +49,6 @@ public class GUISetup {
             guiFields[0].setCar(player, true);
         }
     }
-
-
     /**
      * Updates the board (balance, car placements, ownerships and houses/hotels).
      * @param pl Takes a list of players.
@@ -120,12 +111,10 @@ public class GUISetup {
         gui.setDice(val1, val2);
     }
 
-
     public int askForPlayers() {
         String s = gui.getUserButtonPressed("Vælg antal spillere", "3", "4", "5", "6");
         return Integer.parseInt(s);
     }
-
 
     public String[] getPlayerNames(int playerNumber) {
         playerNames = new String[playerNumber];

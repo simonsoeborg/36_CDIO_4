@@ -13,10 +13,8 @@ import Entity.Player;
  * @version 1.0.0
  */
 public class PropertyRent {
-
     private FileReader reader = new FileReader();
     private DiceCup dc = DiceCup.getINSTANCE();
-
     /**
      * payRent transfer the money from the player to the owner.
      * first it checks all the fields on the gameboard to see if the owner owns all fields of same color
@@ -74,7 +72,6 @@ public class PropertyRent {
                     p.addMoney(-(((Street) fl[p.getFieldIndex()]).getHotel()));
                     pl[ownerID - 1].addMoney(((Street) fl[p.getFieldIndex()]).getHotel());
                     break;
-
             }
         }
     }
@@ -94,16 +91,16 @@ public class PropertyRent {
         // her bliver antallet af færge felter talt og sat lig count
         int count = countProperties(ownerID, p, fl);
 
-       //Tjekker værdien af count og sætter rentdouble lig en passene faktor.
+        //Tjekker værdien af count og sætter rentdouble lig en passene faktor.
         switch (count){
             case 1: rentDouble = 1;
-            break;
+                break;
             case 2: rentDouble = 2;
-            break;
+                break;
             case 3: rentDouble = 4;
-            break;
+                break;
             case 4: rentDouble = 8;
-            break;
+                break;
         }
         // Lejen bliver ganget med den passende faktor og trækkes først fra Player p og lægges derefter til
         // den spiller, vis ownerID matcher feltets

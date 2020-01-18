@@ -2,8 +2,6 @@ package Entity;
 
 import Entity.Fields.*;
 
-import java.awt.*;
-
 /**
  * Creates an array of Field type elements which contain all the fields of the Gameboard
  * @author Simon F.
@@ -23,7 +21,6 @@ public class GameBoard {
     public GameBoard() {
         // hver felttype er nedarvet fra superklassen Field, derfor kan hver element være forskellige felter,
         // hvilket giver os forskellige felter på vores Gameboard
-
         fields[0] = new Field(reader.read(1, 1));
         fields[1] = new Street(reader.read(1, 2), 1200, 50, 600, 1000, 250, 750,2250, 4000, 6000);
         fields[2] = new ChanceCard(reader.read(1, 3));
@@ -65,7 +62,6 @@ public class GameBoard {
         fields[38] = new StateTax(reader.read(1, 39), 2000);
         fields[39] = new Street(reader.read(1, 40), 8000, 1000, 4000, 4000, 4000, 12000,28000, 34000, 40000);
     }
-
 
     public String getFieldName(int fieldNumber) {
 

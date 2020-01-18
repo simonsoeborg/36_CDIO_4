@@ -1,11 +1,7 @@
 package Entity.Fields;
 
-import java.awt.*;
-
 public abstract class Ownable extends Field {
-
     private int propertyPrice, propertyRent, propertyPledgePrice, ownerID;
-
     /**
      * @param fieldName name on the field
      * @param propertyPrice the price for the field
@@ -18,8 +14,7 @@ public abstract class Ownable extends Field {
         this.propertyRent = propertyRent;
         this.propertyPledgePrice = propertyPledgePrice;
         this.ownerID = 0;
-}
-
+    }
 
     public int getPropertyPrice() {
 
@@ -40,6 +35,4 @@ public abstract class Ownable extends Field {
 
     @Override
     public boolean isOwnable() {return true;}
-
-
 }

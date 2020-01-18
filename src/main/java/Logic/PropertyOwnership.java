@@ -23,9 +23,8 @@ public class PropertyOwnership {
     private GameBoard gb = GameBoard.getInstance();
     private Field[] fl = gb.getFields();
 
-// det er en to demintionel array, hvor du kan se hvilken farver der høre sammen.
+    // det er en to demintionel array, hvor du kan se hvilken farver der høre sammen.
     private int[][] streetSets =  {{1,3},{6,8,9},{11,13,14},{16,18,19},{21,23,24},{26,27,29},{31,32,34},{37,39}};
-
     /**
      * Checks which of the fields within a specific set ( decided by color ) has the most houses.
      * This ensures that buildings are placed evenly
@@ -49,7 +48,6 @@ public class PropertyOwnership {
                 break;
             }
         }
-
         return fieldIndex;
     }
 
@@ -81,8 +79,6 @@ public class PropertyOwnership {
         }
         return "Full";
     }
-
-
     /**
      * Checks weather a player owns sets. one set is all fields of the same color
      * @param fields - Field type array
@@ -96,9 +92,7 @@ public class PropertyOwnership {
         else
             return false;
     }
-
     // her tjekker vi om vi kan spilleren kan bygge på feltet ( har alle felter)
-
     /**
      * Goes through all fields on the gameboard and counts variables corresponding to diffrent field colors whenever it meets
      * one the specified player owns.
@@ -157,7 +151,6 @@ public class PropertyOwnership {
                     }
                 }
             }
-
             // sørger for at filereaderen læser fra næste linje ved næste gennemløb
             line++;
         }

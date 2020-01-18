@@ -19,8 +19,8 @@ public class Taxes {
     private StateTax st;
 
     public Taxes() {
-          it = ((IncomeTax) gb.getFields()[4]);
-          st = ((StateTax) gb.getFields()[38]);
+        it = ((IncomeTax) gb.getFields()[4]);
+        st = ((StateTax) gb.getFields()[38]);
     }
 
     /**
@@ -43,10 +43,11 @@ public class Taxes {
         // overens med spillerens. Gør det dette, hentes feltets værdi og lægges til variablen totalpropertyvalue.
         for (Field ownedField: gb.getFields()) {
 
-            if (ownedField instanceof Ownable)
-                if (p.getId() == ((Ownable) ownedField).getOwnerID())
-                    totalPropertyValue += ((Ownable)ownedField).getPropertyPrice();
-
+            if (ownedField instanceof Ownable) {
+                if (p.getId() == ((Ownable) ownedField).getOwnerID()) {
+                    totalPropertyValue += ((Ownable) ownedField).getPropertyPrice();
+                }
+            }
         }
 
         // totalpropertyvalue lægges til spillerens pengebeholding og der udregnes ud fra summen, en værdi der afhænger
