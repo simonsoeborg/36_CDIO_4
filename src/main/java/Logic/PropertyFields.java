@@ -5,19 +5,23 @@ import Entity.Fields.Ownable;
 import Entity.GameBoard;
 import Entity.Player;
 import Entity.PlayerList;
-
+/**
+ * @author
+ * @version 1.0.0
+ */
 public class PropertyFields {
 
-
-    /**
-     * Method to determine whether or not a field is owned.
-     */
     private static GameBoard gb = GameBoard.getInstance();
     private static PlayerList pl = PlayerList.getInstance();
     private Field[] fields = gb.getFields();
     private Player[] p = pl.getPlayers();
 
-
+    /**
+     * Method to determine whether or not a field is owned.
+     * @param fieldIndex
+     * @param p
+     * @return
+     */
     public String checkFieldOwner(int fieldIndex, Player p){
 
         if (((Ownable)fields[fieldIndex]).getOwnerID()==0){
