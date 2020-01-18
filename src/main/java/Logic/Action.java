@@ -299,9 +299,9 @@ public class Action {
 
 
     /**
-     * When the player goes bankrupcty 
-     * @param gb
-     * @param p
+     * When the player goes bankrupcty they needs to be removed from the board
+     * @param gb - it check the gameboard for their ID and removes them
+     * @param p - the Current player there have goes bankrupcty
      */
     private void removePlayerFields(GameBoard gb, Player p){
         // Gennemløber alle felter og setter de felter der har samme id som spilleren til 0, så han ikke ejer dem mere.
@@ -317,6 +317,10 @@ public class Action {
         }
     }
 
+    /**
+     * a method there check if all expect one is bankrupcty
+     * @return - if the game is over when there are one player back
+     */
     public boolean checkGameOver() {
         int playersNotOut = pl.getPlayers().length;
         for (int i = 0; i < pl.getPlayers().length; i++) {
@@ -331,6 +335,10 @@ public class Action {
 
     }
 
+    /**
+     * This method can run after the game is over
+     * @return - return that the last man standing have won
+     */
     public int whoWins() {
         int winner = 0;
         for (int i = 0; i < pl.getPlayers().length; i++) {
@@ -342,9 +350,5 @@ public class Action {
 
     public static Action getInstance() {
         return INSTANCE;
-    }
-
-    public int getRandom() {
-        return random;
     }
 }
