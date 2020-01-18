@@ -9,7 +9,7 @@ import Entity.PlayerList;
 /**
  * This is a class, for all possible decisions in the game,
  * @author KE
- * @1.0.0
+ * @version 1.0.0
  */
 public class Action {
     private LogicList ll = new LogicList();
@@ -35,7 +35,7 @@ public class Action {
      * and then run the swicth case for that specific String.
      * @param action - action is a String
      * @param p - the Current player whose playing
-     * @return
+     * @return a string containing an option
      */
     public String decideAction (String action, Player p) {
 
@@ -318,8 +318,9 @@ public class Action {
     }
 
     /**
-     * a method there check if all expect one is bankrupcty
-     * @return - if the game is over when there are one player back
+     * a method there check if all players except one are bankrupt
+     * @return - Boolean true if only one player is remaining which means Game over or false if there is more than one
+     * player left
      */
     public boolean checkGameOver() {
         int playersNotOut = pl.getPlayers().length;
