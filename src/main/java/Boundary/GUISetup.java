@@ -185,12 +185,12 @@ public class GUISetup {
 
             case "Income tax":
                 choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3,7), "Betal 10%", "Betal 4000kr.-");
+                        reader.read(1, fieldIndex + 1) + reader.read(3,7), "Betal 10%", "Betal 4.000kr.-");
                 break;
 
             case "Extraordinary state tax":
                 choice = gui.getUserButtonPressed(name +  reader.read(3,2) + " " +
-                        reader.read(1, fieldIndex + 1) + reader.read(3,9),  "Betal 2000kr.-");
+                        reader.read(1, fieldIndex + 1) + reader.read(3,9),  "Betal 2.000kr.-");
                 break;
 
 
