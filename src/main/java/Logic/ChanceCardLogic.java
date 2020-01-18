@@ -11,8 +11,6 @@ import java.util.Arrays;
  */
 
 public class ChanceCardLogic {
-    private String newChanceCard;
-    private String updateChanceCard;
     private int pay;
     private int random;
 
@@ -49,8 +47,7 @@ public class ChanceCardLogic {
      * @param p is to make sure that it will be the current player who will lose money
      * @param number is the random generated integer that will determine how much the player will have to pay.
      */
-
-    public String payChanceCard(Player p, int number) {
+    public void payChanceCard(Player p, int number) {
         // Player has to pay for something.
         if (number == 4) {
             pay = 300;
@@ -68,7 +65,6 @@ public class ChanceCardLogic {
             pay = 3000;
             p.addMoney(-pay);
         }
-        return updateChanceCard;
     }
 
     /**
@@ -78,7 +74,7 @@ public class ChanceCardLogic {
      * @param number is the random generated integer that will determine how much the player will have to receive.
      */
 
-    public String receiveMoneyChanceCard(Player p, int number) {
+    public void receiveMoneyChanceCard(Player p, int number) {
         // Player will receive money from something.
         if (number == 13 || number == 15 || number == 16 || number == 17 || number == 18) {
             pay = 1000;
@@ -112,7 +108,6 @@ public class ChanceCardLogic {
             pay = 3000;
             p.addMoney(pay);
         }
-        return updateChanceCard;
     }
 
     /**
@@ -121,9 +116,7 @@ public class ChanceCardLogic {
      * @param number is the random generated integer that will determine which chance card.
      */
 
-    public String moveChanceCard(Player p, int number) {
-
-        updateChanceCard = "";
+    public void moveChanceCard(Player p, int number) {
         // Player will move to some fields.
         switch (number) {
             case 23:
@@ -168,7 +161,6 @@ public class ChanceCardLogic {
                 p.setFieldIndex(10);
                 break;
         }
-        return updateChanceCard;
     }
 
     /**
@@ -178,26 +170,26 @@ public class ChanceCardLogic {
         return random;
     }
 
-    public static ChanceCardLogic getInstance() {
-        return INSTANCE;
-    }
-
     /**
      * drawChanceCard is the method used when a player lands on a "Prøv lykken" field.
      * @param p determines which player who shall draw a card.
      */
-    public String drawChanceCard(Player p) {
+    public void drawChanceCard(Player p) {
         int n = getRandom();
 
         if (contains(n, payArr)) {
-            newChanceCard = payChanceCard(p, n);
+            payChanceCard(p, n);
 
         } else if(contains(n, receiveArr)) {
-            newChanceCard = receiveMoneyChanceCard(p, n);
+            receiveMoneyChanceCard(p, n);
 
         } else if(contains(n, moveArr)) {
-            newChanceCard = moveChanceCard(p, n);
+            moveChanceCard(p, n);
         }
-        return newChanceCard;
     }
+
+    public static ChanceCardLogic getInstance() {
+        return INSTANCE;
+    }
+
 }

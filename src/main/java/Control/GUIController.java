@@ -1,4 +1,4 @@
-package Boundary;
+package Control;
 
 import Entity.Fields.Field;
 import Entity.Fields.Ownable;
@@ -11,9 +11,9 @@ import gui_main.GUI;
 
 import java.awt.*;
 
-public class GUISetup {
+public class GUIController {
 
-    private static final GUISetup INSTANCE = new GUISetup();
+    private static final GUIController INSTANCE = new GUIController();
     private FileReader reader = new FileReader();
     private ChanceCardLogic cl = ChanceCardLogic.getInstance();
     private GUI gui;
@@ -22,7 +22,7 @@ public class GUISetup {
     private GUI_Field[] guiFields = makeFields();
     private GUI_Car[] cars;
 
-    public GUISetup(){
+    public GUIController(){
         gui = new GUI(guiFields, Color.WHITE);
     }
     /**
@@ -274,7 +274,7 @@ public class GUISetup {
         return choice;
     }
 
-    public static GUISetup getInstance() {
+    public static GUIController getInstance() {
         return INSTANCE;
     }
 

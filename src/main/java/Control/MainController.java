@@ -1,24 +1,21 @@
 package Control;
 
-import Boundary.GUISetup;
 import Entity.*;
-import Logic.*;
 
 public class MainController {
 
-    private int playerNumber;
-
-    private GameBoard fl = GameBoard.getInstance();
+    private GameBoard gb = GameBoard.getInstance();
     private PlayerList pl = PlayerList.getInstance();
-    private Action ac = new Action();
-    private PlayerMove pm = new PlayerMove();
-    private DiceCup dc =  DiceCup.getINSTANCE();
+    private ActionController ac = new ActionController();
 
     public void playGame() {
 
-        GUISetup gui = GUISetup.getInstance();
+        int de1 = ac.getDie1();
+        int de2 = ac.getDie2();
 
-        playerNumber = gui.askForPlayers();
+        GUIController gui = GUIController.getInstance();
+
+        int playerNumber = gui.askForPlayers();
 
         pl.addPlayers(playerNumber);
 
@@ -49,16 +46,16 @@ public class MainController {
             while (true) {
 
                 option = gui.action(name, p.getFieldIndex(), action);
-                gui.showGameStatus(pl.getPlayers(), fl.getFields());
+                gui.showGameStatus(pl.getPlayers(), gb.getFields());
                 if (option.equals("Slut tur")) {
                     break;
                 }
                 action = ac.decideAction(option, p);
                 if (option.equals("Rul") || option.equals("Prøv at slå par")) {
-                    gui.showDice(dc.getDie1(), dc.getDie2());
+                    gui.showDice(de1, de2);
                 }
 
-                gui.showGameStatus(pl.getPlayers(), fl.getFields());
+                gui.showGameStatus(pl.getPlayers(), gb.getFields());
 
                 if (p.getBankruptcy()) {
                     gui.action(name, p.getFieldIndex(), "Bankrupt");
@@ -73,7 +70,7 @@ public class MainController {
 
             if (p.isInJail() && !(ac.threeRoundsInJail(p))){
                 gui.action(name, p.getFieldIndex(), "ThreeRoundsInJail");
-                gui.showGameStatus(pl.getPlayers(), fl.getFields());
+                gui.showGameStatus(pl.getPlayers(), gb.getFields());
                 if (p.getBankruptcy()) {
                     gui.action(name, p.getFieldIndex(), "Bankrupt");
                     ac.decideAction("Bankrupt", p);

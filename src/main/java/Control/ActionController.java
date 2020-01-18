@@ -1,17 +1,18 @@
-package Logic;
+package Control;
 
 import Entity.DiceCup;
 import Entity.Fields.*;
 import Entity.GameBoard;
 import Entity.Player;
 import Entity.PlayerList;
+import Logic.*;
 
 /**
  * This is a class, for all possible decisions in the game,
  * @author KE
  * @version 1.0.0
  */
-public class Action {
+public class ActionController {
     private LogicList ll = new LogicList();
     private DiceCup dc =  DiceCup.getINSTANCE();
     private PlayerMove mp = new PlayerMove();
@@ -26,7 +27,7 @@ public class Action {
     private ChanceCardLogic cl = ChanceCardLogic.getInstance();
     private String option;
     private int random;
-    private static final Action INSTANCE = new Action();
+    private static final ActionController INSTANCE = new ActionController();
 
     /**
      * So on the button in game is a String. When you click on it, it copy that String on the botton
@@ -339,7 +340,16 @@ public class Action {
         }
         return winner;
     }
-    public static Action getInstance() {
+
+    public int getDie1() {
+        return dc.getDie1();
+    }
+
+    public int getDie2() {
+        return dc.getDie2();
+    }
+
+    public static ActionController getInstance() {
         return INSTANCE;
     }
 }
