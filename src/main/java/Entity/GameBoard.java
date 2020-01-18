@@ -4,18 +4,25 @@ import Entity.Fields.*;
 
 import java.awt.*;
 
+/**
+ * Creates an array of Field type elements which contain all the fields of the Gameboard
+ * @author Simon F.
+ * @version 1.0.0
+ */
 public class GameBoard {
-
-    /**
-     * This class makes our field array, with all the logial properties that the individual field contains.
-     */
 
     private static final GameBoard INSTANCE = new GameBoard();
     private Field[] fields = new Field[40];
     private FileReader reader = new FileReader();
     private int fieldNum;
 
+    /**
+     * Assigns all the elements of the fields array. Each inherited subclass has its own attributes which are also specidied when assigning
+     * them to an element in the array
+     */
     public GameBoard() {
+        // hver felttype er nedarvet fra superklassen Field, derfor kan hver element være forskellige felter,
+        // hvilket giver os forskellige felter på vores Gameboard
 
         fields[0] = new Field(reader.read(1, 1));
         fields[1] = new Street(reader.read(1, 2), 1200, 50, 600, 1000, 250, 750,2250, 4000, 6000);
@@ -72,18 +79,6 @@ public class GameBoard {
     public Field[] getFields() {
         return fields;
     }
-
-    public String getField(int fieldNumber) {
-        String selectField = "";
-        for (int i = 0; i <getSize(); i++) {
-          if (fieldNumber == i){
-              selectField = fields[i].toString();
-          }
-        }
-        return selectField;
-    }
-
-
 
     public static GameBoard getInstance() {
         return INSTANCE;
