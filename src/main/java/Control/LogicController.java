@@ -13,7 +13,6 @@ import Logic.*;
  * @version 1.0.0
  */
 public class LogicController {
-    private LogicList ll = new LogicList();
     private DiceCup dc =  DiceCup.getINSTANCE();
     private PlayerMove mp = new PlayerMove();
     private PropertyOwnership po = new PropertyOwnership();
@@ -22,7 +21,7 @@ public class LogicController {
     private PlayerList pl = PlayerList.getInstance();
     private Taxes taxes = new Taxes();
     private PropertyRent pr = new PropertyRent();
-    private PropertyFields pf = new PropertyFields();
+    private CheckField cf = new CheckField();
     private JailLogic jl = new JailLogic();
     private ChanceCardLogic cl = ChanceCardLogic.getInstance();
     private String option;
@@ -52,7 +51,7 @@ public class LogicController {
                     option = "3Doubles";
                 else {
                     mp.movePlayer(p, gb);
-                    option += ll.checkFieldType(p.getFieldIndex(), p);
+                    option += cf.checkFieldType(p.getFieldIndex(), p);
                 }
                 break;
 
@@ -229,7 +228,7 @@ public class LogicController {
 
             case "Ryk":
                 cl.moveChanceCard(p, random);
-                option += ll.checkFieldType(p.getFieldIndex(), p);
+                option += cf.checkFieldType(p.getFieldIndex(), p);
                 break;
         }
         return option;
@@ -257,7 +256,7 @@ public class LogicController {
      * @param p - the current player
      */
     private void payRent(Player p) {
-        int owner = pf.whoseProperty(p.getFieldIndex());
+        int owner = cf.whoseProperty(p.getFieldIndex());
         if (fl[p.getFieldIndex()] instanceof Street)
             pr.payRentStreet(owner, p, pl.getPlayers(), fl);
 
