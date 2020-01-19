@@ -298,14 +298,14 @@ public class LogicController {
     private void removePlayerFields(GameBoard gb, Player p){
         // Gennemløber alle felter og setter de felter der har samme id som spilleren til 0, så han ikke ejer dem mere.
         for (Field field: gb.getFields()) {
+            if (field instanceof Street) {
+                if(p.getId() == ((Street) field).getOwnerID()){
+                    ((Street) field).setNumberOfHouses(0);
+                }
+            }
             if( field instanceof Ownable){
                 if(p.getId() == ((Ownable) field).getOwnerID()){
                     ((Ownable) field).setOwnerID(0);
-                }
-            }
-            if ( field instanceof Street) {
-                if(p.getId() == ((Ownable) field).getOwnerID()){
-                    ((Street) field).setNumberOfHouses(0);
                 }
             }
         }

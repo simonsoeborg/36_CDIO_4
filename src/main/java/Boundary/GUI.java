@@ -93,9 +93,12 @@ public class GUI {
     private void updateHouses(int i, Field[] fl) {
         if (fl[i] instanceof Street) {
             int houses = ((Street) fl[i]).getNumberOfHouses();
-            if (houses < 5)
+            if ( 0 < houses && houses < 5)
                 ((GUI_Street) guiFields[i]).setHouses(houses);
-            else
+            else if (houses == 0) {
+                ((GUI_Street) guiFields[i]).setHouses(houses);
+                ((GUI_Street) guiFields[i]).setHotel(false);
+            } else
                 ((GUI_Street) guiFields[i]).setHotel(true);
         }
     }
