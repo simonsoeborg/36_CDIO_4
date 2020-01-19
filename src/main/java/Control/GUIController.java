@@ -165,17 +165,17 @@ public class GUIController {
 
             case "Pay":
                 displayChanceCard();
-                choice = gui.getUserButtonPressed("", "Betal penge");
+                choice = gui.getUserButtonPressed(reader.read(3,24), "Betal penge");
                 break;
 
             case "Receive":
                 displayChanceCard();
-                choice = gui.getUserButtonPressed("", "Modtag penge");
+                choice = gui.getUserButtonPressed(reader.read(3,24), "Modtag penge");
                 break;
 
             case "Move":
                 displayChanceCard();
-                choice = gui.getUserButtonPressed("", "Ryk");
+                choice = gui.getUserButtonPressed(reader.read(3,24), "Ryk");
                 break;
 
 //------------------------------------------------Tax-----------------------------------------------------------------//

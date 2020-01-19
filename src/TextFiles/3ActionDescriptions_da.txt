@@ -21,3 +21,4 @@ Du har ikke alle grunde i denne farve og kan derfor ikke bygge.
 Du kan ikke bygge mere på grunde af denne farve.
 Du har bygget et hus.
 Du har bygget et Hotel.
+Klik på chancekortet i midten for at se, hvad du har trukket.
