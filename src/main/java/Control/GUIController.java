@@ -29,7 +29,7 @@ public class GUIController {
      * Displays the chance card the player draws when landing on a ChanceCard field.
      */
     private void displayChanceCard() {
-        gui.setChanceCard(reader.read(5, cl.getRandom()));
+        gui.setChanceCard(reader.read(5, cl.getRandomNumber()));
     }
     /**
      * Adds the players to the GUI board.

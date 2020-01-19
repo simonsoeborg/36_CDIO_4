@@ -207,8 +207,8 @@ public class ActionController {
 //-------------------------Chance-----------------------------------------------------------------------------------//
 
             case "Træk kort":
-                cl.getRandomNumber();
-                random = cl.getRandom();
+                cl.generateRandomNumber();
+                random = cl.getRandomNumber();
                 if ( random > 0 && random < 12)
                     option = "Pay";
                 else if ( random > 11 && random < 23)
