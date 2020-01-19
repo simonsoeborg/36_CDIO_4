@@ -12,7 +12,7 @@ public class ChanceCardTest {
         pl.addPlayers(2);
         pl.getPlayer(0);
 
-        // Testing drawChanceCard
+        //Testing drawChanceCard
 //        System.out.println("##### Testing drawChanceCard: #####");
 //        for(int i = 1; i <= 32; i++) {
 //            System.out.println("\n" + i);

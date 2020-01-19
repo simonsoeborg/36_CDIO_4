@@ -165,7 +165,7 @@ public class ChanceCardLogic {
     }
 
     /**
-     * getRandom returns the integer that was random generated.
+     * getRandom returns the integer that was randomly generated.
      */
     public int getRandom() {
         return random;
