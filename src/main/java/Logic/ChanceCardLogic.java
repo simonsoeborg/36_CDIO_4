@@ -5,7 +5,7 @@ import Entity.PlayerList;
 import java.util.Arrays;
 
 /**
- *  The logic behind the chanceCards
+ * The logic behind the chanceCards
  * @author Simon Søborg
  * @version 1.0.0
  */
@@ -19,26 +19,18 @@ public class ChanceCardLogic {
     PlayerList pl = PlayerList.getInstance();
     PlayerMove PM = PlayerMove.getInstance();
 
-    private int[] payArr = {1,2,3,4,5,6,7,8,9,10,11};
-
-    private int[] receiveArr = {12,13,14,15,16,17,18,19,20,21,22};
-
-    private int[] moveArr = {23,24,25,26,27,28,29,30,31,32};
-
     /**
-     * contains method is used to search an integer array for a specific integer match.
-     * the array can be of any size and the key can be any integer. If the key is within the array of integers
-     * the method will return a boolean.
-     * @param key is the key which we want to check if the array contains
-     * @param arr is the array
-     * @return returns true or false. If the key is in the array the statement is true. If not it is false.
+     * This method generates a random number between 3 and 32.
      */
-    public boolean contains(int key, int[] arr) {
-        return Arrays.stream(arr).anyMatch(i -> i == key);
+    public void generateRandomNumber() {
+        random = (int)(Math.random() * 30) + 3;
     }
 
-    public void getRandomNumber() {
-        random = (int)(Math.random() * 30) + 3;
+    /**
+     * This method returns the integer that was randomly generated.
+     */
+    public int getRandomNumber() {
+        return random;
     }
 
     /**
@@ -164,30 +156,6 @@ public class ChanceCardLogic {
         }
     }
 
-    /**
-     * getRandom returns the integer that was randomly generated.
-     */
-    public int getRandom() {
-        return random;
-    }
-
-    /**
-     * drawChanceCard is the method used when a player lands on a "Prøv lykken" field.
-     * @param p determines which player who shall draw a card.
-     */
-    public void drawChanceCard(Player p) {
-        int n = getRandom();
-
-        if (contains(n, payArr)) {
-            payChanceCard(p, n);
-
-        } else if(contains(n, receiveArr)) {
-            receiveMoneyChanceCard(p, n);
-
-        } else if(contains(n, moveArr)) {
-            moveChanceCard(p, n);
-        }
-    }
 
     public static ChanceCardLogic getInstance() {
         return INSTANCE;
