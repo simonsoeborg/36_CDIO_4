@@ -2,7 +2,6 @@ package Logic;
 
 import Entity.Player;
 import Entity.PlayerList;
-import java.util.Arrays;
 
 /**
  * The logic behind the chanceCards
@@ -16,8 +15,8 @@ public class ChanceCardLogic {
 
     private static final ChanceCardLogic INSTANCE = new ChanceCardLogic();
 
-    PlayerList pl = PlayerList.getInstance();
-    PlayerMove PM = PlayerMove.getInstance();
+    private PlayerList pl = PlayerList.getInstance();
+    private PlayerMove PM = PlayerMove.getInstance();
 
     /**
      * This method generates a random number between 3 and 32.

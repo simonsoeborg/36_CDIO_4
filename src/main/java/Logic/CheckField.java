@@ -6,7 +6,6 @@ import Entity.GameBoard;
 import Entity.Player;
 
 /**
- * @author
  * @version 1.0.0
  */
 public class CheckField {
@@ -70,7 +69,7 @@ public class CheckField {
      * @param p - The player whose turn it is.
      * @return - Returns a string which indicates the ownership status of the ownable field.
      */
-    public String checkFieldOwner(int fieldIndex, Player p){
+    private String checkFieldOwner(int fieldIndex, Player p){
 
         if (((Ownable)fields[fieldIndex]).getOwnerID()==0){
             return "Buy";
