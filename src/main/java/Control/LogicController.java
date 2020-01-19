@@ -12,7 +12,7 @@ import Logic.*;
  * @author KE
  * @version 1.0.0
  */
-public class ActionController {
+public class LogicController {
     private LogicList ll = new LogicList();
     private DiceCup dc =  DiceCup.getINSTANCE();
     private PlayerMove mp = new PlayerMove();
@@ -27,7 +27,7 @@ public class ActionController {
     private ChanceCardLogic cl = ChanceCardLogic.getInstance();
     private String option;
     private int random;
-    private static final ActionController INSTANCE = new ActionController();
+    private static final LogicController INSTANCE = new LogicController();
 
     /**
      * So on the button in game is a String. When you click on it, it copy that String on the botton
@@ -351,7 +351,7 @@ public class ActionController {
         return dc.getDie2();
     }
 
-    public static ActionController getInstance() {
+    public static LogicController getInstance() {
         return INSTANCE;
     }
 }

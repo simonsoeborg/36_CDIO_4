@@ -1,5 +1,3 @@
-package Boundary;
-
 import Control.MainController;
 
 public class Main {

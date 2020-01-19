@@ -1,16 +1,17 @@
 package Control;
 
+import Boundary.GUI;
 import Entity.*;
 
 public class MainController {
 
     private GameBoard gb = GameBoard.getInstance();
     private PlayerList pl = PlayerList.getInstance();
-    private ActionController ac = new ActionController();
+    private LogicController lc = new LogicController();
 
     public void playGame() {
 
-        GUIController gui = GUIController.getInstance();
+        GUI gui = GUI.getInstance();
 
         int playerNumber = gui.askForPlayers();
 
@@ -24,7 +25,7 @@ public class MainController {
         Player p;
         String name;
         String action;
-        String option = "";
+        String option;
 
         while (true) {
 
@@ -33,7 +34,7 @@ public class MainController {
             action = "Roll";
 
             if (p.isInJail()) {
-                ac.jailCountUp(p);
+                lc.jailCountUp(p);
                 action = "InJail";
             }
 
@@ -47,16 +48,16 @@ public class MainController {
                 if (option.equals("Slut tur")) {
                     break;
                 }
-                action = ac.decideAction(option, p);
+                action = lc.decideAction(option, p);
                 if (option.equals("Rul") || option.equals("Prøv at slå par")) {
-                    gui.showDice(ac.getDie1(), ac.getDie2());
+                    gui.showDice(lc.getDie1(), lc.getDie2());
                 }
 
                 gui.showGameStatus(pl.getPlayers(), gb.getFields());
 
                 if (p.getBankruptcy()) {
                     gui.action(name, p.getFieldIndex(), "Bankrupt");
-                    ac.decideAction("Bankrupt", p);
+                    lc.decideAction("Bankrupt", p);
                     break;
                 }
 
@@ -65,18 +66,18 @@ public class MainController {
                 }
             }
 
-            if (p.isInJail() && !(ac.threeRoundsInJail(p))){
+            if (p.isInJail() && !(lc.threeRoundsInJail(p))){
                 gui.action(name, p.getFieldIndex(), "ThreeRoundsInJail");
                 gui.showGameStatus(pl.getPlayers(), gb.getFields());
                 if (p.getBankruptcy()) {
                     gui.action(name, p.getFieldIndex(), "Bankrupt");
-                    ac.decideAction("Bankrupt", p);
+                    lc.decideAction("Bankrupt", p);
                     break;
                 }
             }
 
-            if (ac.checkGameOver()) {
-                gui.winner(ac.whoWins());
+            if (lc.checkGameOver()) {
+                gui.winner(lc.whoWins());
                 System.exit(0);
             }
             turn = ++turn % playerNumber;

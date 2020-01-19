@@ -1,4 +1,4 @@
-package Control;
+package Boundary;
 
 import Entity.Fields.Field;
 import Entity.Fields.Ownable;
@@ -7,23 +7,22 @@ import Entity.FileReader;
 import Entity.Player;
 import Logic.ChanceCardLogic;
 import gui_fields.*;
-import gui_main.GUI;
 
 import java.awt.*;
 
-public class GUIController {
+public class GUI {
 
-    private static final GUIController INSTANCE = new GUIController();
+    private static final GUI INSTANCE = new GUI();
     private FileReader reader = new FileReader();
     private ChanceCardLogic cl = ChanceCardLogic.getInstance();
-    private GUI gui;
+    private gui_main.GUI gui;
     private String[] playerNames;
     private GUI_Player[] players;
     private GUI_Field[] guiFields = makeFields();
     private GUI_Car[] cars;
 
-    public GUIController(){
-        gui = new GUI(guiFields, Color.WHITE);
+    public GUI(){
+        gui = new gui_main.GUI(guiFields, Color.WHITE);
     }
     /**
      * Displays the chance card the player draws when landing on a ChanceCard field.
@@ -133,7 +132,7 @@ public class GUIController {
      * @return - It returns a string equal to the string on the button the player pressed.
      */
     public String action(String name, int fieldIndex, String action) {
-        String choice = "";
+        String choice;
         switch (action) {
 
             case "Buy":
@@ -274,7 +273,7 @@ public class GUIController {
         return choice;
     }
 
-    public static GUIController getInstance() {
+    public static GUI getInstance() {
         return INSTANCE;
     }
 
