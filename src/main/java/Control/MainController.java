@@ -10,9 +10,6 @@ public class MainController {
 
     public void playGame() {
 
-        int de1 = ac.getDie1();
-        int de2 = ac.getDie2();
-
         GUIController gui = GUIController.getInstance();
 
         int playerNumber = gui.askForPlayers();
@@ -52,7 +49,7 @@ public class MainController {
                 }
                 action = ac.decideAction(option, p);
                 if (option.equals("Rul") || option.equals("Prøv at slå par")) {
-                    gui.showDice(de1, de2);
+                    gui.showDice(ac.getDie1(), ac.getDie2());
                 }
 
                 gui.showGameStatus(pl.getPlayers(), gb.getFields());

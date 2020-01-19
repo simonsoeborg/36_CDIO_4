@@ -310,7 +310,7 @@ public class GUIController {
         fields[var2++] = new GUI_Brewery("default", "Tuborg", "Pris:  3.000", fieldDesDA.read(2,line+7), "10 x [Terningslag]", Color.BLACK, Color.WHITE);
         fields[var2++] = new GUI_Street("Bülowsvej", "Pris:  2.800", fieldDesDA.read(2,line+8), "Leje:  200", new Color(131, 204, 88), Color.BLACK);
         fields[var2++] = new GUI_Street("Gammel Kongevej", "Pris:  3.200", fieldDesDA.read(2,line+9), "Leje:  2500", new Color(131, 204, 88), Color.BLACK);
-        fields[var2++] = new GUI_Shipping("default", "Kalun./Århus", "Pris:  4.000", fieldDesDA.read(2,line+2), "Leje:  500", Color.WHITE, Color.BLACK);
+        fields[var2++] = new GUI_Shipping("default", "Molslinjen", "Pris:  4.000", fieldDesDA.read(2,line+2), "Leje:  500", Color.WHITE, Color.BLACK);
         fields[var2++] = new GUI_Street("Bernstorffsvej", "Pris:  3.600", fieldDesDA.read(2,line+10), "Leje:  300", new Color(108, 108, 108), Color.WHITE);
         fields[var2++] = new GUI_Chance("?", "Prøv lykken", "Ta' et chancekort.", new Color(204, 204, 204), Color.BLACK);
         fields[var2++] = new GUI_Street("Hellerupvej", "Pris:  3.600", fieldDesDA.read(2,line+11), "Leje:  300", new Color(108, 108, 108), Color.WHITE);
@@ -330,7 +330,7 @@ public class GUIController {
         fields[var2++] = new GUI_Street("Vimmel-\nskaftet", "Pris:  6.000", fieldDesDA.read(2,line+20), "Leje:  550", new Color(255, 205, 87), Color.BLACK);
         fields[var2++] = new GUI_Chance("?", "Prøv lykken", "Ta' et chancekort.", new Color(204, 204, 204), Color.BLACK);
         fields[var2++] = new GUI_Street("Nygade", "Pris:  6.400", fieldDesDA.read(2,line+21), "Leje:  600", new Color(255, 205, 87), Color.BLACK);
-        fields[var2++] = new GUI_Shipping("default", "Hals./knuds.", "Pris:  4.000", fieldDesDA.read(2,line+2), "Leje:  75", Color.WHITE, Color.BLACK);
+        fields[var2++] = new GUI_Shipping("default", "Scanlines", "Pris:  4.000", fieldDesDA.read(2,line+2), "Leje:  75", Color.WHITE, Color.BLACK);
         fields[var2++] = new GUI_Chance("?", "Prøv lykken", "Ta' et chancekort.", new Color(204, 204, 204), Color.BLACK);
         fields[var2++] = new GUI_Street("Frederiks-\nberggade", "Pris:  7.000", fieldDesDA.read(2,line+22), "Leje:  700", new Color(150, 104, 141), Color.WHITE);
         fields[var2++] = new GUI_Tax("Ekstra-\nordinær\nstatsskat", "Betal 2.000", "Betal ekstraordinær\nstatsskat: kr. 1.000,-", Color.GRAY, Color.BLACK);
