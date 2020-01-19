@@ -11,5 +11,4 @@ public class Field {
         return fieldName;
     }
 
-    public boolean isOwnable() { return false; }
 }

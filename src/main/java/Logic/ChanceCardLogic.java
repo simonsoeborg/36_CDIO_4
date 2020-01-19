@@ -93,7 +93,6 @@ public class ChanceCardLogic {
         }
         // Get 200 kr from each player in the game.
         if (number == 20) {
-
             pay = 200;
             p.addMoney(pay * pl.getPlayers().length);
             for (Player player : pl.getPlayers()) {
@@ -130,13 +129,15 @@ public class ChanceCardLogic {
             case 25:
                 // Move player to 3 fields backwards
                 p.setFieldIndex(p.getFieldIndex()-3);
+                if (p.getFieldIndex() < 0)
+                    p.setFieldIndex(40 - p.getFieldIndex());
                 break;
             case 26:
                 // Move player to fieldIndex 11
                 PM.movePlayerChanceCard(p, 11);
                 break;
             case 27:
-                // Tag med Kalun./Århus \nflyt brikken frem og hvis De passerer START indkassér da 4000 kroner.
+                // Tag med Molslinjen \nflyt brikken frem og hvis De passerer START indkassér da 4000 kroner.
                 PM.movePlayerChanceCard(p, 15);
                 break;
             case 28:
@@ -164,7 +165,7 @@ public class ChanceCardLogic {
     }
 
     /**
-     * getRandom returns the integer that was random generated.
+     * getRandom returns the integer that was randomly generated.
      */
     public int getRandom() {
         return random;

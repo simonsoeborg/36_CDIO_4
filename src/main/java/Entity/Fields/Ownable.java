@@ -33,6 +33,4 @@ public abstract class Ownable extends Field {
         this.ownerID = ownerID;
     }
 
-    @Override
-    public boolean isOwnable() {return true;}
 }
