@@ -1,43 +1,28 @@
 package Entity.Fields;
 
-import java.awt.*;
-
-public class Ownable extends Field {
-
+public abstract class Ownable extends Field {
     private int propertyPrice, propertyRent, propertyPledgePrice, ownerID;
-    private Color propertyColor;
-
-    public Ownable(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice, int ownerID, Color propertyColor) {
+    /**
+     * @param fieldName name on the field
+     * @param propertyPrice the price for the field
+     * @param propertyRent the rent a player has to pay on the field
+     * @param propertyPledgePrice When you need money you can pledge your field and get some money back
+     */
+    public Ownable(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice){
         super(fieldName);
         this.propertyPrice = propertyPrice;
         this.propertyRent = propertyRent;
         this.propertyPledgePrice = propertyPledgePrice;
-        this.ownerID = ownerID;
-        this.propertyColor = propertyColor;
+        this.ownerID = 0;
     }
 
     public int getPropertyPrice() {
-        return propertyPrice;
-    }
 
-    public void setPropertyPrice(int propertyPrice) {
-        this.propertyPrice = propertyPrice;
+        return propertyPrice;
     }
 
     public int getPropertyRent() {
         return propertyRent;
-    }
-
-    public void setPropertyRent(int propertyRent) {
-        this.propertyRent = propertyRent;
-    }
-
-    public int getPropertyPledgePrice() {
-        return propertyPledgePrice;
-    }
-
-    public void setPropertyPledgePrice(int propertyPledgePrice) {
-        this.propertyPledgePrice = propertyPledgePrice;
     }
 
     public int getOwnerID() {
@@ -48,11 +33,6 @@ public class Ownable extends Field {
         this.ownerID = ownerID;
     }
 
-    public Color getPropertyColor() {
-        return propertyColor;
-    }
-
-    public void setPropertyColor(Color propertyColor) {
-        this.propertyColor = propertyColor;
-    }
+    @Override
+    public boolean isOwnable() {return true;}
 }

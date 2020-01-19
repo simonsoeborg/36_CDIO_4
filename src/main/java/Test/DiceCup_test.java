@@ -10,8 +10,6 @@ public class DiceCup_test {
     public static void main(String[] args) {
         DiceCup dc = new DiceCup();
         for (int i = 0; i <10; i++) {
-
-
             dc.roll();
             /**
              * checks if the value is the same of both the dice

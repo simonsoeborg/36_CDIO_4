@@ -1,10 +1,11 @@
 package Entity.Fields;
 
-import java.awt.*;
 public class Ferry extends Ownable {
-
-    public Ferry(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice, int ownerID, Color propertyColor) {
-        super(fieldName, propertyPrice, propertyRent, propertyPledgePrice, ownerID, propertyColor);
+    /**
+     * ferryRentFactor is the factor which the rent is multiple with for each owend ferry.
+     */
+    public Ferry(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice) {
+        super(fieldName, propertyPrice, propertyRent, propertyPledgePrice);
     }
 }
 

@@ -1,0 +1,23 @@
+ hvad vil du gøre?
+ landede på
+, som ikke er ejet og kan derfor købes.
+, som du allerede ejer.
+, som allerede ejes af en andre, og du må derfor betale leje.
+ er i fængsel, hvad vil du gør?
+, du har mulighederne
+ og skal rykke til fængsel.
+, og skattefar vil ha' flere penge.
+ slog et par og må derfor slå igen.
+, der sker ikke noget.
+ slog ikke et par og må derfor forblive i fængsel.
+ har nu siddet i fængsel i tre runder og skal derfor betale 1000kr.-, du må rykke i næste runde.
+ slog et par, slå igen for at ryke ud af fængslet.
+ har slået tre par i træk og skal derfor rykke i fængsel.
+Vil du bygge et hus?
+Vil du bygge et hus eller kaste igen?
+Hvor vil du bygge?
+ kunne ikke betale, så banken får dine skøder og dækker din gæld. Du er nu gået fallit og er ude af spillet.
+Du har ikke alle grunde i denne farve og kan derfor ikke bygge.
+Du kan ikke bygge mere på grunde af denne farve.
+Du har bygget et hus.
+Du har bygget et Hotel.

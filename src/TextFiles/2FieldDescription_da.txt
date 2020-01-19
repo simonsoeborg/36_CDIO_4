@@ -1,0 +1,24 @@
+Leje af grund 50,- \nm/ 1 hus: 250,- \nm/ 2 huse: 750,- \nm/ 3 huse: 2.250,- \nm/ 4 huse: 4.000,- \nm/ hotel: 6.000,- \nHvert hus/Hotel koster 1.000,- \nPantsætningsværdi: 600,-
+Leje af grund 50,- \nm/ 1 hus: 250,- \nm/ 2 huse: 750,- \nm/ 3 huse: 2.250,- \nm/ 4 huse: 4.000,- \nm/ hotel: 6.000,- \nHvert hus/Hotel koster 1.000.- \nPantsætningsværdi: 600,-
+Leje  500,- \nhvis 2 rederier ejes: 1.000,- \nhvis 3 rederier ejes: 2.000,- \nhvis 4 rederier ejes: 4.000,- \n \nPantsætningsværdi: 2.000,-
+Leje af grund 100,- \nm/ 1 hus: 600,- \nm/ 2 huse: 1.800,- \nm/ 3 huse: 5.400,- \nm/ 4 huse: 8.000,- \nm/ hotel: 11.000,- \nHvert hus/Hotel koster 1.000,- \nPantsætningsværdi: 1.000,-
+Leje af grund 100,- \nm/ 1 hus: 600,- \nm/ 2 huse: 1.800,- \nm/ 3 huse: 5.400,- \nm/ 4 huse: 8.000,- \nm/ hotel: 11.000,- \nHvert hus/Hotel koster 1.000,- \nPantsætningsværdi: 1.000,-
+Leje af grund 150,- \nm/ 1 hus: 800,- \nm/ 2 huse: 2.000,- \nm/ 3 huse: 6.000,- \nm/ 4 huse: 9.000,- \nm/ hotel: 12.000,- \nHvert hus/Hotel koster 1.000,- \nPantsætningsværdi: 1.200,-
+Leje af grund 200,- \nm/ 1 hus: 1.000,- \nm/ 2 huse: 3.000,- \nm/ 3 huse: 9.000,- \nm/ 4 huse: 12.500,- \nm/ hotel: 15.000,- \nHvert hus/Hotel koster 2.000,- \nPantsætningsværdi: 1.400,-
+Hvis 1 virksomhed ejes \n betales 100 gange så meget, \nsom øjnene viser. \n\nHvis både TUBORG og CARLSBERG ejes, \n betales 200 gange så meget, \n som øjnene viser \nPantsætningsværdi: 1.500,-
+Leje af grund 200,- \nm/ 1 hus: 1.000,- \nm/ 2 huse: 3.000,- \nm/ 3 huse: 9.000,- \nm/ 4 huse: 12.500,- \nm/ hotel: 15.000,- \nHvert hus/Hotel koster 2.000,- \nPantsætningsværdi: 1.400,-
+Leje af grund 250,- \nm/ 1 hus: 1.250,- \nm/ 2 huse: 3.750,- \nm/ 3 huse: 10.000,- \nm/ 4 huse: 14.000,- \nm/ hotel: 18.000,- \nHvert hus/Hotel koster 2.000,-\nPantsætningsværdi: 1.600,-
+Leje af grund 300,- \nm/ 1 hus: 1.400,- \nm/ 2 huse: 4.000,- \nm/ 3 huse: 11.000,- \nm/ 4 huse: 15.000,- \nm/ hotel: 19.000,- \nHvert hus/Hotel koster 2.000,-\nPantsætningsværdi: 1.800,-
+Leje af grund 300,- \nm/ 1 hus: 1.400,- \nm/ 2 huse: 4.000,- \nm/ 3 huse: 11.000,- \nm/ 4 huse: 15.000,-\nm/ hotel: 19.000,- \nHvert hus/Hotel koster 2.000,-\nPantsætningsværdi: 1.800,-
+Leje af grund 350,- \nm/ 1 hus: 1.600,- \nm/ 2 huse: 4.400,- \nm/ 3 huse: 12.000,- \nm/ 4 huse: 16.000,- \nm/ hotel: 20.000,- \nHvert hus/Hotel koster 2.000,-\nPantsætningsværdi: 2.000,-
+Leje af grund 350,- \nm/ 1 hus: 1.800,- \nm/ 2 huse: 5.000,- \nm/ 3 huse: 14.000,- \nm/ 4 huse: 17.500,- \nm/ hotel: 21.000,- \nHvert hus/Hotel koster 3.000,-\nPantsætningsværdi: 2.200,-
+Leje af grund 350,- \nm/ 1 hus: 1.800,- \nm/ 2 huse: 5.000,- \nm/ 3 huse: 14.000,- \nm/ 4 huse: 17.500,- \nm/ hotel: 21.000,- \nHvert hus/Hotel koster 3.000,-\nPantsætningsværdi: 2.200,-
+Leje af grund 400,- \nm/ 1 hus: 2.000,- \nm/ 2 huse: 6.000,- \nm/ 3 huse: 15.000,- \nm/ 4 huse: 18.500,- \nm/ hotel: 22.000,- \nHvert hus/Hotel koster 3.000,-\nPantsætningsværdi: 2.400,-
+Leje af grund 450,- \nm/ 1 hus: 2.200,- \nm/ 2 huse: 6.600,- \nm/ 3 huse: 16.000,- \nm/ 4 huse: 19.500,- \nm/ hotel: 23.000,- \nHvert hus/Hotel koster 3.000,-\nPantsætningsværdi: 2.600,-
+Leje af grund 450,- \nm/ 1 hus: 2.200,- \nm/ 2 huse: 6.600,- \nm/ 3 huse: 16.000,- \nm/ 4 huse: 19.500,- \nm/ hotel: 23.000,- \nHvert hus/Hotel koster 3.000,-\nPantsætningsværdi: 2.600,-
+Leje af grund 500,-  \nm/ 1 hus: 2.400,-  \nm/ 2 huse: 7.200,-  \nm/ 3 huse: 17.000,-  \nm/ 4 huse: 20.500,-  \nm/ hotel: 24.000,-  \nHvert hus/Hotel koster 3.000,- \nPantsætningsværdi: 2.800,-
+Leje af grund 550,-  \nm/ 1 hus: 2.600,-  \nm/ 2 huse: 7.800,-  \nm/ 3 huse: 18.000,-  \nm/ 4 huse: 22.000,-  \nm/ hotel: 25.000,-  \nHvert hus/Hotel koster 4.000,- \nPantsætningsværdi: 3.000,-
+Leje af grund 550,-  \nm/ 1 hus: 2.600,-  \nm/ 2 huse: 7.800,-  \nm/ 3 huse: 18.000,-  \nm/ 4 huse: 22.000,-  \nm/ hotel: 25.000,-  \nHvert hus/Hotel koster 4.000,- \nPantsætningsværdi: 3.000,-
+Leje af grund 600,-  \nm/ 1 hus: 3.000,-  \nm/ 2 huse: 9.000,-  \nm/ 3 huse: 20.000,-  \nm/ 4 huse: 24.000,-  \nm/ hotel: 28.000,-  \nHvert hus/Hotel koster 4.000,- \nPantsætningsværdi: 3.200,-
+Leje af grund 700,-  \nm/ 1 hus: 3.500,-  \nm/ 2 huse: 10.000,-  \nm/ 3 huse: 22.000,-  \nm/ 4 huse: 26.000,-  \nm/ hotel: 30.000,-  \nHvert hus/Hotel koster 4.000,- \nPantsætningsværdi: 3.500,-
+Leje af grund 1.000,-  \nm/ 1 hus: 4.000,-  \nm/ 2 huse: 12.000,-  \nm/ 3 huse: 28.000,-  \nm/ 4 huse: 34.000,-  \nm/ hotel: 40.000,-  \nHvert hus/Hotel koster 4.000,- \nPantsætningsværdi: 4.000,-
