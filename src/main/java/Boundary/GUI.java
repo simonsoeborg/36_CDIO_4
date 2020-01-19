@@ -16,12 +16,10 @@ public class GUI {
     private FileReader reader = new FileReader();
     private ChanceCardLogic cl = ChanceCardLogic.getInstance();
     private gui_main.GUI gui;
-    private String[] playerNames;
     private GUI_Player[] players;
     private GUI_Field[] guiFields = makeFields();
-    private GUI_Car[] cars;
 
-    public GUI(){
+    private GUI(){
         gui = new gui_main.GUI(guiFields, Color.WHITE);
     }
     /**
@@ -36,7 +34,7 @@ public class GUI {
      */
     public void addPlayers(Player[] p) {
         players = new GUI_Player[p.length];
-        cars = new GUI_Car[p.length];
+        GUI_Car[] cars = new GUI_Car[p.length];
         for (int i=0; i<p.length;i++){
             cars[i] = new GUI_Car(p[i].getColor(), null, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
             players[i] = new GUI_Player(p[i].getName(),p[i].getMoney(), cars[i]);
@@ -70,9 +68,9 @@ public class GUI {
     private void movePlayer(int i, Player[] pl) {
         if (!pl[i].getBankruptcy())
             guiFields[pl[i].getFieldIndex()].setCar(players[i], true);
-        for (int j = 0; j < pl.length; j++) {
-            if (pl[j].getBankruptcy()) {
-                guiFields[pl[j].getFieldIndex()].setCar(players[i], false);
+        for (Player player : pl) {
+            if (player.getBankruptcy()) {
+                guiFields[player.getFieldIndex()].setCar(players[i], false);
             }
         }
     }
@@ -116,8 +114,8 @@ public class GUI {
     }
 
     public String[] getPlayerNames(int playerNumber) {
-        playerNames = new String[playerNumber];
-        for (int i = 0; i < playerNumber; i=i) {
+        String[] playerNames = new String[playerNumber];
+        for (int i = 0; i < playerNumber;) {
             playerNames[i++] = gui.getUserString("Tilføj spiller " + i + "'s navn");
         }
         return playerNames;
@@ -281,19 +279,20 @@ public class GUI {
      * This is our board game with fields.
      */
 
-    public static GUI_Field[] makeFields() {
-        /**
-         * We made a read Field Description. So when you click on a field while you play, you can see the description for that field.
-         */
+    private static GUI_Field[] makeFields() {
+
+
+        // We made a read Field Description. So when you click on a field while you play, you can see the description for that field.
+
 
         FileReader fieldDesDA = new FileReader();
         GUI_Field[] fields = new GUI_Field[40];
         int line = 1;
         int i = 0;
         int var2 = i + 1;
-        /**
-         * all our MatadorGUI fields, as you see them on the screen while playing.
-         */
+
+        //all our MatadorGUI fields, as you see them on the screen while playing.
+
         fields[i] = new GUI_Start("Start", "Modtag: 4000", "Modtag 4000,-\nnår de passerer start", new Color(204, 68, 60), Color.BLACK);
         fields[var2++] = new GUI_Street("Rødovrevej", "Pris:  1.200", fieldDesDA.read(2,line), "Leje:  50", new Color(75, 155, 225), Color.BLACK);
         fields[var2++] = new GUI_Chance("?", "Prøv lykken", "Ta' et chancekort.", new Color(204, 204, 204), Color.BLACK);
@@ -333,7 +332,7 @@ public class GUI {
         fields[var2++] = new GUI_Chance("?", "Prøv lykken", "Ta' et chancekort.", new Color(204, 204, 204), Color.BLACK);
         fields[var2++] = new GUI_Street("Frederiks-\nberggade", "Pris:  7.000", fieldDesDA.read(2,line+22), "Leje:  700", new Color(150, 104, 141), Color.WHITE);
         fields[var2++] = new GUI_Tax("Ekstra-\nordinær\nstatsskat", "Betal 2.000", "Betal ekstraordinær\nstatsskat: kr. 1.000,-", Color.GRAY, Color.BLACK);
-        fields[var2++] = new GUI_Street("Rådhuspladsen", "Pris:  8000", fieldDesDA.read(2,line+23), "Leje:  150", new Color(150, 104, 141), Color.WHITE);
+        fields[var2] = new GUI_Street("Rådhuspladsen", "Pris:  8000", fieldDesDA.read(2,line+23), "Leje:  150", new Color(150, 104, 141), Color.WHITE);
         return fields;
     }
 }

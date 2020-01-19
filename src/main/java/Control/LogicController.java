@@ -29,13 +29,13 @@ public class LogicController {
     private static final LogicController INSTANCE = new LogicController();
 
     /**
-     * So on the button in game is a String. When you click on it, it copy that String on the botton
-     * and then run the swicth case for that specific String.
+     * So on the button in game is a String. When you click on it, it copy that String on the button
+     * and then run the switch case for that specific String.
      * @param action - action is a String
      * @param p - the Current player whose playing
      * @return a string containing an option
      */
-    public String decideAction (String action, Player p) {
+    String decideAction(String action, Player p) {
 
         option = "";
 
@@ -271,7 +271,7 @@ public class LogicController {
      * a counter for the 3 times a player can be in jail
      * @param p - current player in jail
      */
-    public void jailCountUp(Player p) {
+    void jailCountUp(Player p) {
         if (p.isInJail())
             p.addRoundInJail();
     }
@@ -279,9 +279,9 @@ public class LogicController {
     /**
      *  After 3 rounds in jail, where the player haven't rolled a double. they SHALL pay 1.000,- and then they are free
      * @param p - current player who's about to get out
-     * @return
+     * @return - Returns whether or not the player have been in jail for three rounds.
      */
-    public boolean threeRoundsInJail(Player p) {
+    boolean threeRoundsInJail(Player p) {
         if (p.getRoundsInJail() == 3) {
             p.addMoney(-1000);
             p.setInJail(false);
@@ -316,24 +316,21 @@ public class LogicController {
      * @return - Boolean true if only one player is remaining which means Game over or false if there is more than one
      * player left
      */
-    public boolean checkGameOver() {
+    boolean checkGameOver() {
         int playersNotOut = pl.getPlayers().length;
         for (int i = 0; i < pl.getPlayers().length; i++) {
             if (pl.getPlayer(i).getBankruptcy())
                 playersNotOut--;
         }
 
-        if (playersNotOut == 1)
-            return true;
-        else
-            return false;
+        return playersNotOut == 1;
     }
 
     /**
      * This method can run after the game is over
      * @return - return that the last man standing have won
      */
-    public int whoWins() {
+    int whoWins() {
         int winner = 0;
         for (int i = 0; i < pl.getPlayers().length; i++) {
             if (!(pl.getPlayer(i).getBankruptcy()))
@@ -342,11 +339,11 @@ public class LogicController {
         return winner;
     }
 
-    public int getDie1() {
+    int getDie1() {
         return dc.getDie1();
     }
 
-    public int getDie2() {
+    int getDie2() {
         return dc.getDie2();
     }
 

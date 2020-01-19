@@ -29,7 +29,7 @@ public class PlayerMove {
      * @param p - the player
      * @param toFieldNumber - Amount of fields the player has to move after have drawn a chanceCard there moves the player
      */
-    public void movePlayerChanceCard(Player p, int toFieldNumber) {
+    void movePlayerChanceCard(Player p, int toFieldNumber) {
 
         int previous = p.getFieldIndex();
         p.setFieldIndex(toFieldNumber);
