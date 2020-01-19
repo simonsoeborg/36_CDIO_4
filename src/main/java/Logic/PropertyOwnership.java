@@ -23,11 +23,10 @@ public class PropertyOwnership {
     private GameBoard gb = GameBoard.getInstance();
     private Field[] fl = gb.getFields();
 
-    // det er en to demintionel array, hvor du kan se hvilken farver der høre sammen.
+    // Det er et to dimensionelt array, hvor man kan se hvilke grunde der hører sammen.
     private int[][] streetSets =  {{1,3},{6,8,9},{11,13,14},{16,18,19},{21,23,24},{26,27,29},{31,32,34},{37,39}};
     /**
-     * Checks which of the fields within a specific set ( decided by color ) has the most houses.
-     * This ensures that buildings are placed evenly
+     * Checks which of the fields within a specific set ( decided by color ) has the most houses. This ensures that buildings are placed evenly
      * @param set - A specific set of fields the player owns
      * @return - The index of the field that should be build on
      */
@@ -52,9 +51,8 @@ public class PropertyOwnership {
     }
 
     /**
-     * Buyfield withdraw the price for the field from the players account and set him as the owner
-     *
-     * @param - p the current player
+     * This method withdraws the price for the field from the players account and sets that player as the owner.
+     * @param p - The current player.
      */
     public void buyField(Player p, Field[] fl) {
 
@@ -63,9 +61,10 @@ public class PropertyOwnership {
     }
 
     /**
-     * Builds a house on a owned field, and redrawm money from the players account.
+     * Builds a house on an owned field and withdraws money from the players account.
      * @param field - one of the owners field
-     * @param p - the owners turn
+     * @param p - The current player.
+     * @return - Returns a string which tells the GUI if the player has bought a house, hotel or if the player isn't able to place anymore on that property.
      */
     public String houseBuilder(Street field, Player p) {
         if (field.getNumberOfHouses() < 5) {
@@ -79,8 +78,9 @@ public class PropertyOwnership {
         }
         return "Full";
     }
+
     /**
-     * Checks weather a player owns sets. one set is all fields of the same color
+     * Checks whether a player owns at least one set. A set is all the fields of the same color
      * @param fields - Field type array
      * @param p - The player
      * @return - Boolean true if the player owns any of the sets or false if he don't
@@ -94,10 +94,9 @@ public class PropertyOwnership {
     }
     // her tjekker vi om vi kan spilleren kan bygge på feltet ( har alle felter)
     /**
-     * Goes through all fields on the gameboard and counts variables corresponding to diffrent field colors whenever it meets
-     * one the specified player owns.
-     * @param fields - Field type array
-     * @param p - The player
+     * Goes through all the fields on the gameboard and counts variables corresponding to different field colors whenever it meets one the specified player owns.
+     * @param fields - Field type array.
+     * @param p - The current player.
      */
     public void propertySetCounter(Field[] fields, Player p) {
 

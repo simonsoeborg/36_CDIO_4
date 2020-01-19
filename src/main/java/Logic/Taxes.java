@@ -24,16 +24,16 @@ public class Taxes {
     }
 
     /**
-     * The option of paying a total amount (set in the param of the contructor)
-     * @param p - Player who is paying
+     * The option of paying a total amount (set in the parameters of the constructor).
+     * @param p - The current player.
      */
     public void incomeTaxCash(Player p){
         p.addMoney(-(it.getPayCash()));
     }
 
     /**
-     * The option of paying a roundnumber percentage of all the values the player has got (money, properties)
-     * @param p - Player who is paying
+     * The option of paying a round number percentage of all the values the player has got (money, properties).
+     * @param p - The current player.
      */
     public void incomeTaxPercentage(Player p){
 
@@ -55,6 +55,10 @@ public class Taxes {
         p.addMoney(-((p.getMoney()+totalPropertyValue)/it.getPayPercentage()));
     }
 
+    /**
+     * The player has to pay a total amount (set in the parameters of the constructor).
+     * @param p - The current player.
+     */
     public void stateTax(Player p){
         p.addMoney(-(st.getTax()));
     }

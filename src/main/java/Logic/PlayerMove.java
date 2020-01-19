@@ -25,7 +25,7 @@ public class PlayerMove {
     }
 
     /**
-     *
+     * This method moves the player to a certain field described in
      * @param p - the player
      * @param toFieldNumber - Amount of fields the player has to move after have drawn a chanceCard there moves the player
      */

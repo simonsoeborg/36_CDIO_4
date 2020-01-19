@@ -16,13 +16,11 @@ public class PropertyRent {
     private FileReader reader = new FileReader();
     private DiceCup dc = DiceCup.getINSTANCE();
     /**
-     * payRent transfer the money from the player to the owner.
-     * first it checks all the fields on the gameboard to see if the owner owns all fields of same color
-     * Which results in double rent
-     * @param ownerID - the ownerID of the player who owns the field
-     * @param p - the current player
-     * @param pl - an array containing elements of Player type (playerlist)
-     * @param fl - an array containing elements of Field type (fieldlist)
+     * payRent transfer the money from the player to the owner of the field where he stands. First it checks all the fields on the gameboard to see if the owner owns all fields of same color, which results in double rent
+     * @param ownerID - The ownerID of the player who owns the field.
+     * @param p - The current player
+     * @param pl - An array containing elements of Player objects (playerlist).
+     * @param fl - An array containing elements of Field objects (fieldlist).
      */
     public void payRentStreet(int ownerID, Player p, Player[] pl, Field[] fl) {
 
@@ -77,8 +75,7 @@ public class PropertyRent {
     }
 
     /**
-     * Chooses the correct rent a player needs to pay when landing on a Ferry field. The rent is doubled for every
-     * Ferry field the owner owns and then withdrawn from the players balance and added to the owners balance
+     * Calculates the correct rent a player needs to pay when landing on a Ferry field. The rent is doubled for every Ferry field the owner owns and then withdrawn from the players balance and adds to the owners balance
      * @param ownerID - The ownerID of the player who owns the ferry-field
      * @param p - the player whom stands on the field
      * @param pl - an array containing elements of Player type (playerlist)
@@ -109,8 +106,7 @@ public class PropertyRent {
     }
 
     /**
-     *  Chooses the correct rent a player needs to pay when landing on a brewery-field. The rent is doubled for every
-     *  brewery-field the owner owns and then withdrawn from the players balance and added to the owners balance
+     * Calculates the correct rent a player needs to pay when landing on a brewery-field. The rent is multiplied by the facevalue of the dice, if the owner owns both of the brewery-fields it then furthermore doubles the rent, which is then withdrawn from the players balance and added to the owners balance.
      * @param ownerID - The ownerID of the player who owns the brewery-field
      * @param p - the player whom stands on the field
      * @param pl - an array containing elements of Player type (playerlist)
@@ -137,11 +133,10 @@ public class PropertyRent {
 
 
     /**
-     * Checks all elements of an array containing Field type elements to see which ones match the same color and ownerID
-     * of the field the player has landed on.
-     * @param ownerID - The ownerID of the player who owns the field
-     * @param p - the player whom stands on the field
-     * @param fl - an array containing elements of Field type (fieldlist)
+     * Checks all elements of an array containing Field type elements to see which ones match the same color and ownerID of the field the player has landed on.
+     * @param ownerID - The ownerID of the player who owns the field.
+     * @param p - The player whom stands on the field.
+     * @param fl - An array containing elements of Field objects (fieldlist)
      * @return - The number of matches
      */
     private int countProperties(int ownerID, Player p, Field[] fl) {

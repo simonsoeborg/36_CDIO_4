@@ -57,6 +57,7 @@ public class ActionController {
                 break;
 
             //----------------------------------------------Land on a field------------------------------------------------------//
+
             // vil du købe feltet
             case "Køb":
                 po.buyField(p, fl);
@@ -65,7 +66,6 @@ public class ActionController {
 
             case "Køb ikke":
             case "Ok":
-
                 // under at bygge huse
             case "Fortryd":
             case " ":
@@ -257,7 +257,7 @@ public class ActionController {
      * @param p - the current player
      */
     private void payRent(Player p) {
-        int owner = pf.whoseProberty(p.getFieldIndex());
+        int owner = pf.whoseProperty(p.getFieldIndex());
         if (fl[p.getFieldIndex()] instanceof Street)
             pr.payRentStreet(owner, p, pl.getPlayers(), fl);
 

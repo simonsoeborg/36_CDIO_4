@@ -24,7 +24,7 @@ public class LogicController_MovePlayer_Test {
         assertEquals(fl.getFieldName(0),"Start");
 
         //Moves the player and checks that the players position, and that it remains within the boundaries of the board
-        for (int count = 0; count<10;count++){
+        for (int count = 0; count<10; count++){
 
             //This part is the actual code from movePlayer
             d.roll();

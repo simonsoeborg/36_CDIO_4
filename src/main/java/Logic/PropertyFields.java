@@ -12,14 +12,13 @@ import Entity.PlayerList;
 public class PropertyFields {
 
     private static GameBoard gb = GameBoard.getInstance();
-    private static PlayerList pl = PlayerList.getInstance();
     private Field[] fields = gb.getFields();
-    private Player[] p = pl.getPlayers();
+
     /**
-     * Method to determine whether or not a field is owned.
-     * @param fieldIndex
-     * @param p
-     * @return
+     * Method to determine whether or not a field is owned and if the field is owned by you or not.
+     * @param fieldIndex - The field where the player has landed.
+     * @param p - The player whose turn it is.
+     * @return - Returns a string which indicates the ownership status of the ownable field.
      */
     public String checkFieldOwner(int fieldIndex, Player p){
 
@@ -30,17 +29,15 @@ public class PropertyFields {
             return "Yours";
         }
         else {
-            int owner = whoseProberty(p.getFieldIndex());
             return "Theirs";
         }
     }
     /**
-     * This is a method  is design only as an extention to the "else" statement: Owned by another,
-     * to determine who you need to pay. SCRUB
+     * This is a method is designed only as an extention to the "else" statement: Owned by another,
+     * to determine who you need to pay rent to.
      */
-    public int whoseProberty(int fieldIndex){
-        int ownerID = ((Ownable)fields[fieldIndex]).getOwnerID();
-        return ownerID;
+    public int whoseProperty(int fieldIndex){
+        return ((Ownable)fields[fieldIndex]).getOwnerID();
     }
 
 }
