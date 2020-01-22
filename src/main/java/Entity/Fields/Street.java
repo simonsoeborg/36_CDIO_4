@@ -8,7 +8,8 @@ public class Street extends Ownable {
 
     private int numberOfHouses;
 
-    public Street(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice, int housePrice, int oneHouse, int twoHouse, int threeHouse, int fourHouse, int hotel) {
+    public Street(String fieldName, int propertyPrice, int propertyRent, int propertyPledgePrice, int housePrice,
+                  int oneHouse, int twoHouse, int threeHouse, int fourHouse, int hotel) {
         super(fieldName, propertyPrice, propertyRent, propertyPledgePrice);
         this.housePrice = housePrice;
         this.oneHouse = oneHouse;
